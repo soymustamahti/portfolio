@@ -78,7 +78,6 @@ const skills: Skill[] = [
       "iOS Development",
       "Android Development",
       "Cross-platform",
-      "App Optimization",
     ],
   },
 ];
@@ -175,7 +174,11 @@ const Skills: React.FC = () => {
                     <motion.span
                       className="text-4xl"
                       whileHover={{ scale: 1.2, rotate: 10 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
                     >
                       {skill.icon}
                     </motion.span>
