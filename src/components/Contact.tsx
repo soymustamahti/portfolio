@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useScrollAnimations } from "../hooks/useScrollAnimations";
+import { useI18n } from "../i18n/I18nProvider";
 
 const Contact: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -10,6 +11,7 @@ const Contact: React.FC = () => {
     email: "",
     message: "",
   });
+  const { t } = useI18n();
 
   useScrollAnimations(sectionRef, "fadeIn");
 
@@ -17,7 +19,7 @@ const Contact: React.FC = () => {
     e.preventDefault();
     // Add your form submission logic here
     console.log("Form submitted:", formData);
-    alert("Message envoyé! (Fonctionnalité à implémenter)");
+    alert(t("contact.alert"));
   };
 
   const handleChange = (
@@ -37,16 +39,14 @@ const Contact: React.FC = () => {
     >
       <div className="max-w-5xl mx-auto w-full">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-          Me Contacter
+          {t("contact.title")}
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="space-y-6">
             <div className="bg-secondary/50 backdrop-blur-sm p-6 rounded-xl border border-accent/20 hover:border-accent/60 transition-all duration-300 hover:transform hover:scale-105">
-              <h3 className="text-2xl font-bold text-accent mb-6">
-                Informations de Contact
-              </h3>
+              <h3 className="text-2xl font-bold text-accent mb-6">{t("common.contactInfo")}</h3>
 
               <div className="space-y-4">
                 <a
@@ -71,15 +71,13 @@ const Contact: React.FC = () => {
 
                 <div className="flex items-center gap-3 text-textSecondary">
                   <span className="text-2xl">📍</span>
-                  <span>Toulouse, Occitanie, France</span>
+                  <span>{t("about.location.value")}</span>
                 </div>
               </div>
             </div>
 
             <div className="bg-secondary/50 backdrop-blur-sm p-6 rounded-xl border border-accent/20 hover:border-accent/60 transition-all duration-300">
-              <h3 className="text-xl font-bold text-accent mb-4">
-                Liens Professionnels
-              </h3>
+              <h3 className="text-xl font-bold text-accent mb-4">{t("common.professionalLinks")}</h3>
 
               <div className="space-y-3">
                 <a
@@ -91,7 +89,7 @@ const Contact: React.FC = () => {
                   <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
                     📄
                   </span>
-                  <span>Télécharger mon CV</span>
+                  <span>{t("common.downloadCv")}</span>
                 </a>
 
                 <a
@@ -103,7 +101,7 @@ const Contact: React.FC = () => {
                   <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
                     💻
                   </span>
-                  <span>GitHub Profile</span>
+                  <span>{t("common.githubProfile")}</span>
                 </a>
 
                 <a
@@ -115,7 +113,7 @@ const Contact: React.FC = () => {
                   <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
                     🔗
                   </span>
-                  <span>LinkedIn Profile</span>
+                  <span>{t("common.linkedinProfile")}</span>
                 </a>
               </div>
             </div>
@@ -123,9 +121,7 @@ const Contact: React.FC = () => {
 
           {/* Contact Form */}
           <div className="bg-secondary/50 backdrop-blur-sm p-6 rounded-xl border border-accent/20">
-            <h3 className="text-2xl font-bold text-accent mb-6">
-              Envoyez-moi un message
-            </h3>
+            <h3 className="text-2xl font-bold text-accent mb-6">{t("common.sendMessage")}</h3>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -133,7 +129,7 @@ const Contact: React.FC = () => {
                   htmlFor="name"
                   className="block text-textSecondary mb-2 text-sm"
                 >
-                  Nom
+                  {t("common.name")}
                 </label>
                 <input
                   type="text"
@@ -151,7 +147,7 @@ const Contact: React.FC = () => {
                   htmlFor="email"
                   className="block text-textSecondary mb-2 text-sm"
                 >
-                  Email
+                  {t("common.email")}
                 </label>
                 <input
                   type="email"
@@ -169,7 +165,7 @@ const Contact: React.FC = () => {
                   htmlFor="message"
                   className="block text-textSecondary mb-2 text-sm"
                 >
-                  Message
+                  {t("common.message")}
                 </label>
                 <textarea
                   id="message"
@@ -186,7 +182,7 @@ const Contact: React.FC = () => {
                 type="submit"
                 className="w-full px-8 py-4 bg-accent hover:bg-accentHover text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
               >
-                Envoyer le message
+                {t("common.sendMessage")}
               </button>
             </form>
           </div>
@@ -194,7 +190,7 @@ const Contact: React.FC = () => {
 
         {/* Footer */}
         <div className="mt-16 text-center text-textSecondary text-sm">
-          <p>© 2025 Mustapha El Hachmi Mahti. Tous droits réservés.</p>
+          <p>{t("contact.footer")}</p>
         </div>
       </div>
     </section>

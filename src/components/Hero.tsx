@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { useI18n } from "../i18n/I18nProvider";
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -76,6 +77,8 @@ const Hero: React.FC = () => {
     }
   };
 
+  const { t } = useI18n();
+
   return (
     <section
       ref={heroRef}
@@ -106,7 +109,7 @@ const Hero: React.FC = () => {
             animation: "shimmer 8s linear infinite",
           }}
         >
-          Mustapha
+          {t("hero.title")}
         </h1>
 
         {/* Title with glass effect */}
@@ -115,7 +118,7 @@ const Hero: React.FC = () => {
           className="inline-block px-8 py-3 glass rounded-full mb-8"
         >
           <p className="text-xl md:text-2xl lg:text-3xl text-textPrimary font-semibold">
-            Ingénieur Logiciel Full-Stack
+            {t("hero.subtitle")}
           </p>
         </div>
 
@@ -124,15 +127,21 @@ const Hero: React.FC = () => {
           ref={descRef}
           className="text-lg md:text-xl lg:text-2xl text-textSecondary mb-12 max-w-4xl mx-auto leading-relaxed font-light"
         >
-          Passionné par le développement full-stack et l&apos;intelligence
-          artificielle.
+          {t("hero.description.part1")}
           <br className="hidden md:block" />
-          Je transforme des idées complexes en{" "}
-          <span className="text-textPrimary font-medium">
-            produits innovants
-          </span>
-          .
+          {t("hero.description.part2")}<span className="text-textPrimary font-medium">{t("hero.description.highlight")}</span>.
         </p>
+
+        {/* Contact line to match resume header */}
+        <div className="text-sm md:text-base text-textSecondary mb-8">
+          <span className="font-semibold text-textPrimary">{t("resume.title")}</span>
+          <span className="mx-3">|</span>
+          <span>{t("resume.location")}</span>
+          <span className="mx-3">|</span>
+          <a href="mailto:mustaelhachmimahti@gmail.com" className="underline hover:text-textPrimary">mustaelhachmimahti@gmail.com</a>
+          <span className="mx-3">|</span>
+          <a href="tel:+33750018388" className="hover:text-textPrimary">0750018388</a>
+        </div>
 
         {/* CTA Buttons */}
         <div
@@ -143,35 +152,29 @@ const Hero: React.FC = () => {
             onClick={() => scrollToSection("projects")}
             className="group relative px-10 py-5 bg-white text-black rounded-full font-semibold text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           >
-            <span className="relative z-10">Voir mes projets</span>
+            <span className="relative z-10">{t("common.viewProjects")}</span>
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span className="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-semibold">
-              Découvrir →
-            </span>
+            <span className="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-semibold">{t("common.discover")}</span>
           </button>
 
           <button
             onClick={() => scrollToSection("contact")}
             className="px-10 py-5 glass rounded-full font-semibold text-lg text-textPrimary hover:glass-strong transition-all duration-300 hover:scale-105 border border-white/20 hover:border-white/40"
           >
-            Me contacter
+            {t("common.contactMe")}
           </button>
         </div>
 
         {/* Floating badge */}
         <div className="mt-16 mb-32 inline-flex items-center gap-3 glass px-6 py-3 rounded-full float">
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-          <span className="text-sm text-textSecondary">
-            Disponible pour de nouveaux projets
-          </span>
+          <span className="text-sm text-textSecondary">{t("common.available")}</span>
         </div>
 
         {/* Scroll indicator */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
           <div className="flex flex-col items-center gap-2 animate-bounce">
-            <span className="text-xs text-textSecondary uppercase tracking-wider">
-              Scroll
-            </span>
+            <span className="text-xs text-textSecondary uppercase tracking-wider">{t("common.scroll")}</span>
             <svg
               className="w-6 h-6 text-textSecondary"
               fill="none"

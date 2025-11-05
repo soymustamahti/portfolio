@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useI18n } from "../i18n/I18nProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,6 +69,7 @@ const projects: Project[] = [
 const Projects: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const projectsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const { t } = useI18n();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -101,7 +103,7 @@ const Projects: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto w-full">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-          Projets Réalisés
+          {t("sections.projects")}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

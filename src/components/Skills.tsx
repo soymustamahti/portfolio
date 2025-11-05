@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useI18n } from "../i18n/I18nProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -108,6 +109,8 @@ const Skills: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
+  const { t } = useI18n();
+
   return (
     <section
       id="skills"
@@ -116,7 +119,7 @@ const Skills: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto w-full">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-          Compétences
+          {t("sections.skills")}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

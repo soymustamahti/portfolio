@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useMemo } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useI18n } from "../i18n/I18nProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,67 +15,52 @@ interface ExperienceItem {
   description: string[];
   stack?: string;
 }
-
-const experiences: ExperienceItem[] = [
-  {
-    title: "Développeur Full Stack",
-    company: "Groupe Actual",
-    location: "Toulouse",
-    period: "Septembre 2022 — Septembre 2025",
-    description: [
-      "Développement d'applications React/TypeScript avec 50 000+ utilisateurs",
-      "Applications mobile React Native/Expo avec 250 000+ téléchargements",
-      "Architecture microservices NestJS avec PostgreSQL/Redis",
-      "Optimisation des performances web et mobile (+30% vitesse)",
-      "Intégration BigQuery pour analytics métier",
-    ],
-    stack: "React, TypeScript, React Native, NestJS, PostgreSQL, Redis, GCP",
-  },
-  {
-    title: "Cofondateur & CTO",
-    company: "Syntrix - Plateforme Compliance & Anti-Fraude",
-    location: "Remote",
-    period: "Juillet 2023",
-    description: [
-      "Plateforme SaaS compliance (3 clients grands comptes)",
-      "Architecture NestJS avec modules FATCA/CRS",
-      "Interface NextJS pour portail KYC automatisé",
-      "Module anti-fraude avec détection d'incidents temps réel",
-    ],
-    stack: "NextJS, React, NestJS, PostgreSQL, Redis, Kubernetes, RabbitMQ",
-  },
-  {
-    title: "Développeur Full Stack",
-    company: "Groupe Bizness",
-    location: "Toulouse",
-    period: "Janvier 2022 — Août 2022",
-    description: [
-      "Architecture microservices event-driven",
-      "APIs d'agrégation multi-sources",
-      "Implémentation WebSockets et Server-Sent Events",
-      "Développement d'APIs avec SAP HANA",
-    ],
-    stack: "Node.js, WebSockets, SAP HANA",
-  },
-  {
-    title: "Développeur Full Stack",
-    company: "Société JUMP",
-    location: "Toulouse",
-    period: "Mai 2021 — Juillet 2021",
-    description: [
-      "Automatisation de tests E2E avec Selenium WebDriver",
-      "Développement de commandes Slack avec Bolt JS et NestJS",
-      "Workflows automatisés pour productivité équipe",
-    ],
-    stack: "Selenium, Cucumber JS, Bolt JS, NestJS",
-  },
-];
+ 
 
 const Experience: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const timelineLineRef = useRef<HTMLDivElement>(null);
   const progressLineRef = useRef<HTMLDivElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
+
+  const experiences: ExperienceItem[] = useMemo(
+    () => [
+      {
+        title: t("exp.actual.title"),
+        company: t("exp.actual.company"),
+        location: t("exp.actual.location"),
+        period: t("exp.actual.period"),
+        description: t("exp.actual.points").split(";").filter(Boolean),
+        stack: t("exp.actual.stack"),
+      },
+      {
+        title: t("exp.bizness.title"),
+        company: t("exp.bizness.company"),
+        location: t("exp.bizness.location"),
+        period: t("exp.bizness.period"),
+        description: t("exp.bizness.points").split(";").filter(Boolean),
+        stack: t("exp.bizness.stack"),
+      },
+      {
+        title: t("exp.jump.title"),
+        company: t("exp.jump.company"),
+        location: t("exp.jump.location"),
+        period: t("exp.jump.period"),
+        description: t("exp.jump.points").split(";").filter(Boolean),
+        stack: t("exp.jump.stack"),
+      },
+      {
+        title: t("exp.syntrix.title"),
+        company: t("exp.syntrix.company"),
+        location: t("exp.syntrix.location"),
+        period: t("exp.syntrix.period"),
+        description: t("exp.syntrix.points").split(";").filter(Boolean),
+        stack: t("exp.syntrix.stack"),
+      },
+    ],
+    [t]
+  );
 
   useEffect(() => {
     if (!sectionRef.current || !progressLineRef.current || !arrowRef.current)
@@ -133,7 +119,7 @@ const Experience: React.FC = () => {
     >
       <div className="max-w-5xl mx-auto w-full">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-          Expériences Professionnelles
+          {t("sections.experiences")}
         </h2>
 
         <div className="relative">
@@ -226,9 +212,7 @@ const Experience: React.FC = () => {
                     {exp.stack && (
                       <div className="pt-4 border-t border-accent/20">
                         <p className="text-xs text-textSecondary">
-                          <span className="font-semibold text-accent">
-                            Stack:
-                          </span>{" "}
+                          <span className="font-semibold text-accent">{t("labels.stack")}: </span>{" "}
                           {exp.stack}
                         </p>
                       </div>
