@@ -40,9 +40,12 @@ const Hero: React.FC = () => {
             duration: 0.8,
           },
           "-=0.5"
-        )
-        .from(
-          ctaRef.current?.children,
+        );
+
+      const ctaChildren = ctaRef.current?.children;
+      if (ctaChildren && ctaChildren.length) {
+        tl.from(
+          ctaChildren,
           {
             opacity: 0,
             y: 30,
@@ -52,6 +55,7 @@ const Hero: React.FC = () => {
           },
           "-=0.4"
         );
+      }
 
       // Animate floating orbs
       if (orbsRef.current) {
