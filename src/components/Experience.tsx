@@ -3,7 +3,10 @@
 import { useRef, useEffect, useMemo } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 import { useI18n } from "../i18n/I18nProvider";
+import AnimatedArrow from "./AnimatedArrow";
+import TiltCard from "./TiltCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -138,28 +141,10 @@ const Experience: React.FC = () => {
             {/* Animated arrow at the end of the line */}
             <div
               ref={arrowRef}
-              className="absolute left-1/2 transform -translate-x-1/2 -bottom-3 z-20"
-              style={{ top: "100%" }}
+              className="absolute left-1/2 transform -translate-x-1/2 z-20"
+              style={{ top: "100%", marginTop: "-16px" }}
             >
-              {/* Arrow/Triangle pointing down */}
-              <div className="relative">
-                {/* Glowing circle */}
-                <div className="w-6 h-6 bg-accent rounded-full shadow-lg shadow-accent/50 animate-pulse flex items-center justify-center">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
-                </div>
-
-                {/* Arrow pointer */}
-                <div
-                  className="absolute left-1/2 transform -translate-x-1/2 top-4"
-                  style={{
-                    width: 0,
-                    height: 0,
-                    borderLeft: "6px solid transparent",
-                    borderRight: "6px solid transparent",
-                    borderTop: "8px solid #3b82f6",
-                  }}
-                ></div>
-              </div>
+              <AnimatedArrow />
             </div>
           </div>
 
@@ -186,38 +171,60 @@ const Experience: React.FC = () => {
                     index % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12"
                   }`}
                 >
-                  <div className="bg-secondary/50 backdrop-blur-sm p-6 rounded-xl border border-accent/20 hover:border-accent/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl">
-                    <h3 className="text-2xl font-bold text-accent mb-2">
-                      {exp.title}
-                    </h3>
-                    <h4 className="text-xl font-semibold text-textPrimary mb-1">
-                      {exp.company}
-                    </h4>
-                    <p className="text-textSecondary text-sm mb-4">
-                      {exp.location} | {exp.period}
-                    </p>
-
-                    <ul
-                      className={`space-y-2 mb-4 ${
-                        index % 2 === 0 ? "md:text-right" : ""
-                      }`}
+                  <TiltCard tiltStrength={8} glareEffect={true}>
+                    <motion.div
+                      className="bg-secondary/50 backdrop-blur-sm p-6 rounded-xl border border-accent/20 hover:border-accent/60 transition-all duration-300 hover:shadow-2xl group"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
-                      {exp.description.map((item, i) => (
-                        <li key={i} className="text-textSecondary text-sm">
-                          • {item}
-                        </li>
-                      ))}
-                    </ul>
+                      <motion.h3
+                        className="text-2xl font-bold text-accent mb-2"
+                        whileHover={{ x: index % 2 === 0 ? -5 : 5 }}
+                      >
+                        {exp.title}
+                      </motion.h3>
+                      <h4 className="text-xl font-semibold text-textPrimary mb-1 group-hover:text-accent transition-colors duration-300">
+                        {exp.company}
+                      </h4>
+                      <p className="text-textSecondary text-sm mb-4">
+                        {exp.location} | {exp.period}
+                      </p>
 
-                    {exp.stack && (
-                      <div className="pt-4 border-t border-accent/20">
-                        <p className="text-xs text-textSecondary">
-                          <span className="font-semibold text-accent">{t("labels.stack")}: </span>{" "}
-                          {exp.stack}
-                        </p>
-                      </div>
-                    )}
-                  </div>
+                      <ul
+                        className={`space-y-2 mb-4 ${
+                          index % 2 === 0 ? "md:text-right" : ""
+                        }`}
+                      >
+                        {exp.description.map((item, i) => (
+                          <motion.li
+                            key={i}
+                            className="text-textSecondary text-sm"
+                            initial={{ opacity: 0, x: index % 2 === 0 ? 20 : -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                          >
+                            • {item}
+                          </motion.li>
+                        ))}
+                      </ul>
+
+                      {exp.stack && (
+                        <motion.div
+                          className="pt-4 border-t border-accent/20"
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.3 }}
+                        >
+                          <p className="text-xs text-textSecondary">
+                            <span className="font-semibold text-accent">{t("labels.stack")}: </span>{" "}
+                            {exp.stack}
+                          </p>
+                        </motion.div>
+                      )}
+                    </motion.div>
+                  </TiltCard>
                 </div>
 
                 <div className="hidden md:block md:w-5/12"></div>

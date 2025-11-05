@@ -9,6 +9,7 @@ export const messagesFr = {
   "common.name": "Nom",
   "common.email": "Email",
   "common.message": "Message",
+  "common.sending": "Envoi en cours...",
   "common.contactInfo": "Informations de Contact",
   "common.professionalLinks": "Liens Professionnels",
   "common.downloadCv": "Télécharger mon CV",
@@ -43,6 +44,8 @@ export const messagesFr = {
   // Contact
   "contact.title": "Me Contacter",
   "contact.alert": "Message envoyé! (Fonctionnalité à implémenter)",
+  "contact.success": "Message envoyé avec succès! Je vous répondrai bientôt.",
+  "contact.error": "Échec de l'envoi du message. Veuillez réessayer ou me contacter directement.",
   "contact.footer": "© 2025 Mustapha El Hachmi Mahti. Tous droits réservés.",
 
   // Sections

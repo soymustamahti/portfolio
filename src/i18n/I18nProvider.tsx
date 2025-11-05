@@ -18,21 +18,30 @@ const I18nContext = createContext<I18nContextValue | undefined>(undefined);
 
 const STORAGE_KEY = "app.locale";
 
-function getInitialLocale(): Locale {
-  if (typeof window === "undefined") return "fr";
-  const stored = window.localStorage.getItem(STORAGE_KEY) as Locale | null;
-  if (stored === "en" || stored === "fr") return stored;
-  const browser = navigator.language?.toLowerCase() ?? "fr";
-  if (browser.startsWith("en")) return "en";
-  return "fr";
-}
-
 function getMessages(locale: Locale): Messages {
   return locale === "en" ? messagesEn : messagesFr;
 }
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
+  // Always start with "fr" to avoid hydration mismatch
+  const [locale, setLocaleState] = useState<Locale>("fr");
+  const [mounted, setMounted] = useState(false);
+
+  // After mount, read from localStorage or browser language
+  useEffect(() => {
+    setMounted(true);
+    if (typeof window !== "undefined") {
+      const stored = window.localStorage.getItem(STORAGE_KEY) as Locale | null;
+      if (stored === "en" || stored === "fr") {
+        setLocaleState(stored);
+      } else {
+        const browser = navigator.language?.toLowerCase() ?? "fr";
+        if (browser.startsWith("en")) {
+          setLocaleState("en");
+        }
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof document !== "undefined") {

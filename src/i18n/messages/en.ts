@@ -9,6 +9,7 @@ export const messagesEn = {
   "common.name": "Name",
   "common.email": "Email",
   "common.message": "Message",
+  "common.sending": "Sending...",
   "common.contactInfo": "Contact Information",
   "common.professionalLinks": "Professional Links",
   "common.downloadCv": "Download my resume",
@@ -43,6 +44,8 @@ export const messagesEn = {
   // Contact
   "contact.title": "Contact Me",
   "contact.alert": "Message sent! (Feature to implement)",
+  "contact.success": "Message sent successfully! I'll get back to you soon.",
+  "contact.error": "Failed to send message. Please try again or contact me directly.",
   "contact.footer": "© 2025 Mustapha El Hachmi Mahti. All rights reserved.",
 
   // Sections

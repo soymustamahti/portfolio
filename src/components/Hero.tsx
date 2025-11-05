@@ -2,7 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { motion } from "framer-motion";
 import { useI18n } from "../i18n/I18nProvider";
+import MagneticButton from "./MagneticButton";
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -150,48 +152,88 @@ const Hero: React.FC = () => {
         {/* CTA Buttons */}
         <div
           ref={ctaRef}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
-          <button
-            onClick={() => scrollToSection("projects")}
-            className="group relative px-10 py-5 bg-white text-black rounded-full font-semibold text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-          >
-            <span className="relative z-10">{t("common.viewProjects")}</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span className="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-semibold">{t("common.discover")}</span>
-          </button>
+          <MagneticButton strength={0.4}>
+            <motion.button
+              onClick={() => scrollToSection("projects")}
+              className="group relative px-10 py-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold text-lg overflow-hidden shadow-lg shadow-blue-500/50"
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.5)" }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                {t("common.viewProjects")}
+                <motion.span
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5 }}
+                >
+                  →
+                </motion.span>
+              </span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.button>
+          </MagneticButton>
 
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="px-10 py-5 glass rounded-full font-semibold text-lg text-textPrimary hover:glass-strong transition-all duration-300 hover:scale-105 border border-white/20 hover:border-white/40"
-          >
-            {t("common.contactMe")}
-          </button>
+          <MagneticButton strength={0.4}>
+            <motion.button
+              onClick={() => scrollToSection("contact")}
+              className="relative px-10 py-5 glass rounded-full font-semibold text-lg text-textPrimary border-2 border-accent/50 hover:border-accent overflow-hidden group"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="relative z-10">{t("common.contactMe")}</span>
+              <motion.div
+                className="absolute inset-0 bg-accent/10"
+                initial={{ scale: 0, opacity: 0 }}
+                whileHover={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.button>
+          </MagneticButton>
         </div>
 
         {/* Floating badge */}
-        <div className="mt-16 mb-32 inline-flex items-center gap-3 glass px-6 py-3 rounded-full float">
-          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+        <motion.div
+          className="mt-16 mb-32 inline-flex items-center gap-3 glass px-6 py-3 rounded-full border border-accent/20"
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+        >
+          <motion.div
+            className="w-2 h-2 bg-green-500 rounded-full"
+            animate={{ scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+          />
           <span className="text-sm text-textSecondary">{t("common.available")}</span>
-        </div>
+        </motion.div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col items-center gap-2 animate-bounce">
+        <motion.div
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+        >
+          <div className="flex flex-col items-center gap-2">
             <span className="text-xs text-textSecondary uppercase tracking-wider">{t("common.scroll")}</span>
-            <svg
-              className="w-6 h-6 text-textSecondary"
+            <motion.svg
+              className="w-6 h-6 text-accent"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              animate={{ y: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
             >
               <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
+            </motion.svg>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
