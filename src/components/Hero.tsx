@@ -159,7 +159,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Floating badge */}
-        <div className="mt-16 inline-flex items-center gap-3 glass px-6 py-3 rounded-full float">
+        <div className="mt-16 mb-32 inline-flex items-center gap-3 glass px-6 py-3 rounded-full float">
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
           <span className="text-sm text-textSecondary">
             Disponible pour de nouveaux projets
