@@ -2,13 +2,13 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { ProjectDetails } from "../../../components/ProjectModal";
+import { useI18n } from "../../../i18n/I18nProvider";
 
-const projects: ProjectDetails[] = [
+// Project configuration mapping slugs to translation keys
+const projectConfigs = [
   {
-    title: "Real-Time Chat Application",
-    description:
-      "Production-ready full-stack chat platform with Google OAuth, direct messaging, group chats, and real-time media sharing.",
+    slug: "real-time-chat-application",
+    key: "chat",
     technologies: [
       "Next.js 15",
       "NestJS",
@@ -21,56 +21,83 @@ const projects: ProjectDetails[] = [
       "Docker",
       "Ansible",
     ],
-    category: "Full-Stack / Real-Time",
-    impact: "Monorepo with 100+ files, 95% TypeScript",
-    fullDescription:
-      "A sophisticated enterprise-grade messaging platform built with modern technologies, featuring Google OAuth authentication, direct messaging, group chats with up to 50 members, and real-time media sharing capabilities. The application employs a monorepo architecture with TypeScript throughout (95% of codebase), ensuring complete type safety across the entire stack. Deployed with Docker containerization and Ansible automation for production-ready infrastructure.",
-    features: [
-      "Google OAuth 2.0 authentication with secure JWT token management and refresh tokens",
-      "Real-time bidirectional messaging via WebSockets with Socket.IO and automatic reconnection",
-      "Group chats supporting up to 50 concurrent members with role-based permissions",
-      "Media sharing with drag-and-drop support (images, GIFs) and presigned URL generation",
-      "Typing indicators showing active typists in real-time with debouncing",
-      "Message read receipts and delivery status tracking across multiple users",
-      "Online/offline status tracking with presence system and last seen timestamps",
-      "Infinite scroll for message history with cursor-based pagination",
-      "Optimistic UI updates for instant feedback and responsive user experience",
-      "Full-screen media viewer with keyboard navigation and touch gestures",
-      "Mobile-first responsive design with Tailwind CSS and shadcn/ui components",
-      "User search and discovery with real-time filtering",
-      "Profile management (bio, website, avatar) with image optimization",
-      "Message pagination for performance optimization on large conversations",
-      "Real-time notifications for new messages and mentions",
-    ],
-    challenges: [
-      "Custom WebSocket JWT authentication adapter - Built secure middleware for verifying JWT tokens on WebSocket handshake, enabling authentication for real-time connections",
-      "Cursor-based pagination strategy - Implemented efficient message history loading using database cursors instead of offset pagination, improving performance by 70% on large datasets",
-      "Scalable media storage architecture - Designed and integrated Cloudflare R2 (S3-compatible) with presigned URLs for secure, scalable media delivery without server bottleneck",
-      "Real-time state synchronization - Solved complex problem of keeping message state consistent across multiple connected clients using Socket.IO rooms and event broadcasting",
-      "Room-based message routing - Developed automatic user subscription system to personal and group rooms on connection for targeted message delivery without overhead",
-      "Multi-user read receipt tracking - Implemented efficient read receipt system tracking individual read status for each user in group chats without N+1 query problems",
-      "WebSocket connection management - Built robust reconnection logic with exponential backoff and state recovery after network interruptions",
-      "Database schema optimization - Designed Prisma models with strategic indexing on frequently queried fields (email, username, roomId, createdAt) for sub-50ms query times",
+    links: {
+      demo: "https://chat-app-front.mooo.com",
+    },
+  },
+  {
+    slug: "syntrix-legal-services-platform",
+    key: "syntrix",
+    technologies: [
+      "Next.js 15",
+      "React 19",
+      "NestJS 11",
+      "TypeScript 5",
+      "Tailwind CSS 4",
+      "Docker Compose",
+      "Yarn Workspaces",
+      "ESLint",
+      "Prettier",
+      "Jest",
     ],
     links: {
-      github: "https://github.com/soymustamahti/chat-app",
-      demo: "https://chat-app-front.mooo.com",
+      demo: "https://syntrix-dev.mooo.com",
+    },
+  },
+  {
+    slug: "ai-powered-cover-letter-generator",
+    key: "coverLetter",
+    technologies: [
+      "React 18",
+      "TypeScript",
+      "Plasmo Framework",
+      "NestJS 11",
+      "Prisma ORM",
+      "OpenAI API (DeepSeek)",
+      "Google OAuth 2.0",
+      "Passport.js",
+      "JWT Authentication",
+      "PDF-Lib",
+      "Tesseract.js (OCR)",
+      "jsPDF",
+      "Docker",
+      "PostgreSQL",
+    ],
+    links: {
+      github: "https://github.com/soymustamahti/cover-letter",
+    },
+  },
+  {
+    slug: "reinforcement-learning-suite",
+    key: "rlSuite",
+    technologies: [
+      "Python 3.x",
+      "Gymnasium",
+      "PyTorch",
+      "NumPy",
+      "TensorBoard",
+      "OpenCV",
+      "ALE",
+      "Pygame",
+      "Matplotlib",
+      "CUDA",
+    ],
+    links: {
+      github: "https://github.com/soymustamahti/T-AIA-902-TLS_3",
     },
   },
 ];
 
-// Create slug from title
-const createSlug = (title: string) =>
-  title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-
 export default function ProjectDetailPage() {
   const params = useParams();
   const router = useRouter();
+  const { t } = useI18n();
   const slug = params.slug as string;
 
-  const project = projects.find((p) => createSlug(p.title) === slug);
+  // Find the project config matching the slug
+  const projectConfig = projectConfigs.find((p) => p.slug === slug);
 
-  if (!project) {
+  if (!projectConfig) {
     return (
       <div className="min-h-screen flex items-center justify-center px-6">
         <div className="text-center">
@@ -87,6 +114,55 @@ export default function ProjectDetailPage() {
       </div>
     );
   }
+
+  // Build project from translations
+  const projectKey = projectConfig.key;
+  const title = t(`project.${projectKey}.title`);
+  const description = t(`project.${projectKey}.description`);
+  const category = t(`project.${projectKey}.category`);
+  const impact = t(`project.${projectKey}.impact`);
+  const fullDescription = t(`project.${projectKey}.fullDescription`);
+
+  // Parse semicolon-separated lists
+  const featuresStr = t(`project.${projectKey}.features`);
+  const features = featuresStr
+    ? featuresStr.split(";").filter((f) => f.trim())
+    : [];
+
+  const challengesStr = t(`project.${projectKey}.challenges`);
+  const challenges = challengesStr
+    ? challengesStr.split(";").filter((c) => c.trim())
+    : [];
+
+  const plannedFeaturesStr = t(`project.${projectKey}.plannedFeatures`);
+  const plannedFeatures = plannedFeaturesStr
+    ? plannedFeaturesStr.split(";").filter((f) => f.trim())
+    : [];
+
+  const algorithmsStr = t(`project.${projectKey}.algorithms`);
+  const algorithms = algorithmsStr
+    ? algorithmsStr.split(";").filter((a) => a.trim())
+    : [];
+
+  const environmentsStr = t(`project.${projectKey}.environments`);
+  const environments = environmentsStr
+    ? environmentsStr.split(";").filter((e) => e.trim())
+    : [];
+
+  const architectureStr = t(`project.${projectKey}.architecture`);
+  const architecture = architectureStr
+    ? architectureStr.split(";").filter((a) => a.trim())
+    : [];
+
+  const technicalHighlightsStr = t(`project.${projectKey}.technicalHighlights`);
+  const technicalHighlights = technicalHighlightsStr
+    ? technicalHighlightsStr.split(";").filter((h) => h.trim())
+    : [];
+
+  const userFlowStr = t(`project.${projectKey}.userFlow`);
+  const userFlow = userFlowStr
+    ? userFlowStr.split(";").filter((u) => u.trim())
+    : [];
 
   return (
     <div className="min-h-screen px-6 py-20 relative z-10">
@@ -118,15 +194,13 @@ export default function ProjectDetailPage() {
           className="mb-8"
         >
           <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
-            {project.category}
+            {category}
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-textPrimary mt-4 mb-3">
-            {project.title}
+            {title}
           </h1>
-          {project.impact && (
-            <p className="text-accent text-lg font-semibold">
-              📊 {project.impact}
-            </p>
+          {impact && (
+            <p className="text-accent text-lg font-semibold">📊 {impact}</p>
           )}
         </motion.div>
 
@@ -140,7 +214,7 @@ export default function ProjectDetailPage() {
           >
             <h2 className="text-2xl font-bold text-accent mb-4">Description</h2>
             <p className="text-textSecondary leading-relaxed text-lg">
-              {project.fullDescription || project.description}
+              {fullDescription || description}
             </p>
           </motion.div>
 
@@ -154,7 +228,7 @@ export default function ProjectDetailPage() {
               Technologies
             </h2>
             <div className="flex flex-wrap gap-3">
-              {project.technologies.map((tech) => (
+              {projectConfig.technologies.map((tech: string) => (
                 <motion.span
                   key={tech}
                   whileHover={{ scale: 1.05 }}
@@ -167,7 +241,7 @@ export default function ProjectDetailPage() {
           </motion.div>
 
           {/* Features */}
-          {project.features && project.features.length > 0 && (
+          {features.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -177,7 +251,7 @@ export default function ProjectDetailPage() {
                 Key Features
               </h2>
               <ul className="space-y-3">
-                {project.features.map((feature, index) => (
+                {features.map((feature: string, index: number) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
@@ -194,7 +268,7 @@ export default function ProjectDetailPage() {
           )}
 
           {/* Challenges */}
-          {project.challenges && project.challenges.length > 0 && (
+          {challenges.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -204,7 +278,7 @@ export default function ProjectDetailPage() {
                 Technical Challenges
               </h2>
               <ul className="space-y-3">
-                {project.challenges.map((challenge, index) => (
+                {challenges.map((challenge: string, index: number) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
@@ -220,17 +294,179 @@ export default function ProjectDetailPage() {
             </motion.div>
           )}
 
-          {/* Links */}
-          {project.links && (
+          {/* Planned Features (for Syntrix) */}
+          {plannedFeatures.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
+            >
+              <h2 className="text-2xl font-bold text-accent mb-4">
+                Planned Features
+              </h2>
+              <ul className="space-y-3">
+                {plannedFeatures.map((feature: string, index: number) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.5 + index * 0.05 }}
+                    className="flex items-start gap-3 text-textSecondary text-lg"
+                  >
+                    <span className="text-accent mt-1 text-xl">🔮</span>
+                    <span>{feature}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+
+          {/* Algorithms (for RL Suite) */}
+          {algorithms.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <h2 className="text-2xl font-bold text-accent mb-4">
+                Algorithms
+              </h2>
+              <ul className="space-y-3">
+                {algorithms.map((algorithm: string, index: number) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.5 + index * 0.05 }}
+                    className="flex items-start gap-3 text-textSecondary text-lg"
+                  >
+                    <span className="text-accent mt-1 text-xl">🧠</span>
+                    <span>{algorithm}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+
+          {/* Environments (for RL Suite) */}
+          {environments.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <h2 className="text-2xl font-bold text-accent mb-4">
+                Environments
+              </h2>
+              <ul className="space-y-3">
+                {environments.map((environment: string, index: number) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.6 + index * 0.05 }}
+                    className="flex items-start gap-3 text-textSecondary text-lg"
+                  >
+                    <span className="text-accent mt-1 text-xl">🎮</span>
+                    <span>{environment}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+
+          {/* Architecture (for Cover Letter) */}
+          {architecture.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <h2 className="text-2xl font-bold text-accent mb-4">
+                Architecture
+              </h2>
+              <ul className="space-y-3">
+                {architecture.map((item: string, index: number) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.5 + index * 0.05 }}
+                    className="flex items-start gap-3 text-textSecondary text-lg"
+                  >
+                    <span className="text-accent mt-1 text-xl">🏗️</span>
+                    <span>{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+
+          {/* Technical Highlights (for Cover Letter) */}
+          {technicalHighlights.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <h2 className="text-2xl font-bold text-accent mb-4">
+                Technical Highlights
+              </h2>
+              <ul className="space-y-3">
+                {technicalHighlights.map((highlight: string, index: number) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.6 + index * 0.05 }}
+                    className="flex items-start gap-3 text-textSecondary text-lg"
+                  >
+                    <span className="text-accent mt-1 text-xl">💡</span>
+                    <span>{highlight}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+
+          {/* User Flow (for Cover Letter) */}
+          {userFlow.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.65 }}
+            >
+              <h2 className="text-2xl font-bold text-accent mb-4">
+                User Flow
+              </h2>
+              <ul className="space-y-3">
+                {userFlow.map((step: string, index: number) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.65 + index * 0.05 }}
+                    className="flex items-start gap-3 text-textSecondary text-lg"
+                  >
+                    <span className="text-accent mt-1 text-xl">{index + 1}.</span>
+                    <span>{step}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+
+          {/* Links */}
+          {projectConfig.links && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
               className="flex flex-wrap gap-4 pt-8 border-t border-accent/20"
             >
-              {project.links.github && (
+              {projectConfig.links.github && (
                 <motion.a
-                  href={project.links.github}
+                  href={projectConfig.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
@@ -248,9 +484,9 @@ export default function ProjectDetailPage() {
                   View on GitHub
                 </motion.a>
               )}
-              {project.links.demo && (
+              {projectConfig.links.demo && (
                 <motion.a
-                  href={project.links.demo}
+                  href={projectConfig.links.demo}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
