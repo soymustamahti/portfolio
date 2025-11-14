@@ -86,6 +86,65 @@ const projectConfigs = [
       github: "https://github.com/soymustamahti/T-AIA-902-TLS_3",
     },
   },
+  {
+    slug: "voice-controlled-train-route-finder",
+    key: "voiceTrain",
+    technologies: [
+      "Python 3.x",
+      "BERT (Transformers)",
+      "spaCy 3.7",
+      "Neo4j 5.25",
+      "TensorFlow/Keras",
+      "Speech Recognition",
+      "PyAudio",
+      "Vosk (Offline STT)",
+      "Pandas",
+      "Jupyter Notebook",
+      "Docker",
+      "Graph Algorithms (Dijkstra)",
+    ],
+    links: {
+      github: "https://github.com/soymustamahti/T-AIA-901-TLS_5",
+    },
+  },
+  {
+    slug: "jumbot-automated-deployment-bot",
+    key: "jumbot",
+    technologies: [
+      "BoltJS",
+      "NestJS",
+      "RabbitMQ",
+      "MongoDB",
+      "TypeORM",
+      "Docker",
+      "Kubernetes",
+      "GitLab CI/CD",
+      "Slack API",
+      "Node.js",
+      "TypeScript",
+      "Bash Scripting",
+      "PostgreSQL",
+    ],
+  },
+  {
+    slug: "my-actual-enterprise-hr-platform",
+    key: "myActual",
+    technologies: [
+      "React",
+      "TypeScript",
+      "React Native",
+      "Expo",
+      "Laravel",
+      "PHP",
+      "PostgreSQL",
+      "Elasticsearch",
+      "Redis",
+      "Google Cloud Platform",
+      "Kubernetes",
+      "BigQuery",
+      "GitHub Actions",
+    ],
+  },
 ];
 
 export default function ProjectDetailPage() {
@@ -134,34 +193,86 @@ export default function ProjectDetailPage() {
     ? challengesStr.split(";").filter((c) => c.trim())
     : [];
 
-  const plannedFeaturesStr = t(`project.${projectKey}.plannedFeatures`);
+  // Helper function to check if translation exists
+  const hasTranslation = (key: string) => {
+    const value = t(key);
+    return value && !value.startsWith("project.");
+  };
+
+  const plannedFeaturesStr = hasTranslation(
+    `project.${projectKey}.plannedFeatures`
+  )
+    ? t(`project.${projectKey}.plannedFeatures`)
+    : "";
   const plannedFeatures = plannedFeaturesStr
     ? plannedFeaturesStr.split(";").filter((f) => f.trim())
     : [];
 
-  const algorithmsStr = t(`project.${projectKey}.algorithms`);
+  const algorithmsStr = hasTranslation(`project.${projectKey}.algorithms`)
+    ? t(`project.${projectKey}.algorithms`)
+    : "";
   const algorithms = algorithmsStr
     ? algorithmsStr.split(";").filter((a) => a.trim())
     : [];
 
-  const environmentsStr = t(`project.${projectKey}.environments`);
+  const environmentsStr = hasTranslation(`project.${projectKey}.environments`)
+    ? t(`project.${projectKey}.environments`)
+    : "";
   const environments = environmentsStr
     ? environmentsStr.split(";").filter((e) => e.trim())
     : [];
 
-  const architectureStr = t(`project.${projectKey}.architecture`);
+  const architectureStr = hasTranslation(`project.${projectKey}.architecture`)
+    ? t(`project.${projectKey}.architecture`)
+    : "";
   const architecture = architectureStr
     ? architectureStr.split(";").filter((a) => a.trim())
     : [];
 
-  const technicalHighlightsStr = t(`project.${projectKey}.technicalHighlights`);
+  const technicalHighlightsStr = hasTranslation(
+    `project.${projectKey}.technicalHighlights`
+  )
+    ? t(`project.${projectKey}.technicalHighlights`)
+    : "";
   const technicalHighlights = technicalHighlightsStr
     ? technicalHighlightsStr.split(";").filter((h) => h.trim())
     : [];
 
-  const userFlowStr = t(`project.${projectKey}.userFlow`);
+  const userFlowStr = hasTranslation(`project.${projectKey}.userFlow`)
+    ? t(`project.${projectKey}.userFlow`)
+    : "";
   const userFlow = userFlowStr
     ? userFlowStr.split(";").filter((u) => u.trim())
+    : [];
+
+  const notebooksStr = hasTranslation(`project.${projectKey}.notebooks`)
+    ? t(`project.${projectKey}.notebooks`)
+    : "";
+  const notebooks = notebooksStr
+    ? notebooksStr.split(";").filter((n) => n.trim())
+    : [];
+
+  const dataFlowStr = hasTranslation(`project.${projectKey}.dataFlow`)
+    ? t(`project.${projectKey}.dataFlow`)
+    : "";
+  const dataFlow = dataFlowStr
+    ? dataFlowStr.split(";").filter((d) => d.trim())
+    : [];
+
+  const usageExamplesStr = hasTranslation(`project.${projectKey}.usageExamples`)
+    ? t(`project.${projectKey}.usageExamples`)
+    : "";
+  const usageExamples = usageExamplesStr
+    ? usageExamplesStr.split(";").filter((u) => u.trim())
+    : [];
+
+  const technicalComponentsStr = hasTranslation(
+    `project.${projectKey}.technicalComponents`
+  )
+    ? t(`project.${projectKey}.technicalComponents`)
+    : "";
+  const technicalComponents = technicalComponentsStr
+    ? technicalComponentsStr.split(";").filter((c) => c.trim())
     : [];
 
   return (
@@ -436,9 +547,7 @@ export default function ProjectDetailPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.65 }}
             >
-              <h2 className="text-2xl font-bold text-accent mb-4">
-                User Flow
-              </h2>
+              <h2 className="text-2xl font-bold text-accent mb-4">User Flow</h2>
               <ul className="space-y-3">
                 {userFlow.map((step: string, index: number) => (
                   <motion.li
@@ -448,8 +557,116 @@ export default function ProjectDetailPage() {
                     transition={{ delay: 0.65 + index * 0.05 }}
                     className="flex items-start gap-3 text-textSecondary text-lg"
                   >
-                    <span className="text-accent mt-1 text-xl">{index + 1}.</span>
+                    <span className="text-accent mt-1 text-xl">
+                      {index + 1}.
+                    </span>
                     <span>{step}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+
+          {/* Technical Components (for Voice Train) */}
+          {technicalComponents.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+            >
+              <h2 className="text-2xl font-bold text-accent mb-4">
+                Technical Components
+              </h2>
+              <ul className="space-y-3">
+                {technicalComponents.map((component: string, index: number) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.7 + index * 0.05 }}
+                    className="flex items-start gap-3 text-textSecondary text-lg"
+                  >
+                    <span className="text-accent mt-1 text-xl">⚙️</span>
+                    <span>{component}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+
+          {/* Notebooks (for Voice Train) */}
+          {notebooks.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.75 }}
+            >
+              <h2 className="text-2xl font-bold text-accent mb-4">
+                Jupyter Notebooks
+              </h2>
+              <ul className="space-y-3">
+                {notebooks.map((notebook: string, index: number) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.75 + index * 0.05 }}
+                    className="flex items-start gap-3 text-textSecondary text-lg"
+                  >
+                    <span className="text-accent mt-1 text-xl">📓</span>
+                    <span>{notebook}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+
+          {/* Data Flow (for Voice Train) */}
+          {dataFlow.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+            >
+              <h2 className="text-2xl font-bold text-accent mb-4">Data Flow</h2>
+              <ul className="space-y-3">
+                {dataFlow.map((step: string, index: number) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.8 + index * 0.05 }}
+                    className="flex items-start gap-3 text-textSecondary text-lg"
+                  >
+                    <span className="text-accent mt-1 text-xl">→</span>
+                    <span>{step}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+
+          {/* Usage Examples (for Voice Train) */}
+          {usageExamples.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.85 }}
+            >
+              <h2 className="text-2xl font-bold text-accent mb-4">
+                Usage Examples
+              </h2>
+              <ul className="space-y-3">
+                {usageExamples.map((example: string, index: number) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.85 + index * 0.05 }}
+                    className="flex items-start gap-3 text-textSecondary text-lg"
+                  >
+                    <span className="text-accent mt-1 text-xl">💻</span>
+                    <span>{example}</span>
                   </motion.li>
                 ))}
               </ul>
