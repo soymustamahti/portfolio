@@ -269,4 +269,6 @@ export const messagesEn = {
   "welcomeBot.step4.message": "See the language toggle in the top-right? This portfolio supports both English and French. Try switching languages - all content is fully internationalized!",
   "welcomeBot.step5.title": "Behind the Scenes",
   "welcomeBot.step5.message": "Curious how this was built? Click the '?' button in the top-left corner to learn about the tech stack, animations, and development process. Enjoy exploring!",
+  "welcomeBot.step6.title": "Get in Touch",
+  "welcomeBot.step6.message": "Ready to connect? Scroll to the bottom to find the contact form. Send me a message, and I'll get back to you as soon as possible. I'd love to hear from you!",
 };

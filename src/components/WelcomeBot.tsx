@@ -88,6 +88,11 @@ const WelcomeBot = () => {
       message: t("welcomeBot.step5.message"),
       emoji: "✨",
     },
+    {
+      title: t("welcomeBot.step6.title"),
+      message: t("welcomeBot.step6.message"),
+      emoji: "💌",
+    },
   ];
 
   return (
