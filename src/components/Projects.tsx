@@ -7,7 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import { useI18n } from "../i18n/I18nProvider";
 import TiltCard from "./TiltCard";
-import { ProjectDetails } from "./ProjectModal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -118,25 +117,6 @@ const projectConfigs = [
       "PostgreSQL",
     ],
   },
-  {
-    key: "myActual",
-    slug: "my-actual-enterprise-hr-platform",
-    technologies: [
-      "React",
-      "TypeScript",
-      "React Native",
-      "Expo",
-      "Laravel",
-      "PHP",
-      "PostgreSQL",
-      "Elasticsearch",
-      "Redis",
-      "Google Cloud Platform",
-      "Kubernetes",
-      "BigQuery",
-      "GitHub Actions",
-    ],
-  },
 ];
 
 const Projects: React.FC = () => {
@@ -215,10 +195,11 @@ const Projects: React.FC = () => {
                 ref={(el) => {
                   projectsRef.current[index] = el;
                 }}
+                className="h-full"
               >
                 <TiltCard className="h-full" tiltStrength={10} glareEffect={true}>
                   <motion.div
-                    className="bg-secondary/50 backdrop-blur-sm p-6 rounded-xl border border-accent/20 hover:border-accent/60 transition-all duration-300 hover:shadow-2xl group cursor-pointer h-full"
+                    className="bg-secondary/50 backdrop-blur-sm p-6 rounded-xl border border-accent/20 hover:border-accent/60 transition-all duration-300 hover:shadow-2xl group cursor-pointer h-full flex flex-col"
                     whileHover={{ scale: 1.02 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     onClick={() => router.push(`/projects/${projectConfig.slug}`)}
@@ -233,7 +214,7 @@ const Projects: React.FC = () => {
                       {title}
                     </h3>
 
-                    <p className="text-textSecondary text-sm mb-4 leading-relaxed">
+                    <p className="text-textSecondary text-sm mb-4 leading-relaxed line-clamp-3">
                       {description}
                     </p>
 
@@ -243,15 +224,43 @@ const Projects: React.FC = () => {
                       </p>
                     )}
 
-                    <div className="flex flex-wrap gap-2">
-                      {projectConfig.technologies.map((tech) => (
+                    <div className="flex flex-wrap gap-2 mb-4 flex-grow">
+                      {projectConfig.technologies.slice(0, 6).map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-1 bg-primary/50 text-textSecondary text-xs rounded border border-accent/30 hover:border-accent hover:text-textPrimary transition-all duration-300"
+                          className="px-2 py-1 bg-primary/50 text-textSecondary text-xs rounded border border-accent/30 hover:border-accent hover:text-textPrimary transition-all duration-300 h-fit"
                         >
                           {tech}
                         </span>
                       ))}
+                      {projectConfig.technologies.length > 6 && (
+                        <span className="px-2 py-1 text-textSecondary text-xs h-fit">
+                          +{projectConfig.technologies.length - 6} more
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Click to view details indicator */}
+                    <div className="mt-auto pt-4 border-t border-accent/20">
+                      <div className="flex items-center justify-between text-accent group-hover:text-accentHover transition-colors duration-300">
+                        <span className="text-sm font-semibold">
+                          {t("common.viewDetails")}
+                        </span>
+                        <motion.svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="group-hover:translate-x-1 transition-transform duration-300"
+                        >
+                          <path d="M5 12h14M12 5l7 7-7 7" />
+                        </motion.svg>
+                      </div>
                     </div>
                   </motion.div>
                 </TiltCard>
