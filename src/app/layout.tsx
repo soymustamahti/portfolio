@@ -4,6 +4,7 @@ import "./globals.css";
 import { I18nProvider } from "../i18n/I18nProvider";
 import LocaleToggle from "../components/LocaleToggle";
 import HowItsMadeButton from "../components/HowItsMadeButton";
+import WelcomeBot from "../components/WelcomeBot";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <I18nProvider>
           <HowItsMadeButton />
+          <WelcomeBot />
           <div className="fixed top-4 right-4 z-50">
             <LocaleToggle />
           </div>

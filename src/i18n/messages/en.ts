@@ -251,4 +251,22 @@ export const messagesEn = {
     "Feature Development - Notion task assignment → Local development → GitHub PR → Code review → EOD testing → Production deployment;Bug Investigation - User report → BigQuery data analysis → Root cause identification → Fix implementation → Testing → Release;Mobile Testing - Expo Go app → Branch-specific testing → Cross-platform validation → User acceptance testing;Sprint Planning - Backlog refinement → Task estimation → Sprint commitment → Daily standups → Sprint retrospective",
   "project.myActual.teamStructure":
     "Agile methodology with 2-week sprints and regular retrospectives;Daily standups at 9:30 AM for team synchronization;Weekly planning sessions for task prioritization and distribution;Bi-weekly backlog refinement for upcoming sprint preparation;Cross-functional collaboration with developers, designers, and product managers;Remote-first team with structured communication via Slack and Google Meet",
+
+  // Welcome Bot
+  "welcomeBot.botName": "Portfolio Guide",
+  "welcomeBot.status": "Online",
+  "welcomeBot.skip": "Skip tour",
+  "welcomeBot.previous": "Previous",
+  "welcomeBot.next": "Next",
+  "welcomeBot.getStarted": "Get Started!",
+  "welcomeBot.step1.title": "Welcome to My Portfolio!",
+  "welcomeBot.step1.message": "Hi! I'm your personal guide. Let me show you around and help you discover what makes this portfolio special. Ready to start the tour?",
+  "welcomeBot.step2.title": "Navigation & Smooth Scrolling",
+  "welcomeBot.step2.message": "Notice the smooth scrolling? I've implemented Lenis for buttery-smooth page transitions. You can also use the navigation buttons or simply scroll naturally through each section.",
+  "welcomeBot.step3.title": "Interactive Projects",
+  "welcomeBot.step3.message": "Scroll down to see my projects! Each card is interactive with 3D tilt effects. Click on any project to view detailed information, technical challenges, architecture diagrams, and live demos when available.",
+  "welcomeBot.step4.title": "Multi-language Support",
+  "welcomeBot.step4.message": "See the language toggle in the top-right? This portfolio supports both English and French. Try switching languages - all content is fully internationalized!",
+  "welcomeBot.step5.title": "Behind the Scenes",
+  "welcomeBot.step5.message": "Curious how this was built? Click the '?' button in the top-left corner to learn about the tech stack, animations, and development process. Enjoy exploring!",
 };
