@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 import { useI18n } from "../i18n/I18nProvider";
 import MagneticButton from "./MagneticButton";
 
@@ -104,18 +105,36 @@ const Hero: React.FC = () => {
         {/* Name with gradient */}
         <h1
           ref={titleRef}
-          className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight"
-          style={{
-            background:
-              "linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            backgroundSize: "200% auto",
-            animation: "shimmer 8s linear infinite",
-          }}
+          className="mb-6"
         >
-          {t("hero.title")}
+          <div
+            className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight"
+            style={{
+              background:
+                "linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              backgroundSize: "200% auto",
+              animation: "shimmer 8s linear infinite",
+            }}
+          >
+            {t("hero.title")}
+          </div>
+          <div
+            className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-wide mt-2"
+            style={{
+              background:
+                "linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              backgroundSize: "200% auto",
+              animation: "shimmer 8s linear infinite",
+            }}
+          >
+            El Hachmi Mahti
+          </div>
         </h1>
 
         {/* Title with glass effect */}
@@ -123,20 +142,37 @@ const Hero: React.FC = () => {
           ref={subtitleRef}
           className="inline-block px-8 py-3 glass rounded-full mb-8"
         >
-          <p className="text-xl md:text-2xl lg:text-3xl text-textPrimary font-semibold">
-            {t("hero.subtitle")}
-          </p>
+          <div className="text-xl md:text-2xl lg:text-3xl text-textPrimary font-semibold flex items-center justify-center min-h-[2.5rem] md:min-h-[3rem] lg:min-h-[3.5rem]">
+            <TypeAnimation
+              sequence={[
+                1200, // Wait before starting
+                t("hero.subtitle"),
+              ]}
+              wrapper="span"
+              speed={50}
+              cursor={true}
+              repeat={0}
+            />
+          </div>
         </div>
 
         {/* Description */}
-        <p
+        <div
           ref={descRef}
-          className="text-lg md:text-xl lg:text-2xl text-textSecondary mb-12 max-w-4xl mx-auto leading-relaxed font-light"
+          className="text-lg md:text-xl lg:text-2xl text-textSecondary mb-12 max-w-4xl mx-auto leading-relaxed font-light min-h-[4rem] md:min-h-[5rem]"
         >
-          {t("hero.description.part1")}
-          <br className="hidden md:block" />
-          {t("hero.description.part2")}<span className="text-textPrimary font-medium">{t("hero.description.highlight")}</span>.
-        </p>
+          <TypeAnimation
+            sequence={[
+              2000, // Wait for subtitle to finish
+              `${t("hero.description.part1")}\n${t("hero.description.part2")}${t("hero.description.highlight")}.`,
+            ]}
+            wrapper="p"
+            speed={70}
+            cursor={true}
+            repeat={0}
+            style={{ whiteSpace: 'pre-line' }}
+          />
+        </div>
 
         {/* Contact line to match resume header */}
         <div className="text-sm md:text-base text-textSecondary mb-8">
