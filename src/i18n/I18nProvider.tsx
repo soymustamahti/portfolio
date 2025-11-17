@@ -27,7 +27,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("fr");
   const [mounted, setMounted] = useState(false);
 
-  // After mount, read from localStorage or browser language
+  // After mount, read from localStorage or set default to "fr"
   useEffect(() => {
     setMounted(true);
     if (typeof window !== "undefined") {
@@ -35,10 +35,9 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
       if (stored === "en" || stored === "fr") {
         setLocaleState(stored);
       } else {
-        const browser = navigator.language?.toLowerCase() ?? "fr";
-        if (browser.startsWith("en")) {
-          setLocaleState("en");
-        }
+        // If no stored locale, default to French
+        setLocaleState("fr");
+        window.localStorage.setItem(STORAGE_KEY, "fr");
       }
     }
   }, []);

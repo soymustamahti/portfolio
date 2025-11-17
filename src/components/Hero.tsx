@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
     }
   };
 
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   return (
     <section
@@ -144,6 +144,7 @@ const Hero: React.FC = () => {
         >
           <div className="text-xl md:text-2xl lg:text-3xl text-textPrimary font-semibold flex items-center justify-center min-h-[2.5rem] md:min-h-[3rem] lg:min-h-[3.5rem]">
             <TypeAnimation
+              key={`subtitle-${locale}`}
               sequence={[
                 1200, // Wait before starting
                 t("hero.subtitle"),
@@ -162,6 +163,7 @@ const Hero: React.FC = () => {
           className="text-lg md:text-xl lg:text-2xl text-textSecondary mb-12 max-w-4xl mx-auto leading-relaxed font-light min-h-[4rem] md:min-h-[5rem]"
         >
           <TypeAnimation
+            key={`description-${locale}`}
             sequence={[
               2000, // Wait for subtitle to finish
               `${t("hero.description.part1")}\n${t("hero.description.part2")}${t("hero.description.highlight")}.`,

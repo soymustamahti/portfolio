@@ -25,7 +25,7 @@ export const messagesEn = {
   "hero.description.part1":
     "Passionate about full-stack development and artificial intelligence.",
   "hero.description.part2": "I turn complex ideas into ",
-  "hero.description.highlight": "innovative products",
+  "hero.description.highlight": "innovative and scalable products",
 
   // Resume header
   "resume.title": "Software Architect",

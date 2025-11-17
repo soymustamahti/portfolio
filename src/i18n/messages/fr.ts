@@ -25,7 +25,7 @@ export const messagesFr = {
   "hero.description.part1":
     "Passionné par le développement full-stack et l'intelligence artificielle.",
   "hero.description.part2": "Je transforme des idées complexes en ",
-  "hero.description.highlight": "produits innovants",
+  "hero.description.highlight": "produits innovants et scalables",
 
   // Resume header
   "resume.title": "Architecte Logiciel",
