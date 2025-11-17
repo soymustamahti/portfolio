@@ -6,6 +6,12 @@ import Lenis from "lenis";
 export const useLenis = () => {
   useEffect(() => {
     let lenis: Lenis | undefined;
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+    // Only initialize Lenis on desktop to avoid mobile scroll issues
+    if (isMobile) {
+      return;
+    }
 
     const initLenis = () => {
       lenis = new Lenis({

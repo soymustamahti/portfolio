@@ -67,6 +67,7 @@ const WelcomeBot = () => {
       title: t("welcomeBot.step1.title"),
       message: t("welcomeBot.step1.message"),
       emoji: "👋",
+      useGif: true,
     },
     {
       title: t("welcomeBot.step2.title"),
@@ -199,14 +200,22 @@ const WelcomeBot = () => {
                 transition={{ duration: 0.3 }}
                 className="p-6"
               >
-                {/* Step Emoji */}
+                {/* Step Emoji or GIF */}
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                  className="text-5xl mb-4 text-center"
+                  className="mb-4 text-center flex justify-center items-center"
                 >
-                  {steps[currentStep].emoji}
+                  {steps[currentStep].useGif ? (
+                    <img
+                      src="/hey.gif"
+                      alt="Welcome wave"
+                      className="w-24 h-24 object-contain"
+                    />
+                  ) : (
+                    <span className="text-5xl">{steps[currentStep].emoji}</span>
+                  )}
                 </motion.div>
 
                 {/* Step Title */}

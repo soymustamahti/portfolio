@@ -101,11 +101,11 @@ const Hero: React.FC = () => {
         <div className="absolute bottom-20 left-1/4 w-72 h-72 bg-pink-500/10 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 text-center max-w-6xl mx-auto">
+      <div className="relative z-10 text-center max-w-6xl mx-auto pt-20 sm:pt-0">
         {/* Name with gradient */}
-        <h1 ref={titleRef} className="mb-6">
+        <h1 ref={titleRef} className="mb-6 px-4">
           <div
-            className="text-5xl md:text-8xl lg:text-9xl font-bold tracking-tight"
+            className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-bold tracking-tight"
             style={{
               background:
                 "linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%)",
@@ -119,7 +119,7 @@ const Hero: React.FC = () => {
             {t("hero.title")}
           </div>
           <div
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-wide mt-2"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-wide mt-2"
             style={{
               background:
                 "linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%)",
@@ -176,21 +176,21 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Contact line to match resume header */}
-        <div className="text-sm md:text-base text-textSecondary mb-8 flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-x-3 gap-y-1">
-          <span className="font-semibold text-textPrimary">
+        <div className="text-xs sm:text-sm md:text-base text-textSecondary mb-8 flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-x-3 gap-y-1 px-4">
+          <span className="font-semibold text-textPrimary text-center">
             {t("resume.title")}
           </span>
           <span className="hidden sm:inline">|</span>
-          <span>{t("resume.location")}</span>
+          <span className="text-center">{t("resume.location")}</span>
           <span className="hidden sm:inline">|</span>
           <a
             href="mailto:mustaelhachmimahti@gmail.com"
-            className="underline hover:text-textPrimary"
+            className="underline hover:text-textPrimary break-all text-center"
           >
             mustaelhachmimahti@gmail.com
           </a>
           <span className="hidden sm:inline">|</span>
-          <a href="tel:+33750018388" className="hover:text-textPrimary">
+          <a href="tel:+33750018388" className="hover:text-textPrimary text-center">
             0750018388
           </a>
         </div>

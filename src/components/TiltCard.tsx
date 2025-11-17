@@ -88,7 +88,7 @@ const TiltCard: React.FC<TiltCardProps> = ({
       <div
         style={{
           transformStyle: "preserve-3d",
-          transform: "translateZ(50px)",
+          transform: isMobile ? "none" : "translateZ(50px)",
         }}
       >
         {children}
