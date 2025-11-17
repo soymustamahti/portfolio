@@ -26,6 +26,13 @@
     position: relative;
   }
 
+  /* Hide default cursor on desktop, show custom cursor */
+  @media (min-width: 768px) {
+    * {
+      cursor: none !important;
+    }
+  }
+
   /* Animated gradient background */
   body::before {
     content: '';
