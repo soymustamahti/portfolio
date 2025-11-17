@@ -18,7 +18,7 @@ export const messagesFr = {
   "common.linkedinProfile": "Profil LinkedIn",
   "common.location": "Localisation",
   "common.languages": "Langues",
-  "common.liveDemo": "Démo en Direct",
+  "common.liveDemo": "Démo",
 
   // Tooltips
   "tooltip.resume": "Voir le CV",
@@ -59,7 +59,8 @@ export const messagesFr = {
   "about.education.master.school": "École Informatique EPITECH",
   "about.education.master.location": "Toulouse",
   "about.education.master.period": "2023 — 2025",
-  "about.education.bachelor.degree": "Bachelor Concepteur Développeur d'Applications DevOps",
+  "about.education.bachelor.degree":
+    "Bachelor Concepteur Développeur d'Applications DevOps",
   "about.education.bachelor.school": "EPSI",
   "about.education.bachelor.location": "Toulouse",
   "about.education.bachelor.period": "2022 — 2023",
@@ -286,17 +287,24 @@ export const messagesFr = {
   "welcomeBot.next": "Suivant",
   "welcomeBot.getStarted": "C'est parti !",
   "welcomeBot.step1.title": "Bienvenue sur mon Portfolio !",
-  "welcomeBot.step1.message": "Salut ! Je suis votre guide personnel. Laissez-moi vous faire découvrir ce qui rend ce portfolio spécial. Prêt à commencer la visite ?",
+  "welcomeBot.step1.message":
+    "Salut ! Je suis votre guide personnel. Laissez-moi vous faire découvrir ce qui rend ce portfolio spécial. Prêt à commencer la visite ?",
   "welcomeBot.step2.title": "Navigation & Défilement Fluide",
-  "welcomeBot.step2.message": "Vous remarquez le défilement fluide ? J'ai implémenté Lenis pour des transitions de page ultra-douces. Vous pouvez aussi utiliser les boutons de navigation ou simplement défiler naturellement à travers chaque section.",
+  "welcomeBot.step2.message":
+    "Vous remarquez le défilement fluide ? J'ai implémenté Lenis pour des transitions de page ultra-douces. Vous pouvez aussi utiliser les boutons de navigation ou simplement défiler naturellement à travers chaque section.",
   "welcomeBot.step3.title": "Projets Interactifs",
-  "welcomeBot.step3.message": "Descendez pour voir mes projets ! Chaque carte est interactive avec des effets d'inclinaison 3D. Cliquez sur n'importe quel projet pour voir des informations détaillées, les défis techniques, les diagrammes d'architecture, et des démos en direct quand disponibles.",
+  "welcomeBot.step3.message":
+    "Descendez pour voir mes projets ! Chaque carte est interactive avec des effets d'inclinaison 3D. Cliquez sur n'importe quel projet pour voir des informations détaillées, les défis techniques, les diagrammes d'architecture, et des démos en direct quand disponibles.",
   "welcomeBot.step4.title": "Support Multi-langue",
-  "welcomeBot.step4.message": "Vous voyez le sélecteur de langue en haut à droite ? Ce portfolio supporte l'anglais et le français. Essayez de changer de langue - tout le contenu est entièrement internationalisé !",
+  "welcomeBot.step4.message":
+    "Vous voyez le sélecteur de langue en haut à droite ? Ce portfolio supporte l'anglais et le français. Essayez de changer de langue - tout le contenu est entièrement internationalisé !",
   "welcomeBot.step5.title": "Dans les Coulisses",
-  "welcomeBot.step5.message": "Curieux de savoir comment cela a été construit ? Cliquez sur le bouton '?' en haut à gauche pour découvrir la stack technique, les animations et le processus de développement. Bonne exploration !",
+  "welcomeBot.step5.message":
+    "Curieux de savoir comment cela a été construit ? Cliquez sur le bouton '?' en haut à gauche pour découvrir la stack technique, les animations et le processus de développement. Bonne exploration !",
   "welcomeBot.step6.title": "Télécharger Mon CV",
-  "welcomeBot.step6.message": "Vous voulez voir mes qualifications complètes ? Cliquez sur le bouton CV en bas à gauche pour consulter mon curriculum vitae en anglais ou en français. Parfait pour un aperçu détaillé de mon expérience !",
+  "welcomeBot.step6.message":
+    "Vous voulez voir mes qualifications complètes ? Cliquez sur le bouton CV en bas à gauche pour consulter mon curriculum vitae en anglais ou en français. Parfait pour un aperçu détaillé de mon expérience !",
   "welcomeBot.step7.title": "Prenez Contact",
-  "welcomeBot.step7.message": "Prêt à échanger ? Descendez en bas de la page pour trouver le formulaire de contact. Envoyez-moi un message, et je vous répondrai dès que possible. J'aimerais avoir de vos nouvelles !",
+  "welcomeBot.step7.message":
+    "Prêt à échanger ? Descendez en bas de la page pour trouver le formulaire de contact. Envoyez-moi un message, et je vous répondrai dès que possible. J'aimerais avoir de vos nouvelles !",
 };
