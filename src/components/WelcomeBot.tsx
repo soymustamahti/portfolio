@@ -91,6 +91,11 @@ const WelcomeBot = () => {
     {
       title: t("welcomeBot.step6.title"),
       message: t("welcomeBot.step6.message"),
+      emoji: "📄",
+    },
+    {
+      title: t("welcomeBot.step7.title"),
+      message: t("welcomeBot.step7.message"),
       emoji: "💌",
     },
   ];
