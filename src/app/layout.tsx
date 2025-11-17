@@ -5,6 +5,7 @@ import { I18nProvider } from "../i18n/I18nProvider";
 import LocaleToggle from "../components/LocaleToggle";
 import HowItsMadeButton from "../components/HowItsMadeButton";
 import WelcomeBot from "../components/WelcomeBot";
+import DownloadResumeButton from "../components/DownloadResumeButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({
         <I18nProvider>
           <HowItsMadeButton />
           <WelcomeBot />
+          <DownloadResumeButton />
           <div className="fixed top-4 right-4 z-50">
             <LocaleToggle />
           </div>
