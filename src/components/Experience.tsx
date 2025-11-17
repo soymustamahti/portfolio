@@ -167,7 +167,7 @@ const Experience: React.FC = () => {
 
                 {/* Content */}
                 <div
-                  className={`w-full md:w-5/12 ml-16 md:ml-0 ${
+                  className={`w-full md:w-5/12 pl-20 pr-2 md:pl-0 md:pr-0 ${
                     index % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12"
                   }`}
                 >
