@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import Skills from "../components/Skills";
@@ -13,6 +14,16 @@ import { useLenis } from "../hooks/useLenis";
 
 export default function Home() {
   useLenis();
+
+  useEffect(() => {
+    // Scroll to top on page load/reload
+    window.scrollTo(0, 0);
+
+    // For browsers that support scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
 
   return (
     <>
