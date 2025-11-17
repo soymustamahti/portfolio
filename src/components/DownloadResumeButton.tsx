@@ -6,6 +6,7 @@ import { useI18n } from "../i18n/I18nProvider";
 
 const DownloadResumeButton = () => {
   const [showOptions, setShowOptions] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
   const { t } = useI18n();
 
   const handleViewResume = (language: "en" | "fr") => {

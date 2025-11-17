@@ -18,6 +18,13 @@ export const messagesFr = {
   "common.linkedinProfile": "Profil LinkedIn",
   "common.location": "Localisation",
   "common.languages": "Langues",
+  "common.liveDemo": "Démo en Direct",
+
+  // Tooltips
+  "tooltip.resume": "Voir le CV",
+  "tooltip.welcomeBot": "Guide du Portfolio",
+  "tooltip.languageToggle": "Changer de Langue",
+  "tooltip.howItsMade": "Comment c'est fait",
 
   // Hero
   "hero.title": "Mustapha",

@@ -314,43 +314,54 @@ const WelcomeBot = () => {
       {/* Reopen Button */}
       <AnimatePresence>
         {showButton && !isVisible && (
-          <motion.button
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={handleReopen}
-            className="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-full shadow-2xl flex items-center justify-center text-3xl transition-all duration-300 border-2 border-accent/40"
-            aria-label="Reopen guide"
-          >
-            <motion.span
-              animate={{
-                rotate: [0, 10, -10, 0],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 3,
-                ease: "easeInOut"
-              }}
+          <div className="fixed bottom-8 right-8 z-[100] group">
+            <motion.button
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={handleReopen}
+              className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-full shadow-2xl flex items-center justify-center text-3xl transition-all duration-300 border-2 border-accent/40"
+              aria-label="Reopen guide"
             >
-              🤖
-            </motion.span>
+              <motion.span
+                animate={{
+                  rotate: [0, 10, -10, 0],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 3,
+                  ease: "easeInOut"
+                }}
+              >
+                🤖
+              </motion.span>
 
-            {/* Pulsing ring */}
-            <motion.div
-              animate={{
-                scale: [1, 1.5, 1],
-                opacity: [0.5, 0, 0.5],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 2,
-                ease: "easeInOut"
-              }}
-              className="absolute inset-0 rounded-full border-2 border-accent"
-            />
-          </motion.button>
+              {/* Pulsing ring */}
+              <motion.div
+                animate={{
+                  scale: [1, 1.5, 1],
+                  opacity: [0.5, 0, 0.5],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 2,
+                  ease: "easeInOut"
+                }}
+                className="absolute inset-0 rounded-full border-2 border-accent"
+              />
+            </motion.button>
+
+            {/* Tooltip */}
+            <div className="absolute right-20 bottom-1/2 translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+              <div className="bg-gradient-to-br from-primary/95 to-secondary/95 backdrop-blur-xl border-2 border-accent/40 rounded-lg px-3 py-2 shadow-xl">
+                <span className="text-sm text-textPrimary font-semibold">
+                  {t("tooltip.welcomeBot")}
+                </span>
+              </div>
+            </div>
+          </div>
         )}
       </AnimatePresence>
     </>

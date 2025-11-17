@@ -15,6 +15,7 @@ const projectConfigs = [
   {
     key: "chat",
     slug: "real-time-chat-application",
+    liveDemo: "https://chat.mustapha-elhachmimahti.com",
     technologies: [
       "Next.js 15",
       "NestJS",
@@ -31,6 +32,7 @@ const projectConfigs = [
   {
     key: "syntrix",
     slug: "syntrix-legal-services-platform",
+    liveDemo: "https://syntrix.mustapha-elhachmimahti.com",
     technologies: [
       "Next.js 15",
       "React 19",
@@ -204,10 +206,16 @@ const Projects: React.FC = () => {
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     onClick={() => router.push(`/projects/${projectConfig.slug}`)}
                   >
-                    <div className="mb-3">
+                    <div className="mb-3 flex items-center justify-between gap-2">
                       <span className="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
                         {category}
                       </span>
+                      {projectConfig.liveDemo && (
+                        <span className="text-xs font-semibold text-green-400 bg-green-400/10 px-3 py-1 rounded-full flex items-center gap-1">
+                          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                          {t("common.liveDemo")}
+                        </span>
+                      )}
                     </div>
 
                     <h3 className="text-xl font-bold text-textPrimary mb-3 group-hover:text-accent transition-colors duration-300">
