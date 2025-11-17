@@ -188,18 +188,13 @@ const Skills: React.FC = () => {
                   </div>
 
                   <div className="flex flex-wrap gap-2">
-                    {skill.items.map((item, itemIndex) => (
-                      <motion.span
+                    {skill.items.map((item) => (
+                      <span
                         key={item}
-                        className="px-3 py-1 bg-primary/50 text-textSecondary text-sm rounded-full border border-accent/30 hover:border-accent hover:text-textPrimary transition-all duration-300"
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: itemIndex * 0.05, duration: 0.3 }}
-                        whileHover={{ y: -2, scale: 1.05 }}
+                        className="px-3 py-1 bg-primary/50 text-textSecondary text-sm rounded-full border border-accent/30"
                       >
                         {item}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
                 </motion.div>

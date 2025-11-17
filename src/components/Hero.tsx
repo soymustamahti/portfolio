@@ -103,12 +103,9 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 text-center max-w-6xl mx-auto">
         {/* Name with gradient */}
-        <h1
-          ref={titleRef}
-          className="mb-6"
-        >
+        <h1 ref={titleRef} className="mb-6">
           <div
-            className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight"
+            className="text-5xl md:text-8xl lg:text-9xl font-bold tracking-tight"
             style={{
               background:
                 "linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%)",
@@ -166,25 +163,36 @@ const Hero: React.FC = () => {
             key={`description-${locale}`}
             sequence={[
               2000, // Wait for subtitle to finish
-              `${t("hero.description.part1")}\n${t("hero.description.part2")}${t("hero.description.highlight")}.`,
+              `${t("hero.description.part1")}\n${t(
+                "hero.description.part2"
+              )}${t("hero.description.highlight")}.`,
             ]}
             wrapper="p"
             speed={70}
             cursor={true}
             repeat={0}
-            style={{ whiteSpace: 'pre-line' }}
+            style={{ whiteSpace: "pre-line" }}
           />
         </div>
 
         {/* Contact line to match resume header */}
-        <div className="text-sm md:text-base text-textSecondary mb-8">
-          <span className="font-semibold text-textPrimary">{t("resume.title")}</span>
-          <span className="mx-3">|</span>
+        <div className="text-sm md:text-base text-textSecondary mb-8 flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-x-3 gap-y-1">
+          <span className="font-semibold text-textPrimary">
+            {t("resume.title")}
+          </span>
+          <span className="hidden sm:inline">|</span>
           <span>{t("resume.location")}</span>
-          <span className="mx-3">|</span>
-          <a href="mailto:mustaelhachmimahti@gmail.com" className="underline hover:text-textPrimary">mustaelhachmimahti@gmail.com</a>
-          <span className="mx-3">|</span>
-          <a href="tel:+33750018388" className="hover:text-textPrimary">0750018388</a>
+          <span className="hidden sm:inline">|</span>
+          <a
+            href="mailto:mustaelhachmimahti@gmail.com"
+            className="underline hover:text-textPrimary"
+          >
+            mustaelhachmimahti@gmail.com
+          </a>
+          <span className="hidden sm:inline">|</span>
+          <a href="tel:+33750018388" className="hover:text-textPrimary">
+            0750018388
+          </a>
         </div>
 
         {/* CTA Buttons */}
@@ -196,7 +204,10 @@ const Hero: React.FC = () => {
             <motion.button
               onClick={() => scrollToSection("projects")}
               className="group relative px-10 py-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold text-lg overflow-hidden shadow-lg shadow-blue-500/50"
-              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.5)" }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 20px 40px rgba(59, 130, 246, 0.5)",
+              }}
               whileTap={{ scale: 0.95 }}
             >
               <span className="relative z-10 flex items-center gap-2">
@@ -246,7 +257,9 @@ const Hero: React.FC = () => {
             animate={{ scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
             transition={{ repeat: Infinity, duration: 2 }}
           />
-          <span className="text-sm text-textSecondary">{t("common.available")}</span>
+          <span className="text-sm text-textSecondary">
+            {t("common.available")}
+          </span>
         </motion.div>
 
         {/* Scroll indicator */}
@@ -256,7 +269,9 @@ const Hero: React.FC = () => {
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >
           <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-textSecondary uppercase tracking-wider">{t("common.scroll")}</span>
+            <span className="text-xs text-textSecondary uppercase tracking-wider">
+              {t("common.scroll")}
+            </span>
             <motion.svg
               className="w-6 h-6 text-accent"
               fill="none"

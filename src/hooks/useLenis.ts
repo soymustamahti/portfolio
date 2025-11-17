@@ -1,15 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
+import Lenis from "lenis";
 
 export const useLenis = () => {
   useEffect(() => {
-    // Dynamic import to avoid SSR issues
-    let lenis: any;
+    let lenis: Lenis | undefined;
 
-    const initLenis = async () => {
-      const Lenis = (await import("lenis")).default;
-
+    const initLenis = () => {
       lenis = new Lenis({
         duration: 1.2,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -17,9 +15,11 @@ export const useLenis = () => {
         wheelMultiplier: 1,
         touchMultiplier: 2,
         infinite: false,
+        gestureOrientation: "vertical",
       });
 
       function raf(time: number) {
+        if (!lenis) return;
         lenis.raf(time);
         requestAnimationFrame(raf);
       }

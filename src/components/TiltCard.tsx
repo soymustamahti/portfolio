@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface TiltCardProps {
@@ -20,9 +20,19 @@ const TiltCard: React.FC<TiltCardProps> = ({
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const [glarePosition, setGlarePosition] = useState({ x: 50, y: 50 });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (isMobile || !cardRef.current) return;
 
     const card = cardRef.current;
     const rect = card.getBoundingClientRect();
@@ -48,6 +58,7 @@ const TiltCard: React.FC<TiltCardProps> = ({
   };
 
   const handleMouseLeave = () => {
+    if (isMobile) return;
     setRotateX(0);
     setRotateY(0);
     setGlarePosition({ x: 50, y: 50 });
@@ -64,8 +75,8 @@ const TiltCard: React.FC<TiltCardProps> = ({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       animate={{
-        rotateX,
-        rotateY,
+        rotateX: isMobile ? 0 : rotateX,
+        rotateY: isMobile ? 0 : rotateY,
       }}
       transition={{
         type: "spring",
@@ -84,7 +95,7 @@ const TiltCard: React.FC<TiltCardProps> = ({
       </div>
 
       {/* Glare effect */}
-      {glareEffect && (
+      {glareEffect && !isMobile && (
         <div
           className="absolute inset-0 rounded-xl pointer-events-none overflow-hidden"
           style={{
