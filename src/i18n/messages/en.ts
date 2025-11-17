@@ -286,17 +286,24 @@ export const messagesEn = {
   "welcomeBot.next": "Next",
   "welcomeBot.getStarted": "Get Started!",
   "welcomeBot.step1.title": "Welcome to My Portfolio!",
-  "welcomeBot.step1.message": "Hi! I'm your personal guide. Let me show you around and help you discover what makes this portfolio special. Ready to start the tour?",
+  "welcomeBot.step1.message":
+    "Hi! I'm your personal guide. Let me show you around and help you discover what makes this portfolio special. Ready to start the tour?",
   "welcomeBot.step2.title": "Navigation & Smooth Scrolling",
-  "welcomeBot.step2.message": "Notice the smooth scrolling? I've implemented Lenis for buttery-smooth page transitions. You can also use the navigation buttons or simply scroll naturally through each section.",
+  "welcomeBot.step2.message":
+    "Notice the smooth scrolling? I've implemented Lenis for buttery-smooth page transitions. You can also use the navigation buttons or simply scroll naturally through each section.",
   "welcomeBot.step3.title": "Interactive Projects",
-  "welcomeBot.step3.message": "Scroll down to see my projects! Each card is interactive with 3D tilt effects. Click on any project to view detailed information, technical challenges, architecture diagrams, and live demos when available.",
+  "welcomeBot.step3.message":
+    "Scroll down to see my projects! Each card is interactive with 3D tilt effects. Click on any project to view detailed information, technical challenges, architecture diagrams, and live demos when available.",
   "welcomeBot.step4.title": "Multi-language Support",
-  "welcomeBot.step4.message": "See the language toggle in the top-right? This portfolio supports both English and French. Try switching languages - all content is fully internationalized!",
+  "welcomeBot.step4.message":
+    "See the language toggle in the top-right? This portfolio supports both English and French. Try switching languages - all content is fully internationalized!",
   "welcomeBot.step5.title": "Behind the Scenes",
-  "welcomeBot.step5.message": "Curious how this was built? Click the '?' button in the top-left corner to learn about the tech stack, animations, and development process. Enjoy exploring!",
+  "welcomeBot.step5.message":
+    "Curious how this was built? Click the '?' button in the top-left corner to learn about the tech stack, animations, and development process. Enjoy exploring!",
   "welcomeBot.step6.title": "Download My Resume",
-  "welcomeBot.step6.message": "Want to see my full credentials? Click the resume button in the bottom-left corner to view my CV in English or French. Perfect for a detailed overview of my experience!",
+  "welcomeBot.step6.message":
+    "Want to see my full credentials? Click the resume button in the bottom-left corner to view my resume in English or French. Perfect for a detailed overview of my experience!",
   "welcomeBot.step7.title": "Get in Touch",
-  "welcomeBot.step7.message": "Ready to connect? Scroll to the bottom to find the contact form. Send me a message, and I'll get back to you as soon as possible. I'd love to hear from you!",
+  "welcomeBot.step7.message":
+    "Ready to connect? Scroll to the bottom to find the contact form. Send me a message, and I'll get back to you as soon as possible. I'd love to hear from you!",
 };
