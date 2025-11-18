@@ -22,7 +22,7 @@ const projectConfigs = [
       "Ansible",
     ],
     links: {
-      demo: "https://chat-app-front.mooo.com",
+      demo: "https://chat-app-front.mooo.com/?fromPortfolio=true",
     },
   },
   {
