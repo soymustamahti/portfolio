@@ -176,22 +176,36 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Contact line to match resume header */}
-        <div className="text-xs sm:text-sm md:text-base text-textSecondary mb-8 flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-x-3 gap-y-1 px-4">
-          <span className="font-semibold text-textPrimary text-center">
-            {t("resume.title")}
-          </span>
-          <span className="hidden sm:inline">|</span>
-          <span className="text-center">{t("resume.location")}</span>
-          <span className="hidden sm:inline">|</span>
+        <div className="text-sm sm:text-base md:text-lg text-textSecondary mb-10 flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-x-6 gap-y-3 px-4">
+          <div className="flex items-center gap-2 group transition-transform hover:scale-105 duration-300">
+            <span className="text-xl">📍</span>
+            <span className="text-center group-hover:text-textPrimary transition-colors">
+              {t("resume.location")}
+            </span>
+          </div>
+          
+          <span className="hidden sm:inline text-accent/30">|</span>
+          
           <a
             href="mailto:mustaelhachmimahti@gmail.com"
-            className="underline hover:text-textPrimary break-all text-center"
+            className="flex items-center gap-2 group transition-transform hover:scale-105 duration-300"
           >
-            mustaelhachmimahti@gmail.com
+            <span className="text-xl">📧</span>
+            <span className="underline hover:text-textPrimary break-all text-center transition-colors">
+              mustaelhachmimahti@gmail.com
+            </span>
           </a>
-          <span className="hidden sm:inline">|</span>
-          <a href="tel:+33750018388" className="hover:text-textPrimary text-center">
-            0750018388
+          
+          <span className="hidden sm:inline text-accent/30">|</span>
+          
+          <a 
+            href="tel:+33750018388" 
+            className="flex items-center gap-2 group transition-transform hover:scale-105 duration-300"
+          >
+            <span className="text-xl">📱</span>
+            <span className="hover:text-textPrimary text-center transition-colors">
+              +33 750 018 388
+            </span>
           </a>
         </div>
 
