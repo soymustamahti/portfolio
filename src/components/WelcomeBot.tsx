@@ -69,11 +69,7 @@ const WelcomeBot = () => {
       emoji: "👋",
       useGif: true,
     },
-    {
-      title: t("welcomeBot.step2.title"),
-      message: t("welcomeBot.step2.message"),
-      emoji: "🚀",
-    },
+
     {
       title: t("welcomeBot.step3.title"),
       message: t("welcomeBot.step3.message"),
