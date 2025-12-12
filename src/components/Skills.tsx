@@ -17,68 +17,61 @@ interface Skill {
 
 const skills: Skill[] = [
   {
-    category: "Frontend",
+    category: "AI & RAG Systems",
+    icon: "🧠",
+    items: [
+      "Graph RAG",
+      "LangChain",
+      "OpenAI API",
+      "Prompt Engineering",
+      "Fireworks AI",
+    ],
+  },
+  {
+    category: "Knowledge Graphs & Vector DBs",
+    icon: "🔮",
+    items: [
+      "Neo4j",
+      "Graphiti",
+      "pgvector",
+      "Pinecone",
+      "Elasticsearch",
+      "Redis",
+    ],
+  },
+  {
+    category: "NLP & Machine Learning",
+    icon: "🤖",
+    items: [
+      "NER",
+      "Text Embeddings",
+      "Semantic Search",
+      "Classification",
+      "Transformers",
+      "PyTorch",
+    ],
+  },
+  {
+    category: "Backend & APIs",
+    icon: "⚙️",
+    items: ["NestJS", "FastAPI", "Node.js", "Python", "GraphQL", "Celery"],
+  },
+  {
+    category: "Frontend & Mobile",
     icon: "💻",
     items: [
       "TypeScript",
-      "JavaScript",
       "React",
       "Next.js",
       "React Native",
       "Tailwind CSS",
-    ],
-  },
-  {
-    category: "Backend",
-    icon: "⚙️",
-    items: [
-      "NestJS",
-      "Node.js",
-      "APIs RESTful",
-      "WebSockets",
-      "Microservices",
-      "GraphQL",
-    ],
-  },
-  {
-    category: "Intelligence Artificielle",
-    icon: "🤖",
-    items: [
-      "NLP",
-      "Machine Learning",
-      "RAG",
-      "LangChain",
-      "OpenAI API",
-      "Classification",
-    ],
-  },
-  {
-    category: "Bases de Données",
-    icon: "💾",
-    items: [
-      "PostgreSQL",
-      "MongoDB",
-      "Redis",
-      "Elasticsearch",
-      "BigQuery",
-      "SAP HANA",
+      "Expo",
     ],
   },
   {
     category: "DevOps & Cloud",
     icon: "☁️",
-    items: ["Docker", "Kubernetes", "CI/CD", "GCP", "RabbitMQ", "Monitoring"],
-  },
-  {
-    category: "Mobile",
-    icon: "📱",
-    items: [
-      "React Native",
-      "Expo",
-      "iOS Development",
-      "Android Development",
-      "Cross-platform",
-    ],
+    items: ["Docker", "BullMQ", "CI/CD", "Ansible", "RabbitMQ"],
   },
 ];
 

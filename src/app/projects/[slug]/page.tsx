@@ -7,6 +7,29 @@ import { useI18n } from "../../../i18n/I18nProvider";
 // Project configuration mapping slugs to translation keys
 const projectConfigs = [
   {
+    slug: "archeon-ai-second-brain",
+    key: "archeon",
+    technologies: [
+      "Graph RAG",
+      "Neo4j",
+      "Graphiti",
+      "FastAPI",
+      "NestJS",
+      "pgvector",
+      "LLaMA 3.1",
+      "Celery",
+      "React Native",
+      "Next.js",
+      "TypeScript",
+      "Python",
+      "Docker",
+      "Kubernetes",
+    ],
+    links: {
+      github: "https://github.com/soymustamahti/archeon",
+    },
+  },
+  {
     slug: "real-time-chat-application",
     key: "chat",
     technologies: [

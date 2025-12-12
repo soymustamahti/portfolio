@@ -28,23 +28,23 @@ export const messagesFr = {
 
   // Hero
   "hero.title": "Mustapha",
-  "hero.subtitle": "Architecte Logiciel",
+  "hero.subtitle": "Ingénieur IA & Architecte RAG",
   "hero.description.part1":
-    "Passionné par le développement full-stack et l'intelligence artificielle.",
-  "hero.description.part2": "Je transforme des idées complexes en ",
-  "hero.description.highlight": "produits innovants et scalables",
+    "Spécialisé dans les systèmes IA, architectures RAG et Knowledge Graphs.",
+  "hero.description.part2": "Je transforme les documents en ",
+  "hero.description.highlight": "connaissance intelligente et interrogeable",
 
   // Resume header
-  "resume.title": "Architecte Logiciel",
+  "resume.title": "Ingénieur IA & Architecte RAG",
   "resume.location": "Toulouse, Occitanie, France",
 
   // À propos
   "about.title": "À propos de moi",
   "about.presentation": "Présentation",
   "about.presentation.p1":
-    "Ingénieur logiciel passionné par le développement full-stack et l'intelligence artificielle. Je combine expertise technique et vision produit pour créer des solutions innovantes à fort impact.",
+    "Ingénieur IA spécialisé dans les systèmes RAG, Knowledge Graphs et traitement intelligent de documents. J'architecte des solutions IA production-ready qui transforment les données non structurées en connaissances exploitables.",
   "about.presentation.p2":
-    "J'expérimente continuellement avec les technologies émergentes (RAG, blockchain, NLP) et transforme des idées complexes en produits concrets, de la conception au déploiement à grande échelle.",
+    "Je combine expertise approfondie en Graph RAG, NLP, bases de données vectorielles et développement full-stack pour construire des systèmes intelligents qui extraient des insights de données complexes. Passionné par repousser les limites du possible avec les LLMs et knowledge graphs.",
   "about.location.title": "Localisation",
   "about.location.value": "Toulouse, Occitanie, France",
   "about.languages.title": "Langues",
@@ -146,6 +146,21 @@ export const messagesFr = {
     "React (NextJS), NestJS (NodeJS), PostgreSQL, Redis, Kubernetes, Rabbitmq",
 
   // Projets
+  "project.archeon.title": "Archeon - Second Brain Propulsé par l'IA",
+  "project.archeon.description":
+    "Plateforme full-stack d'intelligence documentaire utilisant Graph RAG, Knowledge Graphs et recherche sémantique pour transformer les documents en base de connaissances intelligente et interrogeable.",
+  "project.archeon.category": "IA / Graph RAG / Knowledge Graphs",
+  "project.archeon.impact":
+    "Plateforme IA production-ready avec architecture microservices",
+  "project.archeon.fullDescription":
+    "Archeon est une plateforme sophistiquée de gestion de documents et de connaissances propulsée par l'IA qui aide les utilisateurs à organiser, rechercher et extraire des insights de leurs documents. Construite avec des technologies modernes et alimentée par Graph RAG avancé (Retrieval-Augmented Generation), Archeon transforme votre bibliothèque de documents en un second cerveau intelligent. La plateforme dispose d'une architecture microservices distribuée avec NestJS (Gate) et FastAPI (Scribe), Neo4j pour les knowledge graphs via Graphiti, et pgvector pour les embeddings sémantiques.",
+  "project.archeon.features":
+    "Graph RAG avec Neo4j + Graphiti pour extraction d'entités et mapping de relations;Recherche hybride combinant retrieval sémantique, par mots-clés et basé sur graphe;Q&A propulsé par l'IA utilisant LLMs (LLaMA 3.1 70B via Fireworks AI) pour interrogation intelligente de documents;Classification automatique de documents et génération de métadonnées avec IA;Traitement de documents en temps réel avec workers Celery et pipelines async;Embeddings vectoriels avec Nomic Embed (768 dimensions) stockés dans pgvector;Traitement OCR avec Tesseract pour extraction de texte depuis PDFs et images;Disponibilité multi-plateforme avec app mobile React Native et dashboard web Next.js;Authentification JWT avec rate limiting et sécurité production-ready;Architecture microservices avec Gate (NestJS) et Scribe (FastAPI);Intégration Cloudflare R2 pour stockage de documents évolutif;Conteneurisation Docker avec orchestration Kubernetes;Playbooks Ansible pour déploiement automatisé et gestion d'infrastructure",
+  "project.archeon.challenges":
+    "Implémentation Graph RAG - Intégration du framework Graphiti avec Neo4j pour construire des knowledge graphs depuis les documents, implémentant extraction d'entités, stockage de faits et mapping de relations pour une récupération de contexte supérieure au RAG traditionnel;Architecture de recherche hybride - Conception de recherche multi-modale combinant embeddings sémantiques pgvector, recherche par mots-clés Elasticsearch et traversée de graphe Neo4j, avec fusion intelligente des résultats et reranking pour pertinence optimale;Pipeline de traitement de documents async - Construction d'un système de workers Celery évolutif gérant OCR, classification IA, génération d'embeddings et ingestion de graphe avec gestion d'erreurs appropriée, logique de retry et suivi de statut;Intégration LLM et prompt engineering - Implémentation de l'intégration Fireworks AI avec LLaMA 3.1 70B, création de prompts pour classification de documents, génération Q&A et extraction d'entités tout en gérant limites de tokens et qualité de réponse;Communication microservices - Architecture de communication sécurisée service-à-service entre Gate (NestJS) et Scribe (FastAPI) utilisant clés API internes, avec propagation d'erreurs et monitoring de santé appropriés;Optimisation base de données vectorielle - Ajustement des index pgvector et stratégies de requête pour recherche sémantique sub-100ms sur des milliers d'embeddings de documents;Conception de schéma knowledge graph - Modélisation du schéma Neo4j pour entités, faits et relations permettant requêtes de graphe complexes tout en maintenant performance d'ingestion;Sync multi-plateforme - Assurance de cohérence des données entre app mobile React Native, web Next.js et services backend avec mises à jour en temps réel et support offline",
+  "project.archeon.architecture":
+    "Couche Frontend - Dashboard web Next.js et app mobile React Native/Expo pour accès multi-plateforme;API Gate (NestJS) - Authentification, autorisation, rate limiting, CRUD documents, orchestration de recherche et gestion utilisateurs;API Scribe (FastAPI) - Recherche knowledge graph, génération Q&A, gestion d'entités et endpoints de traitement IA;Workers Scribe (Celery) - Traitement async de documents incluant OCR, classification IA, génération d'embeddings et ingestion de graphe;Couche Data - PostgreSQL avec pgvector pour données relationnelles et embeddings, Neo4j avec Graphiti pour knowledge graphs, Redis pour cache et files de tâches, Cloudflare R2 pour stockage de documents",
+
   "project.chat.title": "Application de Chat en Temps Réel",
   "project.chat.description":
     "Plateforme de chat full-stack prête pour la production avec authentification Google OAuth, messagerie directe, chats de groupe et partage de médias en temps réel.",

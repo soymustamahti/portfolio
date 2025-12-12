@@ -28,23 +28,23 @@ export const messagesEn = {
 
   // Hero
   "hero.title": "Mustapha",
-  "hero.subtitle": "Software Architect",
+  "hero.subtitle": "AI Engineer & RAG Architect",
   "hero.description.part1":
-    "Passionate about full-stack development and artificial intelligence.",
-  "hero.description.part2": "I turn complex ideas into ",
-  "hero.description.highlight": "innovative and scalable products",
+    "Specialized in AI systems, RAG architectures, and Knowledge Graphs.",
+  "hero.description.part2": "I transform documents into ",
+  "hero.description.highlight": "intelligent, queryable knowledge",
 
   // Resume header
-  "resume.title": "Software Architect",
+  "resume.title": "AI Engineer & RAG Architect",
   "resume.location": "Toulouse, Occitanie, France",
 
   // About
   "about.title": "About me",
   "about.presentation": "Presentation",
   "about.presentation.p1":
-    "Software engineer passionate about full-stack development and AI. I combine technical expertise and product vision to build impactful, innovative solutions.",
+    "AI Engineer specialized in RAG systems, Knowledge Graphs, and intelligent document processing. I architect production-ready AI solutions that transform unstructured data into actionable knowledge.",
   "about.presentation.p2":
-    "I constantly experiment with emerging technologies (RAG, blockchain, NLP) and transform complex ideas into real products, from design to large-scale deployment.",
+    "I combine deep expertise in Graph RAG, NLP, vector databases, and full-stack development to build intelligent systems that extract insights from complex data. Passionate about pushing the boundaries of what's possible with LLMs and knowledge graphs.",
   "about.location.title": "Location",
   "about.location.value": "Toulouse, Occitanie, France",
   "about.languages.title": "Languages",
@@ -145,6 +145,21 @@ export const messagesEn = {
     "React (NextJS), NestJS (NodeJS), PostgreSQL, Redis, Kubernetes, Rabbitmq",
 
   // Projects
+  "project.archeon.title": "Archeon - AI-Powered Second Brain",
+  "project.archeon.description":
+    "Full-stack document intelligence platform using Graph RAG, Knowledge Graphs, and semantic search to transform documents into an intelligent, queryable knowledge base.",
+  "project.archeon.category": "AI / Graph RAG / Knowledge Graphs",
+  "project.archeon.impact":
+    "Production-ready AI platform with microservices architecture",
+  "project.archeon.fullDescription":
+    "Archeon is a sophisticated AI-powered document management and knowledge platform that helps users organize, search, and extract insights from their documents. Built with modern technologies and powered by advanced Graph RAG (Retrieval-Augmented Generation), Archeon transforms your document library into an intelligent second brain. The platform features a distributed microservices architecture with NestJS (Gate) and FastAPI (Scribe), Neo4j for knowledge graphs via Graphiti, and pgvector for semantic embeddings.",
+  "project.archeon.features":
+    "Graph RAG with Neo4j + Graphiti for entity extraction and relationship mapping;Hybrid search combining semantic, keyword, and graph-based retrieval;AI-powered Q&A using LLMs (LLaMA 3.1 70B via Fireworks AI) for intelligent document querying;Automatic document classification and metadata generation with AI;Real-time document processing with Celery workers and async pipelines;Vector embeddings with Nomic Embed (768 dimensions) stored in pgvector;OCR processing with Tesseract for text extraction from PDFs and images;Cross-platform availability with React Native mobile app and Next.js web dashboard;JWT authentication with rate limiting and production-ready security;Microservices architecture with Gate (NestJS) and Scribe (FastAPI);Cloudflare R2 integration for scalable document storage;Docker containerization with Kubernetes orchestration;Ansible playbooks for automated deployment and infrastructure management",
+  "project.archeon.challenges":
+    "Graph RAG implementation - Integrated Graphiti framework with Neo4j to build knowledge graphs from documents, implementing entity extraction, fact storage, and relationship mapping for superior context retrieval compared to traditional RAG;Hybrid search architecture - Designed multi-modal search combining pgvector semantic embeddings, Elasticsearch keyword search, and Neo4j graph traversal, with intelligent result fusion and reranking for optimal relevance;Async document processing pipeline - Built scalable Celery-based worker system handling OCR, AI classification, embedding generation, and graph ingestion with proper error handling, retry logic, and status tracking;LLM integration and prompt engineering - Implemented Fireworks AI integration with LLaMA 3.1 70B, crafting prompts for document classification, Q&A generation, and entity extraction while managing token limits and response quality;Microservices communication - Architected secure service-to-service communication between Gate (NestJS) and Scribe (FastAPI) using internal API keys, with proper error propagation and health monitoring;Vector database optimization - Tuned pgvector indexes and query strategies for sub-100ms semantic search across thousands of document embeddings;Knowledge graph schema design - Modeled Neo4j schema for entities, facts, and relationships that enables complex graph queries while maintaining ingestion performance;Cross-platform sync - Ensured data consistency between React Native mobile app, Next.js web, and backend services with real-time updates and offline support",
+  "project.archeon.architecture":
+    "Frontend Layer - Next.js web dashboard and React Native/Expo mobile app for cross-platform access;Gate API (NestJS) - Authentication, authorization, rate limiting, document CRUD, search orchestration, and user management;Scribe API (FastAPI) - Knowledge graph search, Q&A generation, entity management, and AI processing endpoints;Scribe Workers (Celery) - Async document processing including OCR, AI classification, embedding generation, and graph ingestion;Data Layer - PostgreSQL with pgvector for relational data and embeddings, Neo4j with Graphiti for knowledge graphs, Redis for caching and task queues, Cloudflare R2 for document storage",
+
   "project.chat.title": "Real-Time Chat Application",
   "project.chat.description":
     "Production-ready full-stack chat platform with Google OAuth, direct messaging, group chats, and real-time media sharing.",
