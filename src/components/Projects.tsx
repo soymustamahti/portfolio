@@ -29,7 +29,8 @@ const projectConfigs = [
       "TypeScript",
       "Python",
       "Docker",
-      "Kubernetes",
+      "Prometheus",
+      "Grafana",
     ],
   },
   {

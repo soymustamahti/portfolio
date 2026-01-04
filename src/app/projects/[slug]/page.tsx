@@ -3,6 +3,99 @@
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useI18n } from "../../../i18n/I18nProvider";
+import ProjectGallery from "../../../components/ProjectGallery";
+
+// Archeon project images configuration
+const archeonImages = [
+  // Mobile app screenshots (in logical order)
+  {
+    src: "/project/archeon/archeon_welcom.PNG",
+    alt: "Welcome Screen",
+    category: "mobile" as const,
+  },
+  {
+    src: "/project/archeon/archeon_login.PNG",
+    alt: "Login Screen",
+    category: "mobile" as const,
+  },
+  {
+    src: "/project/archeon/archeon_dashboard.PNG",
+    alt: "Dashboard",
+    category: "mobile" as const,
+  },
+  {
+    src: "/project/archeon/archeon_brain.PNG",
+    alt: "AI Second Brain",
+    category: "mobile" as const,
+  },
+  {
+    src: "/project/archeon/archeon_search.PNG",
+    alt: "Intelligent Search",
+    category: "mobile" as const,
+  },
+  {
+    src: "/project/archeon/archeon_document.PNG",
+    alt: "Document View",
+    category: "mobile" as const,
+  },
+  {
+    src: "/project/archeon/archeon_categories.PNG",
+    alt: "Categories",
+    category: "mobile" as const,
+  },
+  {
+    src: "/project/archeon/archeon_scan.PNG",
+    alt: "Document Scan",
+    category: "mobile" as const,
+  },
+  {
+    src: "/project/archeon/archeon_notif.PNG",
+    alt: "Notifications",
+    category: "mobile" as const,
+  },
+  {
+    src: "/project/archeon/archeon_profile.PNG",
+    alt: "User Profile",
+    category: "mobile" as const,
+  },
+  {
+    src: "/project/archeon/archeon_price.PNG",
+    alt: "Pricing Plans",
+    category: "mobile" as const,
+  },
+  // Architecture diagrams
+  {
+    src: "/project/archeon/archeon_shcema.png",
+    alt: "System Architecture",
+    category: "architecture" as const,
+  },
+  {
+    src: "/project/archeon/archeon_content_schema.png",
+    alt: "Content Schema",
+    category: "architecture" as const,
+  },
+  // Monitoring dashboards
+  {
+    src: "/project/archeon/archeon_monitoring_overview.png",
+    alt: "Monitoring Overview",
+    category: "monitoring" as const,
+  },
+  {
+    src: "/project/archeon/archeon_monitoring_api.png",
+    alt: "API Metrics",
+    category: "monitoring" as const,
+  },
+  {
+    src: "/project/archeon/archeon_monitoring_llm.png",
+    alt: "LLM Metrics",
+    category: "monitoring" as const,
+  },
+  {
+    src: "/project/archeon/archeon_monitoring_logs.png",
+    alt: "Centralized Logs",
+    category: "monitoring" as const,
+  },
+];
 
 // Project configuration mapping slugs to translation keys
 const projectConfigs = [
@@ -23,7 +116,8 @@ const projectConfigs = [
       "TypeScript",
       "Python",
       "Docker",
-      "Kubernetes",
+      "Prometheus",
+      "Grafana",
     ],
     links: {
       github: "https://github.com/soymustamahti/archeon",
@@ -338,13 +432,108 @@ export default function ProjectDetailPage() {
           )}
         </motion.div>
 
+        {/* Archeon Development Notice */}
+        {projectKey === "archeon" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05 }}
+            className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border border-amber-500/30"
+          >
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">🚧</div>
+              <div>
+                <h3 className="text-xl font-bold text-amber-400 mb-2">
+                  {t("project.archeon.devNotice.title")}
+                </h3>
+                <p className="text-textSecondary leading-relaxed">
+                  {
+                    t("project.archeon.devNotice.description").split(
+                      t("project.archeon.devNotice.notAvailable")
+                    )[0]
+                  }
+                  <span className="text-amber-400 font-semibold">
+                    {t("project.archeon.devNotice.notAvailable")}
+                  </span>
+                  {
+                    t("project.archeon.devNotice.description").split(
+                      t("project.archeon.devNotice.notAvailable")
+                    )[1]
+                  }
+                </p>
+                <div className="flex items-center gap-4 mt-4">
+                  <div className="flex items-center gap-2 text-sm text-textSecondary">
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    {t("project.archeon.devNotice.activeDev")}
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-textSecondary">
+                    <span>📱</span>
+                    {t("project.archeon.devNotice.comingSoon")}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Archeon Beta Signup */}
+        {projectKey === "archeon" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.075 }}
+            className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 border border-blue-500/30"
+          >
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">⚡</div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-blue-400 mb-2">
+                  {t("project.archeon.beta.title")}
+                </h3>
+                <p className="text-textSecondary leading-relaxed mb-4">
+                  {t("project.archeon.beta.description")}
+                </p>
+                <motion.button
+                  onClick={() => {
+                    window.location.href = "/#contact";
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold transition-all duration-300 cursor-pointer"
+                >
+                  <span>📧</span>
+                  {t("project.archeon.beta.button")}
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Archeon Screenshots Gallery */}
+        {projectKey === "archeon" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mb-8"
+          >
+            <h2 className="text-2xl font-bold text-accent mb-4 flex items-center gap-2">
+              <span>📸</span> {t("project.archeon.gallery.title")}
+            </h2>
+            <p className="text-textSecondary mb-6">
+              {t("project.archeon.gallery.description")}
+            </p>
+            <ProjectGallery images={archeonImages} projectName="Archeon" />
+          </motion.div>
+        )}
+
         {/* Content */}
         <div className="space-y-8">
           {/* Description */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.15 }}
           >
             <h2 className="text-2xl font-bold text-accent mb-4">Description</h2>
             <p className="text-textSecondary leading-relaxed text-lg">
