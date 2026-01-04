@@ -18,7 +18,6 @@ interface ExperienceItem {
   description: string[];
   stack?: string;
 }
- 
 
 const Experience: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -175,7 +174,11 @@ const Experience: React.FC = () => {
                     <motion.div
                       className="bg-secondary/50 backdrop-blur-sm p-6 rounded-xl border border-accent/20 hover:border-accent/60 transition-all duration-300 hover:shadow-2xl group"
                       whileHover={{ scale: 1.02 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 20,
+                      }}
                     >
                       <motion.h3
                         className="text-2xl font-bold text-accent mb-2"
@@ -199,7 +202,10 @@ const Experience: React.FC = () => {
                           <motion.li
                             key={i}
                             className="text-textSecondary text-sm"
-                            initial={{ opacity: 0, x: index % 2 === 0 ? 20 : -20 }}
+                            initial={{
+                              opacity: 0,
+                              x: index % 2 === 0 ? 20 : -20,
+                            }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
@@ -218,7 +224,9 @@ const Experience: React.FC = () => {
                           transition={{ delay: 0.3 }}
                         >
                           <p className="text-xs text-textSecondary">
-                            <span className="font-semibold text-accent">{t("labels.stack")}: </span>{" "}
+                            <span className="font-semibold text-accent">
+                              {t("labels.stack")}:{" "}
+                            </span>{" "}
                             {exp.stack}
                           </p>
                         </motion.div>
