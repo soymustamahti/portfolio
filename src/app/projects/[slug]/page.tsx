@@ -24,18 +24,8 @@ const archeonImages = [
     category: "mobile" as const,
   },
   {
-    src: "/project/archeon/archeon_brain.PNG",
-    alt: "AI Second Brain",
-    category: "mobile" as const,
-  },
-  {
     src: "/project/archeon/archeon_search.PNG",
     alt: "Intelligent Search",
-    category: "mobile" as const,
-  },
-  {
-    src: "/project/archeon/archeon_document.PNG",
-    alt: "Document View",
     category: "mobile" as const,
   },
   {
@@ -44,10 +34,26 @@ const archeonImages = [
     category: "mobile" as const,
   },
   {
+    src: "/project/archeon/archeon_document.PNG",
+    alt: "Document View",
+    category: "mobile" as const,
+  },
+  {
     src: "/project/archeon/archeon_scan.PNG",
     alt: "Document Scan",
     category: "mobile" as const,
   },
+  {
+    src: "/project/archeon/archeon_scanner.PNG",
+    alt: "Scanner",
+    category: "mobile" as const,
+  },
+  {
+    src: "/project/archeon/archeon_brain.PNG",
+    alt: "AI Second Brain",
+    category: "mobile" as const,
+  },
+
   {
     src: "/project/archeon/archeon_notif.PNG",
     alt: "Notifications",
@@ -66,7 +72,7 @@ const archeonImages = [
   // Architecture diagrams
   {
     src: "/project/archeon/archeon_shcema.png",
-    alt: "System Architecture",
+    alt: "Brain Schema",
     category: "architecture" as const,
   },
   {
