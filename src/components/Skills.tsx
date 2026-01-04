@@ -28,7 +28,7 @@ const skills: Skill[] = [
     ],
   },
   {
-    category: "Knowledge Graphs & Vector DBs",
+    category: "Knowledge Graphs",
     icon: "🔮",
     items: [
       "Neo4j",
