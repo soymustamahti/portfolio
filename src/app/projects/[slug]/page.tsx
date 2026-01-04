@@ -125,9 +125,7 @@ const projectConfigs = [
       "Prometheus",
       "Grafana",
     ],
-    links: {
-      github: "https://github.com/soymustamahti/archeon",
-    },
+    links: {},
   },
   {
     slug: "real-time-chat-application",

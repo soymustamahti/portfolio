@@ -15,6 +15,7 @@ const projectConfigs = [
   {
     key: "archeon",
     slug: "archeon-ai-second-brain",
+    liveDemo: "todo",
     technologies: [
       "Graph RAG",
       "Neo4j",
