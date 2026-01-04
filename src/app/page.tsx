@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -13,8 +13,7 @@ import ScrollProgress from "../components/ScrollProgress";
 import CustomCursor from "../components/CustomCursor";
 import { useLenis } from "../hooks/useLenis";
 
-export default function Home() {
-  useLenis();
+function ScrollHandler() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -42,8 +41,17 @@ export default function Home() {
     }
   }, [searchParams]);
 
+  return null;
+}
+
+export default function Home() {
+  useLenis();
+
   return (
     <>
+      <Suspense fallback={null}>
+        <ScrollHandler />
+      </Suspense>
       <ParticlesBackground />
       <ScrollProgress />
       <CustomCursor />
