@@ -136,14 +136,14 @@ export const messagesFr = {
     "Automatisation de tests E2E avec Selenium WebDriver, Cucumber JS et syntaxe Gherkin;Développement de commandes Slack personnalisées avec Bolt JS et NestJS;Création de workflows automatisés pour améliorer la productivité équipe",
   "exp.jump.stack": "Selenium, Cucumber JS, Bolt JS, NestJS",
 
-  "exp.syntrix.title": "Cofondateur & CTO",
-  "exp.syntrix.company": "Syntrix - Plateforme Compliance & Anti-Fraude",
+  "exp.syntrix.title": "Fondateur & Lead Developer",
+  "exp.syntrix.company": "Archeon - Plateforme IA Knowledge Management",
   "exp.syntrix.location": "Remote",
-  "exp.syntrix.period": "Juillet 2023",
+  "exp.syntrix.period": "Juin 2024 — Présent",
   "exp.syntrix.points":
-    "Plateforme SaaS compliance (3 clients grands comptes). Clients : Al Fardan Exchange et cabinets d'avocats.;Backend Microservices : Architecture NestJS avec modules FATCA/CRS et intégration CoreBanking;Applications Web : Interface NextJS (React) pour portail KYC automatisé et outils compliance;Systèmes Temps Réel : Module anti-fraude avec détection d'incidents et alerting automatique",
+    "Graph RAG & Knowledge Graphs : Architecture Graph RAG avec Neo4j et Graphiti pour extraction d'entités, mapping de relations et génération de graphes de connaissances à partir de documents;Agents IA & LLM Orchestration : Implémentation d'agents autonomes avec LangChain/LangGraph pour Q&A intelligent, classification automatique et recherche sémantique multi-modale;Architecture Microservices IA : Stack distribué NestJS + FastAPI avec Celery workers pour traitement asynchrone (OCR, embeddings, graph building), PostgreSQL+pgvector pour recherche vectorielle;Applications Multi-Plateformes : Interface Next.js (React) et app mobile React Native/Expo avec authentification JWT, rate limiting Redis et stockage Cloudflare R2",
   "exp.syntrix.stack":
-    "React (NextJS), NestJS (NodeJS), PostgreSQL, Redis, Kubernetes, Rabbitmq",
+    "LangChain, LangGraph, Neo4j, FastAPI, NestJS, PostgreSQL+pgvector, Celery, Redis, React (NextJS), React Native",
 
   // Projets
   "project.archeon.title": "Archeon - Second Brain Propulsé par l'IA",

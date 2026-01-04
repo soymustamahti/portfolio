@@ -135,14 +135,14 @@ export const messagesEn = {
     "E2E test automation with Selenium WebDriver, Cucumber JS and Gherkin;Custom Slack commands with Bolt JS and NestJS;Automated workflows to boost team productivity",
   "exp.jump.stack": "Selenium, Cucumber JS, Bolt JS, NestJS",
 
-  "exp.syntrix.title": "Co-founder & CTO",
-  "exp.syntrix.company": "Syntrix - Compliance & Anti-Fraud Platform",
+  "exp.syntrix.title": "Founder & Lead Developer",
+  "exp.syntrix.company": "Archeon - AI Knowledge Management Platform",
   "exp.syntrix.location": "Remote",
-  "exp.syntrix.period": "July 2023",
+  "exp.syntrix.period": "June 2024 — Present",
   "exp.syntrix.points":
-    "SaaS compliance platform (3 enterprise clients). Clients: Al Fardan Exchange and law firms.;Backend Microservices: NestJS modules (FATCA/CRS) and CoreBanking integration;Web Apps: NextJS (React) interface for automated KYC portal and compliance tools;Real-time Systems: Anti-fraud module with incident detection and automated alerting",
+    "Graph RAG & Knowledge Graphs: Graph RAG architecture with Neo4j and Graphiti for entity extraction, relationship mapping, and knowledge graph generation from documents;AI Agents & LLM Orchestration: Autonomous agents with LangChain/LangGraph for intelligent Q&A, automatic classification, and multi-modal semantic search;AI Microservices Architecture: Distributed NestJS + FastAPI stack with Celery workers for async processing (OCR, embeddings, graph building), PostgreSQL+pgvector for vector search;Multi-Platform Apps: Next.js (React) interface and React Native/Expo mobile app with JWT authentication, Redis rate limiting, and Cloudflare R2 storage",
   "exp.syntrix.stack":
-    "React (NextJS), NestJS (NodeJS), PostgreSQL, Redis, Kubernetes, Rabbitmq",
+    "LangChain, LangGraph, Neo4j, FastAPI, NestJS, PostgreSQL+pgvector, Celery, Redis, React (NextJS), React Native",
 
   // Projects
   "project.archeon.title": "Archeon - AI-Powered Second Brain",

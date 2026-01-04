@@ -38,6 +38,14 @@ const Experience: React.FC = () => {
         stack: t("exp.actual.stack"),
       },
       {
+        title: t("exp.syntrix.title"),
+        company: t("exp.syntrix.company"),
+        location: t("exp.syntrix.location"),
+        period: t("exp.syntrix.period"),
+        description: t("exp.syntrix.points").split(";").filter(Boolean),
+        stack: t("exp.syntrix.stack"),
+      },
+      {
         title: t("exp.bizness.title"),
         company: t("exp.bizness.company"),
         location: t("exp.bizness.location"),
@@ -52,14 +60,6 @@ const Experience: React.FC = () => {
         period: t("exp.jump.period"),
         description: t("exp.jump.points").split(";").filter(Boolean),
         stack: t("exp.jump.stack"),
-      },
-      {
-        title: t("exp.syntrix.title"),
-        company: t("exp.syntrix.company"),
-        location: t("exp.syntrix.location"),
-        period: t("exp.syntrix.period"),
-        description: t("exp.syntrix.points").split(";").filter(Boolean),
-        stack: t("exp.syntrix.stack"),
       },
     ],
     [t]
