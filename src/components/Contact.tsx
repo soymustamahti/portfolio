@@ -168,12 +168,7 @@ const Contact: React.FC = () => {
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 text-textSecondary hover:text-accent transition-colors duration-300 group"
                       whileHover={{ x: 5 }}
-                    >
-                      <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
-                        📄
-                      </span>
-                      <span>{t("common.downloadCv")}</span>
-                    </motion.a>
+                    ></motion.a>
 
                     <motion.a
                       href="https://github.com/soymustamahti"
