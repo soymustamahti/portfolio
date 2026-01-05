@@ -18,7 +18,8 @@ export const messagesEn = {
   "common.linkedinProfile": "LinkedIn Profile",
   "common.location": "Location",
   "common.languages": "Languages",
-  "common.liveDemo": "Live Demo",
+  "common.liveDemo": "Demo",
+  "common.images": "Images",
 
   // Tooltips
   "tooltip.resume": "View Resume",

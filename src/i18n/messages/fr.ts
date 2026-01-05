@@ -19,6 +19,7 @@ export const messagesFr = {
   "common.location": "Localisation",
   "common.languages": "Langues",
   "common.liveDemo": "Démo",
+  "common.images": "Images",
 
   // Tooltips
   "tooltip.resume": "Voir le CV",

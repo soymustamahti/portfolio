@@ -15,7 +15,8 @@ const projectConfigs = [
   {
     key: "archeon",
     slug: "archeon-ai-second-brain",
-    liveDemo: "https://archeon.mustapha-elhachmimahti.com",
+    liveDemo: true,
+    images: true,
     technologies: [
       "Graph RAG",
       "Neo4j",
@@ -37,7 +38,7 @@ const projectConfigs = [
   {
     key: "chat",
     slug: "real-time-chat-application",
-    liveDemo: "https://chat.mustapha-elhachmimahti.com",
+    liveDemo: true,
     technologies: [
       "Next.js 15",
       "NestJS",
@@ -54,7 +55,8 @@ const projectConfigs = [
   {
     key: "syntrix",
     slug: "syntrix-legal-services-platform",
-    liveDemo: "https://syntrix.mustapha-elhachmimahti.com",
+    liveDemo: true,
+    images: true,
     technologies: [
       "Next.js 15",
       "React 19",
@@ -71,7 +73,7 @@ const projectConfigs = [
   {
     key: "coverLetter",
     slug: "ai-powered-cover-letter-generator",
-    liveDemo: "https://coverletter.mustapha-elhachmimahti.com",
+    images: true,
     technologies: [
       "React 18",
       "TypeScript",
@@ -126,6 +128,7 @@ const projectConfigs = [
   {
     key: "jumbot",
     slug: "jumbot-automated-deployment-bot",
+    images: true,
     technologies: [
       "BoltJS",
       "NestJS",
@@ -320,6 +323,12 @@ const Projects: React.FC = () => {
                           <span className="text-xs font-semibold text-green-400 bg-green-400/10 px-3 py-1 rounded-full flex items-center gap-1">
                             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                             {t("common.liveDemo")}
+                          </span>
+                        )}
+                        {projectConfig.images && (
+                          <span className="text-xs font-semibold text-green-400 bg-green-400/10 px-3 py-1 rounded-full flex items-center gap-1">
+                            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                            {t("common.images")}
                           </span>
                         )}
                       </div>
