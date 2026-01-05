@@ -103,6 +103,89 @@ const archeonImages = [
   },
 ];
 
+// Syntrix project images configuration
+const syntrixImages = [
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.09.13.png",
+    alt: "Syntrix Admin System Dashboard with user metrics and activity logs",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.10.07.png",
+    alt: "User invitation modal with role assignment and organization selection",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.10.25.png",
+    alt: "Automated account setup invitation email template in MailDev",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.10.38.png",
+    alt: "User registration and profile completion form interface",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.11.18.png",
+    alt: "Agent Portal client management list showing individual and business categories",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.11.26.png",
+    alt: "Client creation workflow showing selection between Individual and Business profiles",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.11.41.png",
+    alt: "Comprehensive business information and documentation onboarding form",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.11.55.png",
+    alt: "Client profile overview showing business summary and KYC status",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.12.36.png",
+    alt: "Compliance review interface for approving or rejecting submitted business details",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.13.38.png",
+    alt: "Action required email notification for client information updates",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.13.55.png",
+    alt: "Onboarding Correction Mode interface highlighting fields requiring updates after review",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.14.17.png",
+    alt: "Document Management system showing review status and secure upload zones for legal files",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.16.47.png",
+    alt: "Visual Shareholders Tree mapping ultimate beneficial owners (UBOs) and ownership percentages",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.17.02.png",
+    alt: "Pending Reviews queue in the Agent Portal showing form submissions awaiting approval",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.17.07.png",
+    alt: "Detailed business form review with historical rejection reasons and field comparison",
+    category: "platform" as const,
+  },
+  {
+    src: "/project/syntrix/Screenshot 2026-01-05 at 14.17.24.png",
+    alt: "Submitted Documents review panel showing individual file approval and rejection statuses",
+    category: "platform" as const,
+  },
+];
 // Project configuration mapping slugs to translation keys
 const projectConfigs = [
   {
@@ -162,7 +245,7 @@ const projectConfigs = [
       "Jest",
     ],
     links: {
-      demo: "https://dev.syntrix.ae/",
+      platform: "https://dev.syntrix.ae/",
       website: "https://www.syntrix.ae",
     },
   },
@@ -529,6 +612,68 @@ export default function ProjectDetailPage() {
               {t("project.archeon.gallery.description")}
             </p>
             <ProjectGallery images={archeonImages} projectName="Archeon" />
+          </motion.div>
+        )}
+
+        {/* Chat Demo Notice */}
+        {projectKey === "chat" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05 }}
+            className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-green-500/10 via-emerald-500/10 to-green-500/10 border border-green-500/30"
+          >
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">🚀</div>
+              <div>
+                <h3 className="text-xl font-bold text-green-400 mb-2">
+                  {t("project.chat.demoNotice.title")}
+                </h3>
+                <p className="text-textSecondary leading-relaxed">
+                  {t("project.chat.demoNotice.description")}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Syntrix Invitation Notice */}
+        {projectKey === "syntrix" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05 }}
+            className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-purple-500/10 via-blue-500/10 to-purple-500/10 border border-purple-500/30"
+          >
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">🔒</div>
+              <div>
+                <h3 className="text-xl font-bold text-purple-400 mb-2">
+                  {t("project.syntrix.invitationNotice.title")}
+                </h3>
+                <p className="text-textSecondary leading-relaxed">
+                  {t("project.syntrix.invitationNotice.description")}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Syntrix Screenshots Gallery */}
+        {projectKey === "syntrix" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mb-8"
+          >
+            <h2 className="text-2xl font-bold text-accent mb-4 flex items-center gap-2">
+              <span>📸</span> {t("project.syntrix.gallery.title")}
+            </h2>
+            <p className="text-textSecondary mb-6">
+              {t("project.syntrix.gallery.description")}
+            </p>
+            <ProjectGallery images={syntrixImages} projectName="Syntrix" />
           </motion.div>
         )}
 
@@ -965,6 +1110,30 @@ export default function ProjectDetailPage() {
                     <line x1="10" y1="14" x2="21" y2="3" />
                   </svg>
                   Live Demo
+                </motion.a>
+              )}
+              {projectConfig.links.platform && (
+                <motion.a
+                  href={projectConfig.links.platform}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 px-6 py-3 bg-primary/50 hover:bg-accent/20 text-textPrimary border border-accent/30 hover:border-accent rounded-lg font-semibold transition-all duration-300"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                  Platform Link
                 </motion.a>
               )}
             </motion.div>
