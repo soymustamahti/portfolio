@@ -229,6 +229,12 @@ export const messagesEn = {
     "Content Script Injection - Dynamic script execution via chrome.scripting.executeScript() for isolated job details extraction;Message Passing Protocol - Chrome extension messaging between popup, content scripts, and background worker for cross-context communication;Type-Safe APIs - Full TypeScript coverage (92.8%) with shared interfaces between extension and backend for JobDetails, User, and API responses;Validation Pipeline - Class-validator decorators on DTOs (GenerateCoverLetterDto) ensuring data integrity before AI processing;Secure Storage - Chrome local storage for caching with encryption considerations for sensitive authentication tokens;Axios Instance Pattern - Centralized API service class with request/response interceptors for authentication and error handling;React Hooks Pattern - Custom hooks for authentication (useAuth), data fetching (useApi), and business logic (useCoverLetterGenerator);PDF Processing Pipeline - Multi-step document handling: upload → OCR (Tesseract) → text extraction (pdf-parse) → storage (Prisma)",
   "project.coverLetter.userFlow":
     "User installs Chrome extension and authenticates via Google OAuth;User uploads resume (PDF) which is processed via OCR and stored in database;User navigates to any job posting page (LinkedIn, Indeed, company website);User opens extension popup and optionally enters custom instructions;User clicks 'Generate Cover Letter' triggering job details extraction from current tab;Extension sends job HTML, extracted text, and user resume to backend API;DeepSeek AI analyzes job requirements and generates personalized cover letter;Generated letter appears in popup with copy and PDF download options;User can regenerate with different instructions or save for later use",
+  "project.coverLetter.funNotice.title": "Disclaimer: Portfolio Showcase Only",
+  "project.coverLetter.funNotice.description":
+    "Just to be clear: I didn't use this tool to apply for my current job! This project showcases my technical skills in building AI-powered Chrome extensions, but I still believe in writing authentic cover letters that genuinely reflect who I am. Below are some screenshots of the extension in action.",
+  "project.coverLetter.gallery.title": "Extension Screenshots",
+  "project.coverLetter.gallery.description":
+    "See the Chrome extension in action with these screenshots showing the AI-powered cover letter generation process.",
 
   "project.rlSuite.title":
     "Reinforcement Learning Suite - Multi-Environment AI Agent",

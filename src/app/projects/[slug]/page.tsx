@@ -186,6 +186,41 @@ const syntrixImages = [
     category: "platform" as const,
   },
 ];
+
+// Cover Letter project images configuration
+const coverLetterImages = [
+  {
+    src: "/project/cover-letter/Screenshot 2026-01-05 at 14.36.40.png",
+    alt: "Chrome Extension Popup",
+    category: "extension" as const,
+  },
+  {
+    src: "/project/cover-letter/Screenshot 2026-01-05 at 14.36.51.png",
+    alt: "Job Details Extraction",
+    category: "extension" as const,
+  },
+  {
+    src: "/project/cover-letter/Screenshot 2026-01-05 at 14.37.02.png",
+    alt: "AI-Generated Cover Letter",
+    category: "extension" as const,
+  },
+  {
+    src: "/project/cover-letter/Screenshot 2026-01-05 at 14.37.04.png",
+    alt: "Cover Letter Output",
+    category: "extension" as const,
+  },
+  {
+    src: "/project/cover-letter/Screenshot 2026-01-05 at 14.38.57.png",
+    alt: "Resume Upload Interface",
+    category: "extension" as const,
+  },
+  {
+    src: "/project/cover-letter/Screenshot 2026-01-05 at 14.40.11.png",
+    alt: "Settings and Configuration",
+    category: "extension" as const,
+  },
+];
+
 // Project configuration mapping slugs to translation keys
 const projectConfigs = [
   {
@@ -674,6 +709,49 @@ export default function ProjectDetailPage() {
               {t("project.syntrix.gallery.description")}
             </p>
             <ProjectGallery images={syntrixImages} projectName="Syntrix" />
+          </motion.div>
+        )}
+
+        {/* Cover Letter Fun Notice */}
+        {projectKey === "coverLetter" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05 }}
+            className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-orange-500/10 via-yellow-500/10 to-orange-500/10 border border-orange-500/30"
+          >
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">😄</div>
+              <div>
+                <h3 className="text-xl font-bold text-orange-400 mb-2">
+                  {t("project.coverLetter.funNotice.title")}
+                </h3>
+                <p className="text-textSecondary leading-relaxed">
+                  {t("project.coverLetter.funNotice.description")}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Cover Letter Screenshots Gallery */}
+        {projectKey === "coverLetter" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mb-8"
+          >
+            <h2 className="text-2xl font-bold text-accent mb-4 flex items-center gap-2">
+              <span>📸</span> {t("project.coverLetter.gallery.title")}
+            </h2>
+            <p className="text-textSecondary mb-6">
+              {t("project.coverLetter.gallery.description")}
+            </p>
+            <ProjectGallery
+              images={coverLetterImages}
+              projectName="Cover Letter Generator"
+            />
           </motion.div>
         )}
 
