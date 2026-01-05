@@ -394,12 +394,20 @@ export const messagesFr = {
   "welcomeBot.step4.message":
     "Vous voyez le sélecteur de langue en haut à droite ? Ce portfolio supporte l'anglais et le français. Essayez de changer de langue - tout le contenu est entièrement internationalisé !",
   "welcomeBot.step5.title": "Dans les Coulisses",
-  "welcomeBot.step5.message":
-    "Curieux de savoir comment cela a été construit ? Cliquez sur le bouton '?' en haut à gauche pour découvrir la stack technique, les animations et le processus de développement. Bonne exploration !",
   "welcomeBot.step6.title": "Télécharger Mon CV",
   "welcomeBot.step6.message":
-    "Vous voulez voir mes qualifications complètes ? Cliquez sur le bouton CV en bas à gauche pour consulter mon curriculum vitae en anglais ou en français. Parfait pour un aperçu détaillé de mon expérience !",
+    "Vous voulez voir mes qualifications complètes ? Cliquez sur le bouton CV en haut à gauche pour consulter mon curriculum vitae en anglais ou en français. Parfait pour un aperçu détaillé de mon expérience !",
   "welcomeBot.step7.title": "Prenez Contact",
   "welcomeBot.step7.message":
     "Prêt à échanger ? Descendez en bas de la page pour trouver le formulaire de contact. Envoyez-moi un message, et je vous répondrai dès que possible. J'aimerais avoir de vos nouvelles !",
+  "welcomeBot.step8.title": "Discutez avec Mon IA 🤖",
+  "welcomeBot.step8.message":
+    "Des questions ? Cliquez sur le bouton robot en bas à gauche pour ouvrir un chat plein écran avec mon assistant IA ! Il connaît tout sur mon portfolio, mes projets et mes compétences. Appuyez sur ESC ou cliquez à l'extérieur pour fermer. Demandez-lui n'importe quoi !",
+
+  // AI ChatBot
+  "chatBot.title": "Assistant IA de Mustapha",
+  "chatBot.status": "En ligne - Prêt à discuter",
+  "chatBot.placeholder": "Posez-moi une question sur Mustapha...",
+  "chatBot.suggestions": "Essayez de demander :",
+  "chatBot.poweredBy": "Propulsé par AI",
 };

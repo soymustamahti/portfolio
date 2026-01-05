@@ -3,9 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "../i18n/I18nProvider";
 import LocaleToggle from "../components/LocaleToggle";
-import HowItsMadeButton from "../components/HowItsMadeButton";
 import WelcomeBot from "../components/WelcomeBot";
 import DownloadResumeButton from "../components/DownloadResumeButton";
+import AIChatBot from "../components/AIChatBot";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,9 +33,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <I18nProvider>
-          <HowItsMadeButton />
           <WelcomeBot />
           <DownloadResumeButton />
+          <AIChatBot />
           <div className="fixed top-4 right-4 z-50">
             <LocaleToggle />
           </div>

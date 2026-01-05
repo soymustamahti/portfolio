@@ -394,13 +394,20 @@ export const messagesEn = {
   "welcomeBot.step4.title": "Multi-language Support",
   "welcomeBot.step4.message":
     "See the language toggle in the top-right? This portfolio supports both English and French. Try switching languages - all content is fully internationalized!",
-  "welcomeBot.step5.title": "Behind the Scenes",
-  "welcomeBot.step5.message":
-    "Curious how this was built? Click the '?' button in the top-left corner to learn about the tech stack, animations, and development process. Enjoy exploring!",
   "welcomeBot.step6.title": "Download My Resume",
   "welcomeBot.step6.message":
-    "Want to see my full credentials? Click the resume button in the bottom-left corner to view my resume in English or French. Perfect for a detailed overview of my experience!",
+    "Want to see my full credentials? Click the resume button in the top-left corner to view my resume in English or French. Perfect for a detailed overview of my experience!",
   "welcomeBot.step7.title": "Get in Touch",
   "welcomeBot.step7.message":
     "Ready to connect? Scroll to the bottom to find the contact form. Send me a message, and I'll get back to you as soon as possible. I'd love to hear from you!",
+  "welcomeBot.step8.title": "Chat with My AI 🤖",
+  "welcomeBot.step8.message":
+    "Got questions? Click the robot button in the bottom-left corner to open a full-screen chat with my AI assistant! It knows everything about my portfolio, projects, and skills. Press ESC or click outside to close. Ask anything!",
+
+  // AI ChatBot
+  "chatBot.title": "Mustapha's AI Assistant",
+  "chatBot.status": "Online - Ready to chat",
+  "chatBot.placeholder": "Ask me anything about Mustapha...",
+  "chatBot.suggestions": "Try asking:",
+  "chatBot.poweredBy": "Powered by AI",
 };

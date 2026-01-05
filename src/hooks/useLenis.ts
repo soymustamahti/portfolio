@@ -22,10 +22,23 @@ export const useLenis = () => {
         touchMultiplier: 2,
         infinite: false,
         gestureOrientation: "vertical",
+        prevent: (node: Element) => {
+          // Prevent Lenis from handling scroll inside chat modal
+          return (
+            node.closest("[data-lenis-prevent]") !== null ||
+            document.documentElement.classList.contains("lenis-stopped")
+          );
+        },
       });
 
       function raf(time: number) {
         if (!lenis) return;
+        // Check if Lenis should be stopped
+        if (document.documentElement.classList.contains("lenis-stopped")) {
+          lenis.stop();
+        } else {
+          lenis.start();
+        }
         lenis.raf(time);
         requestAnimationFrame(raf);
       }

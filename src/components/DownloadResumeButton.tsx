@@ -15,7 +15,7 @@ const DownloadResumeButton = () => {
   };
 
   return (
-    <div className="fixed bottom-8 left-8 z-[100]">
+    <div className="fixed top-4 left-4 z-[100]">
       <AnimatePresence>
         {showOptions && (
           <motion.div
@@ -23,7 +23,7 @@ const DownloadResumeButton = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
-            className="absolute bottom-20 left-0 bg-gradient-to-br from-primary/95 to-secondary/95 backdrop-blur-xl border-2 border-accent/40 rounded-xl shadow-2xl overflow-hidden min-w-[200px]"
+            className="absolute top-20 left-0 bg-gradient-to-br from-primary/95 to-secondary/95 backdrop-blur-xl border-2 border-accent/40 rounded-xl shadow-2xl overflow-hidden min-w-[200px]"
           >
             <div className="p-2 space-y-1">
               <button
@@ -49,9 +49,7 @@ const DownloadResumeButton = () => {
                   <div className="font-semibold group-hover:text-accent transition-colors">
                     Français
                   </div>
-                  <div className="text-xs text-textSecondary">
-                    Voir CV FR
-                  </div>
+                  <div className="text-xs text-textSecondary">Voir CV FR</div>
                 </div>
               </button>
             </div>
@@ -95,7 +93,7 @@ const DownloadResumeButton = () => {
         />
 
         {/* Tooltip */}
-        <div className="absolute left-16 bottom-1/2 translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+        <div className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
           <div className="bg-gradient-to-br from-primary/95 to-secondary/95 backdrop-blur-xl border-2 border-accent/40 rounded-lg px-3 py-2 shadow-xl">
             <span className="text-sm text-textPrimary font-semibold">
               {t("common.downloadCv")}
