@@ -15,7 +15,7 @@ const projectConfigs = [
   {
     key: "archeon",
     slug: "archeon-ai-second-brain",
-    liveDemo: "todo",
+    liveDemo: "https://archeon.mustapha-elhachmimahti.com",
     technologies: [
       "Graph RAG",
       "Neo4j",
@@ -71,6 +71,7 @@ const projectConfigs = [
   {
     key: "coverLetter",
     slug: "ai-powered-cover-letter-generator",
+    liveDemo: "https://coverletter.mustapha-elhachmimahti.com",
     technologies: [
       "React 18",
       "TypeScript",
