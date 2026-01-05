@@ -8,7 +8,13 @@ interface ProjectGalleryProps {
   images: {
     src: string;
     alt: string;
-    category?: "mobile" | "dashboard" | "monitoring" | "architecture";
+    category?:
+      | "mobile"
+      | "dashboard"
+      | "monitoring"
+      | "architecture"
+      | "platform"
+      | "extension";
   }[];
   projectName: string;
 }
