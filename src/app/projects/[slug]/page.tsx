@@ -196,28 +196,42 @@ const coverLetterImages = [
   },
   {
     src: "/project/cover-letter/Screenshot 2026-01-05 at 14.36.51.png",
-    alt: "Job Details Extraction",
+    alt: "Authentication Success Screen",
     category: "extension" as const,
   },
   {
     src: "/project/cover-letter/Screenshot 2026-01-05 at 14.37.02.png",
-    alt: "AI-Generated Cover Letter",
+    alt: "Settings and Configuration",
     category: "extension" as const,
   },
   {
     src: "/project/cover-letter/Screenshot 2026-01-05 at 14.37.04.png",
-    alt: "Cover Letter Output",
+    alt: "Upload Resume",
     category: "extension" as const,
   },
   {
     src: "/project/cover-letter/Screenshot 2026-01-05 at 14.38.57.png",
-    alt: "Resume Upload Interface",
+    alt: "Generate Cover Letter",
     category: "extension" as const,
   },
   {
     src: "/project/cover-letter/Screenshot 2026-01-05 at 14.40.11.png",
-    alt: "Settings and Configuration",
+    alt: "Cover Letter Output",
     category: "extension" as const,
+  },
+];
+
+// Jumbot project images configuration
+const jumbotImages = [
+  {
+    src: "/project/jumbot/Screenshot 2026-01-05 at 14.57.13.png",
+    alt: "Jumbot Architecture Diagram",
+    category: "architecture" as const,
+  },
+  {
+    src: "/project/jumbot/Screenshot 2026-01-05 at 14.57.26.png",
+    alt: "Jumbot Workflow and Process Flow",
+    category: "architecture" as const,
   },
 ];
 
@@ -752,6 +766,24 @@ export default function ProjectDetailPage() {
               images={coverLetterImages}
               projectName="Cover Letter Generator"
             />
+          </motion.div>
+        )}
+
+        {/* Jumbot Architecture Gallery */}
+        {projectKey === "jumbot" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mb-8"
+          >
+            <h2 className="text-2xl font-bold text-accent mb-4 flex items-center gap-2">
+              <span>🏗️</span> {t("project.jumbot.gallery.title")}
+            </h2>
+            <p className="text-textSecondary mb-6">
+              {t("project.jumbot.gallery.description")}
+            </p>
+            <ProjectGallery images={jumbotImages} projectName="Jumbot" />
           </motion.div>
         )}
 

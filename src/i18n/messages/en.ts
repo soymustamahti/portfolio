@@ -298,6 +298,9 @@ export const messagesEn = {
     "BoltJS Slack Bot - Custom slash commands, interactive modals, and real-time notifications;NestJS Microservice - RESTful API with TypeScript, validation pipes, and business logic;RabbitMQ Message Broker - Direct exchanges, queues, and asynchronous message processing;MongoDB Database - Document-based storage for configurations, users, and deployment history;Docker Containers - Containerized deployment with Kubernetes orchestration;GitLab CI/CD Integration - Automated pipeline triggers and branch validation",
   "project.jumbot.usageExamples":
     "Deploy: /storiz-deploy-env → Select branches and applications → Automatic deployment with notifications;List: /storiz-list-env → View all deployed environments with configurations;Update: /storiz-update-env environmentname → Select new applications to add/remove;Delete: /storiz-delete-env environmentname → Complete environment cleanup;Help: /storiz-help-env → Display comprehensive usage documentation",
+  "project.jumbot.gallery.title": "Architecture & Workflow",
+  "project.jumbot.gallery.description":
+    "Explore the Jumbot system architecture and deployment workflow through these technical diagrams showing how the bot orchestrates automated deployments.",
 
   "project.myActual.title":
     "My Actual - Enterprise HR Platform for Temporary Workers",

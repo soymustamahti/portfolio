@@ -300,7 +300,9 @@ export const messagesFr = {
     "Bot Slack BoltJS - Commandes slash personnalisées, modales interactives et notifications en temps réel;Microservice NestJS - API RESTful avec TypeScript, pipes de validation et logique métier;Broker de Messages RabbitMQ - Échanges directs, files et traitement de messages asynchrone;Base de Données MongoDB - Stockage basé sur documents pour configurations, utilisateurs et historique de déploiement;Conteneurs Docker - Déploiement conteneurisé avec orchestration Kubernetes;Intégration GitLab CI/CD - Déclenchements de pipeline automatisés et validation de branches",
   "project.jumbot.usageExamples":
     "Déployer: /storiz-deploy-env → Sélectionner branches et applications → Déploiement automatique avec notifications;Lister: /storiz-list-env → Voir tous les environnements déployés avec configurations;Mettre à jour: /storiz-update-env nomEnvironnement → Sélectionner nouvelles applications à ajouter/supprimer;Supprimer: /storiz-delete-env nomEnvironnement → Nettoyage complet d'environnement;Aide: /storiz-help-env → Afficher documentation d'utilisation complète",
-
+  "project.jumbot.gallery.title": "Architecture & Workflow",
+  "project.jumbot.gallery.description":
+    "Explorez l'architecture du système Jumbot et le workflow de déploiement à travers ces diagrammes techniques montrant comment le bot orchestre les déploiements automatisés.",
   "project.myActual.title":
     "My Actual - Plateforme RH d'Entreprise pour Intérimaires",
   "project.myActual.description":
