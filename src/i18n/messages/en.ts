@@ -43,9 +43,11 @@ export const messagesEn = {
   "about.title": "About me",
   "about.presentation": "Presentation",
   "about.presentation.p1":
-    "AI Engineer specialized in RAG systems, Knowledge Graphs, and intelligent document processing. I architect production-ready AI solutions that transform unstructured data into actionable knowledge.",
+    "What defines me? I don't just follow AI trends—I build the architectures that make them scalable and actionable at enterprise level. My passion lies in transforming technical complexity into intelligent, scalable systems with real impact.",
   "about.presentation.p2":
-    "I combine deep expertise in Graph RAG, NLP, vector databases, and full-stack development to build intelligent systems that extract insights from complex data. Passionate about pushing the boundaries of what's possible with LLMs and knowledge graphs.",
+    '🚀 Expertise & Technical Focus: Today, I\'m focused on the new frontier of RAG: GraphRAG. By combining the power of knowledge graphs (Neo4j, Graphiti) and sophisticated agent orchestration with LangGraph, I develop systems capable of "reasoning" over complex data where traditional approaches hit their limits.',
+  "about.presentation.p3":
+    "💡 My Philosophy: Innovation is a muscle. I thrive on challenges and the unknown—whether it's optimizing data pipelines for LLMs, designing resilient cloud architectures, or fine-tuning AI workflows. Curiosity drives me, but I remain pragmatic: every tech choice must serve performance and end-user experience. Blending an entrepreneur's mindset with an architect's rigor, I constantly push boundaries to transform complex ideas into concrete, performant, production-ready solutions.",
   "about.location.title": "Location",
   "about.location.value": "Toulouse, Occitanie, France",
   "about.languages.title": "Languages",

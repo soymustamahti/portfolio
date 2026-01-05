@@ -43,9 +43,11 @@ export const messagesFr = {
   "about.title": "À propos de moi",
   "about.presentation": "Présentation",
   "about.presentation.p1":
-    "Ingénieur IA spécialisé dans les systèmes RAG, Knowledge Graphs et traitement intelligent de documents. J'architecte des solutions IA production-ready qui transforment les données non structurées en connaissances exploitables.",
+    "Ce qui me définit ? Je ne me contente pas de suivre les tendances de l'IA, je construis les architectures qui les rendent exploitables à grande échelle. Ma passion réside dans la transformation de la complexité technique en systèmes intelligents, scalables et à fort impact.",
   "about.presentation.p2":
-    "Je combine expertise approfondie en Graph RAG, NLP, bases de données vectorielles et développement full-stack pour construire des systèmes intelligents qui extraient des insights de données complexes. Passionné par repousser les limites du possible avec les LLMs et knowledge graphs.",
+    "🚀 Expertise & Focus Technique : Je me concentre aujourd'hui sur la nouvelle frontière du RAG : le GraphRAG. En combinant la puissance des graphes de connaissances (Neo4j, Graphiti) et l'orchestration d'agents sophistiqués avec LangGraph, je développe des systèmes capables de \"raisonner\" sur des données complexes là où les approches classiques atteignent leurs limites.",
+  "about.presentation.p3":
+    "💡 Ma philosophie : L'innovation est un muscle. Je m'épanouis dans le défi et l'inconnu, qu'il s'agisse d'optimiser des pipelines de données pour les LLM, de concevoir des architectures cloud résilientes ou de fine-tuner des workflows d'IA. Ma curiosité est mon moteur, mais mon approche reste pragmatique : chaque choix technologique doit servir la performance et l'expérience utilisateur finale. Mélangeant une mentalité d'entrepreneur et une rigueur d'architecte, je repousse constamment les limites pour transformer des idées complexes en solutions concrètes, performantes et prêtes pour la production.",
   "about.location.title": "Localisation",
   "about.location.value": "Toulouse, Occitanie, France",
   "about.languages.title": "Langues",
