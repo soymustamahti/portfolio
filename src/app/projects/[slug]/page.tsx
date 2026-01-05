@@ -224,12 +224,12 @@ const coverLetterImages = [
 // Jumbot project images configuration
 const jumbotImages = [
   {
-    src: "/project/jumbot/Screenshot 2026-01-05 at 14.57.13.png",
+    src: "/project/jumbot/Screenshot 2026-01-05 at 14.57.26.png",
     alt: "Jumbot Architecture Diagram",
     category: "architecture" as const,
   },
   {
-    src: "/project/jumbot/Screenshot 2026-01-05 at 14.57.26.png",
+    src: "/project/jumbot/Screenshot 2026-01-05 at 14.57.45.png",
     alt: "Jumbot Workflow and Process Flow",
     category: "architecture" as const,
   },
