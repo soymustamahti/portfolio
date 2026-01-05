@@ -90,6 +90,23 @@ export const messagesEn = {
   // Labels
   "labels.stack": "Stack",
 
+  // Project Page Labels
+  "projectPage.whatItDoes": "What It Does",
+  "projectPage.howItWorks": "How It Works",
+  "projectPage.keyFeatures": "Key Features",
+  "projectPage.technologies": "Technologies Used",
+  "projectPage.technicalDeepDive": "Technical Deep Dive",
+  "projectPage.technicalDeepDiveSubtitle":
+    "Click to explore the technical details, architecture, and challenges",
+  "projectPage.fullDescription": "Full Description",
+  "projectPage.detailedFeatures": "Detailed Features",
+  "projectPage.technicalChallenges": "Technical Challenges Solved",
+  "projectPage.architecture": "Architecture",
+  "projectPage.plannedFeatures": "Planned Features",
+  "projectPage.forDevelopers": "For Developers",
+  "projectPage.expandTechnical": "Show technical details",
+  "projectPage.collapseTechnical": "Hide technical details",
+
   // How It's Made Modal
   "howItsMade.title": "How This Portfolio Was Made",
   "howItsMade.subtitle": "Behind the scenes of this interactive portfolio",
@@ -152,6 +169,10 @@ export const messagesEn = {
   "project.archeon.category": "AI / Graph RAG / Knowledge Graphs",
   "project.archeon.impact":
     "Production-ready AI platform with microservices architecture",
+  "project.archeon.simpleOverview":
+    "Ever accidentally deleted important documents while clearing holiday photos from your phone? Or spent forever searching through your gallery, Drive, iCloud, and physical papers to find one document? Archeon solves this problem. It's your personal AI assistant that keeps all your important documents in one safe place. Just snap a photo or upload a file, and the AI automatically organizes everything for you. Lost something? Just describe it naturally like 'my electricity bill from last month' and find it instantly. Over time, Archeon learns about your life and becomes your helpful 'second brain' - ready to assist you whenever you need information from your documents.",
+  "project.archeon.simpleFeatures":
+    "📱 Works on your phone and computer - access your documents anywhere;🔍 Smart search that understands what you mean, not just keywords;💬 Ask questions in plain English and get direct answers from your documents;📄 Automatically organizes and categorizes your files;🔒 Secure and private - your documents stay safe;📊 Scans and reads PDFs, images, and handwritten notes",
   "project.archeon.fullDescription":
     "Archeon is a sophisticated AI-powered document management and knowledge platform that helps users organize, search, and extract insights from their documents. Built with modern technologies and powered by advanced Graph RAG (Retrieval-Augmented Generation), Archeon transforms your document library into an intelligent second brain. The platform features a distributed microservices architecture with NestJS (Gate) and FastAPI (Scribe), Neo4j for knowledge graphs via Graphiti, and pgvector for semantic embeddings.",
   "project.archeon.features":
@@ -180,6 +201,10 @@ export const messagesEn = {
     "Production-ready full-stack chat platform with Google OAuth, direct messaging, group chats, and real-time media sharing.",
   "project.chat.category": "Full-Stack / Real-Time",
   "project.chat.impact": "Monorepo with 100+ files, 95% TypeScript",
+  "project.chat.simpleOverview":
+    "A modern messaging app similar to WhatsApp or Slack that I built from scratch. You can sign in with your Google account, chat with friends one-on-one or in groups, share photos and GIFs, and see when someone is typing. Everything happens instantly in real-time, just like the apps you use every day.",
+  "project.chat.simpleFeatures":
+    "🔐 Sign in easily with your Google account - no new password needed;💬 Send messages instantly - they appear right away for everyone;👥 Create group chats with up to 50 people;🖼️ Share photos and GIFs by dragging them into the chat;✅ See when your messages are read;🟢 Know who's online right now;📱 Works great on phones and computers",
   "project.chat.fullDescription":
     "A sophisticated enterprise-grade messaging platform built with modern technologies, featuring Google OAuth authentication, direct messaging, group chats with up to 50 members, and real-time media sharing capabilities. The application employs a monorepo architecture with TypeScript throughout (95% of codebase), ensuring complete type safety across the entire stack. Deployed with Docker containerization and Ansible automation for production-ready infrastructure.",
   "project.chat.features":
@@ -196,6 +221,10 @@ export const messagesEn = {
   "project.syntrix.category": "Full-Stack / Legal Tech",
   "project.syntrix.impact":
     "Monorepo architecture with 72.8% TypeScript coverage",
+  "project.syntrix.simpleOverview":
+    "Syntrix is a digital platform that helps law firms manage their clients and cases more efficiently. Think of it as a central hub where lawyers can onboard new clients, collect required documents, verify identities, and keep everything organized in one secure place. It replaces paper forms and email chains with a streamlined digital process.",
+  "project.syntrix.simpleFeatures":
+    "📝 Easy client onboarding with digital forms;📁 Secure document upload and management;✅ Identity verification (KYC) for compliance;🔒 Bank-level security for sensitive legal data;📊 Dashboard to track all clients at a glance;📱 Works on any device - desktop, tablet, or phone",
   "project.syntrix.fullDescription":
     "An enterprise-grade legal services platform designed for law firms and independent attorneys to digitalize their practice. Built with a modern monorepo architecture using Yarn Workspaces, the platform features a NestJS backend API and Next.js frontend with React 19. The application is containerized with Docker and includes comprehensive testing, code quality tools, and follows industry best practices. Designed with security and compliance in mind, with planned KYC/AML verification capabilities to meet legal industry regulatory requirements.",
   "project.syntrix.features":
@@ -218,6 +247,10 @@ export const messagesEn = {
   "project.coverLetter.category": "Full-Stack / Browser Extension / AI",
   "project.coverLetter.impact":
     "Monorepo with 92.8% TypeScript - Production browser extension",
+  "project.coverLetter.simpleOverview":
+    "Job hunting can be exhausting, especially writing cover letters for each application. This Chrome extension does the heavy lifting for you. Just visit any job posting, click the extension, and it instantly creates a personalized cover letter that matches your resume with the job requirements. It works on LinkedIn, Indeed, and pretty much any job website.",
+  "project.coverLetter.simpleFeatures":
+    "🔌 Works on any job website - LinkedIn, Indeed, company career pages;\u2728 One-click cover letter generation - no more writer's block;🎯 Matches your resume skills with job requirements automatically;🌐 Writes in the same language as the job posting;📎 Upload your resume once, use it forever;📝 Copy to clipboard or download as PDF",
   "project.coverLetter.fullDescription":
     "A sophisticated AI-powered Chrome extension that revolutionizes the job application process by automatically generating tailored cover letters. The extension intelligently scrapes job posting content from any careers page, analyzes the requirements using AI, and creates personalized cover letters that align perfectly with the candidate's resume. Built with a monorepo architecture featuring a React-based Chrome extension frontend and a robust NestJS backend API, the application leverages DeepSeek AI for natural language processing and supports multi-language generation, matching the job posting's language automatically.",
   "project.coverLetter.features":
@@ -244,6 +277,10 @@ export const messagesEn = {
   "project.rlSuite.category": "AI/ML / Reinforcement Learning",
   "project.rlSuite.impact":
     "100% Python - Academic research project for Epitech MSc Pro",
+  "project.rlSuite.simpleOverview":
+    "Ever wondered how AI learns to play games? This project is about teaching computers to master games through trial and error - just like humans learn! I built AI agents that start knowing nothing and gradually become experts at games like Atari Pong. It's fascinating to watch them go from random moves to beating the game consistently.",
+  "project.rlSuite.simpleFeatures":
+    "🎮 AI learns to play games from scratch - no instructions given;🧠 Multiple learning strategies tested and compared;🕹️ Works on classic games like Pong, Taxi, and puzzle games;📊 Visual training progress so you can watch the AI improve;🚀 Pre-trained models ready to play immediately;🏆 Achieved 95%+ success rate on complex games",
   "project.rlSuite.fullDescription":
     "An advanced artificial intelligence project exploring multiple reinforcement learning algorithms applied to various game environments. The project demonstrates mastery of fundamental RL concepts (Q-Learning, SARSA) on classic Gymnasium environments, and extends to cutting-edge deep reinforcement learning with DQN implementation for Atari Pong. Built as part of the Epitech Master's program (T-AIA-902), this suite showcases the complete pipeline from algorithm implementation to model training, evaluation, and deployment with pre-trained models.",
   "project.rlSuite.features":
@@ -262,6 +299,10 @@ export const messagesEn = {
   "project.voiceTrain.category": "AI/ML / NLP / Graph Database",
   "project.voiceTrain.impact":
     "90.8% Jupyter Notebooks - Academic AI research project",
+  "project.voiceTrain.simpleOverview":
+    "Planning a train trip in France just by talking to your computer! This project lets you say something like 'I want to go from Toulouse to Paris via Lyon' in French, and the AI understands where you want to go, finds all the train stations, and calculates the best route for you. It combines voice recognition with smart route planning.",
+  "project.voiceTrain.simpleFeatures":
+    "🎙️ Just speak your travel plans naturally in French;📍 Understands city names and train stations automatically;🛤️ Calculates the fastest route between any stations;🚉 Supports multi-stop journeys (A → B → C → D);🇫🇷 Works offline with French voice recognition;📊 817 train stations mapped with 1,574 routes",
   "project.voiceTrain.fullDescription":
     "A sophisticated artificial intelligence system that revolutionizes train travel planning through natural voice interaction. Users can simply speak their travel requests in French (e.g., 'Je veux aller de Toulouse à Paris en passant par Lyon'), and the system uses advanced NLP techniques to extract departure/arrival locations and intermediate stops, then calculates the optimal route using Neo4j's graph algorithms. The project combines three major AI components: Speech-to-Text (STT) with Vosk, Named Entity Recognition using both BERT and spaCy models, and graph-based pathfinding with Neo4j, demonstrating end-to-end AI pipeline development from data collection to production deployment.",
   "project.voiceTrain.features":
@@ -287,6 +328,10 @@ export const messagesEn = {
     "DevOps Automation / Internal Tooling / Bot Development",
   "project.jumbot.impact":
     "Reduced deployment time from 1 week to minutes - Internal tool for Groupe Bizness/Actual Digital Factory",
+  "project.jumbot.simpleOverview":
+    "Before Jumbot, deploying a new client environment took up to a week because non-technical teams had to wait for developers. Now, anyone in the company can deploy applications in minutes using simple Slack commands. Just type a command, select your options from a menu, and Jumbot handles everything automatically - from fetching the right code to setting up the server.",
+  "project.jumbot.simpleFeatures":
+    "💬 Deploy apps directly from Slack - no coding required;⏱️ Deployment reduced from 1 week to just minutes;📢 Automatic notifications when deployments complete;📋 Easy menus to select which applications to deploy;🔒 Secure - only authorized team members can deploy;📜 Full history of who deployed what and when",
   "project.jumbot.fullDescription":
     "Jumbot is a comprehensive Slack bot designed to automate the complex deployment process of the Storiz LCMS platform. Previously, non-technical sales teams had to contact developers and DevOps engineers for each client deployment, creating bottlenecks that could take up to a week. Jumbot transforms this workflow by providing an intuitive Slack interface where users can deploy, update, list, and delete Storiz environments through simple slash commands. The system handles multiple sub-applications (learniz, back-office, front-dynamic, game, back, game-scorm, learniz-scorm) with custom configurations for each client. Built with a microservices architecture using BoltJS for Slack integration, NestJS for business logic, RabbitMQ for message queuing, and MongoDB for data persistence, Jumbot demonstrates enterprise-level automation while maintaining security and auditability.",
   "project.jumbot.features":
@@ -311,6 +356,10 @@ export const messagesEn = {
     "Enterprise Web/Mobile Application / HR Tech / Full-Stack Development",
   "project.myActual.impact":
     "Production application serving thousands of daily users across France - Groupe Actual's main platform for temporary workers",
+  "project.myActual.simpleOverview":
+    "My Actual is like an all-in-one app for temporary workers in France. Imagine having your work contracts, pay slips, and job opportunities all in your pocket. Workers can find new missions, manage their schedules, access their documents, and communicate with their agencies - all from their phone or computer. I worked on this app that serves thousands of people every day.",
+  "project.myActual.simpleFeatures":
+    "📱 Available on web and mobile - access everything from anywhere;📄 All your work documents in one place (contracts, pay slips);🔍 Find and apply for new job missions easily;💬 Chat directly with your agency;🔔 Get notified about important updates instantly;📊 Track your mission history and earnings",
   "project.myActual.fullDescription":
     "My Actual is the central digital platform for Groupe Actual, one of France's major HR and recruitment companies. This mission-critical application serves as the primary interface for temporary workers, job candidates, and agency staff to manage their professional relationships. The platform handles everything from job applications and mission management to contract processing and document storage. Built with a modern tech stack featuring React/TypeScript for web, React Native/Expo for mobile, and Laravel for backend services, the application demonstrates enterprise-scale development with high availability requirements. The system integrates with multiple data sources, provides real-time notifications, and maintains synchronization across web and mobile platforms while serving thousands of concurrent users daily.",
   "project.myActual.features":

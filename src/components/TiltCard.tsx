@@ -86,6 +86,7 @@ const TiltCard: React.FC<TiltCardProps> = ({
     >
       {/* Card content */}
       <div
+        className="h-full"
         style={{
           transformStyle: "preserve-3d",
           transform: isMobile ? "none" : "translateZ(50px)",

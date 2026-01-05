@@ -285,7 +285,7 @@ const Projects: React.FC = () => {
             {t("sections.projects")}
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
             {projectConfigs.map((projectConfig, index) => {
               const title = t(`project.${projectConfig.key}.title`);
               const description = t(`project.${projectConfig.key}.description`);
@@ -347,8 +347,8 @@ const Projects: React.FC = () => {
                         </p>
                       )}
 
-                      <div className="flex flex-wrap gap-2 mb-4 flex-grow">
-                        {projectConfig.technologies.slice(0, 6).map((tech) => (
+                      <div className="flex flex-wrap gap-2 mb-4 min-h-[64px]">
+                        {projectConfig.technologies.slice(0, 8).map((tech) => (
                           <span
                             key={tech}
                             className="px-2 py-1 bg-primary/50 text-textSecondary text-xs rounded border border-accent/30 hover:border-accent hover:text-textPrimary transition-all duration-300 h-fit"
@@ -356,9 +356,9 @@ const Projects: React.FC = () => {
                             {tech}
                           </span>
                         ))}
-                        {projectConfig.technologies.length > 6 && (
-                          <span className="px-2 py-1 text-textSecondary text-xs h-fit">
-                            +{projectConfig.technologies.length - 6} more
+                        {projectConfig.technologies.length > 8 && (
+                          <span className="px-2 py-1 text-accent text-xs font-semibold h-fit">
+                            +{projectConfig.technologies.length - 8} more
                           </span>
                         )}
                       </div>

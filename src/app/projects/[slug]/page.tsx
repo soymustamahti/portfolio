@@ -1,7 +1,8 @@
 "use client";
 
+import React, { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useI18n } from "../../../i18n/I18nProvider";
 import ProjectGallery from "../../../components/ProjectGallery";
 
@@ -436,6 +437,28 @@ export default function ProjectDetailPage() {
   const impact = t(`project.${projectKey}.impact`);
   const fullDescription = t(`project.${projectKey}.fullDescription`);
 
+  // Technical deep dive state
+  const [showTechnicalDetails, setShowTechnicalDetails] = useState(false);
+
+  // Helper function to check if translation exists
+  const hasTranslation = (key: string) => {
+    const value = t(key);
+    return value && !value.startsWith("project.");
+  };
+
+  // Simple overview for non-technical readers
+  const simpleOverview = hasTranslation(`project.${projectKey}.simpleOverview`)
+    ? t(`project.${projectKey}.simpleOverview`)
+    : "";
+  const simpleFeaturesStr = hasTranslation(
+    `project.${projectKey}.simpleFeatures`
+  )
+    ? t(`project.${projectKey}.simpleFeatures`)
+    : "";
+  const simpleFeatures = simpleFeaturesStr
+    ? simpleFeaturesStr.split(";").filter((f) => f.trim())
+    : [];
+
   // Parse semicolon-separated lists
   const featuresStr = t(`project.${projectKey}.features`);
   const features = featuresStr
@@ -446,12 +469,6 @@ export default function ProjectDetailPage() {
   const challenges = challengesStr
     ? challengesStr.split(";").filter((c) => c.trim())
     : [];
-
-  // Helper function to check if translation exists
-  const hasTranslation = (key: string) => {
-    const value = t(key);
-    return value && !value.startsWith("project.");
-  };
 
   const plannedFeaturesStr = hasTranslation(
     `project.${projectKey}.plannedFeatures`
@@ -789,26 +806,56 @@ export default function ProjectDetailPage() {
 
         {/* Content */}
         <div className="space-y-8">
-          {/* Description */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-          >
-            <h2 className="text-2xl font-bold text-accent mb-4">Description</h2>
-            <p className="text-textSecondary leading-relaxed text-lg">
-              {fullDescription || description}
-            </p>
-          </motion.div>
+          {/* What It Does - Simple Overview for Everyone */}
+          {simpleOverview && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+              className="p-6 rounded-2xl bg-gradient-to-br from-green-500/5 via-emerald-500/5 to-teal-500/5 border border-green-500/20"
+            >
+              <h2 className="text-2xl font-bold text-green-400 mb-4 flex items-center gap-3">
+                <span className="text-3xl">💡</span>
+                {t("projectPage.whatItDoes")}
+              </h2>
+              <p className="text-textSecondary leading-relaxed text-lg mb-6">
+                {simpleOverview}
+              </p>
 
-          {/* Technologies */}
+              {/* Simple Features with Emojis */}
+              {simpleFeatures.length > 0 && (
+                <div className="mt-6">
+                  <h3 className="text-lg font-semibold text-textPrimary mb-4 flex items-center gap-2">
+                    <span>✨</span>
+                    {t("projectPage.keyFeatures")}
+                  </h3>
+                  <ul className="grid gap-3 md:grid-cols-2">
+                    {simpleFeatures.map((feature: string, index: number) => (
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 + index * 0.05 }}
+                        className="flex items-start gap-2 text-textSecondary bg-primary/30 p-3 rounded-lg"
+                      >
+                        <span>{feature}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </motion.div>
+          )}
+
+          {/* Technologies - Always Visible */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <h2 className="text-2xl font-bold text-accent mb-4">
-              Technologies
+            <h2 className="text-2xl font-bold text-accent mb-4 flex items-center gap-2">
+              <span>🛠️</span>
+              {t("projectPage.technologies")}
             </h2>
             <div className="flex flex-wrap gap-3">
               {projectConfig.technologies.map((tech: string) => (
@@ -823,327 +870,407 @@ export default function ProjectDetailPage() {
             </div>
           </motion.div>
 
-          {/* Features */}
-          {features.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+          {/* Technical Deep Dive Toggle */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+          >
+            <button
+              onClick={() => setShowTechnicalDetails(!showTechnicalDetails)}
+              className="w-full p-4 rounded-xl bg-gradient-to-r from-purple-500/10 via-blue-500/10 to-purple-500/10 border border-purple-500/30 hover:border-purple-500/50 transition-all duration-300 cursor-pointer"
             >
-              <h2 className="text-2xl font-bold text-accent mb-4">
-                Key Features
-              </h2>
-              <ul className="space-y-3">
-                {features.map((feature: string, index: number) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 + index * 0.05 }}
-                    className="flex items-start gap-3 text-textSecondary text-lg"
-                  >
-                    <span className="text-accent mt-1 text-xl">✓</span>
-                    <span>{feature}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">🔬</span>
+                  <span className="text-lg font-semibold text-purple-400">
+                    {t("projectPage.technicalDeepDive")}
+                  </span>
+                </div>
+                <motion.span
+                  animate={{ rotate: showTechnicalDetails ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-purple-400 text-xl"
+                >
+                  ▼
+                </motion.span>
+              </div>
+              <p className="text-sm text-textSecondary mt-2 text-left">
+                {t("projectPage.technicalDeepDiveSubtitle")}
+              </p>
+            </button>
+          </motion.div>
 
-          {/* Challenges */}
-          {challenges.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-            >
-              <h2 className="text-2xl font-bold text-accent mb-4">
-                Technical Challenges
-              </h2>
-              <ul className="space-y-3">
-                {challenges.map((challenge: string, index: number) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 + index * 0.05 }}
-                    className="flex items-start gap-3 text-textSecondary text-lg"
-                  >
-                    <span className="text-accent mt-1 text-xl">⚡</span>
-                    <span>{challenge}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
+          {/* Technical Deep Dive Content */}
+          <AnimatePresence>
+            {showTechnicalDetails && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-8 overflow-hidden"
+              >
+                {/* Full Description */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="p-6 rounded-xl bg-primary/30 border border-accent/20"
+                >
+                  <h2 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                    <span>📖</span>
+                    {t("projectPage.fullDescription")}
+                  </h2>
+                  <p className="text-textSecondary leading-relaxed">
+                    {fullDescription || description}
+                  </p>
+                </motion.div>
 
-          {/* Planned Features (for Syntrix) */}
-          {plannedFeatures.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              <h2 className="text-2xl font-bold text-accent mb-4">
-                Planned Features
-              </h2>
-              <ul className="space-y-3">
-                {plannedFeatures.map((feature: string, index: number) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.5 + index * 0.05 }}
-                    className="flex items-start gap-3 text-textSecondary text-lg"
+                {/* Detailed Features */}
+                {features.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 }}
                   >
-                    <span className="text-accent mt-1 text-xl">🔮</span>
-                    <span>{feature}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
+                    <h2 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                      <span>⚙️</span>
+                      {t("projectPage.detailedFeatures")}
+                    </h2>
+                    <ul className="space-y-2">
+                      {features.map((feature: string, index: number) => (
+                        <motion.li
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.15 + index * 0.03 }}
+                          className="flex items-start gap-3 text-textSecondary"
+                        >
+                          <span className="text-accent mt-1">✓</span>
+                          <span>{feature}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
 
-          {/* Algorithms (for RL Suite) */}
-          {algorithms.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              <h2 className="text-2xl font-bold text-accent mb-4">
-                Algorithms
-              </h2>
-              <ul className="space-y-3">
-                {algorithms.map((algorithm: string, index: number) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.5 + index * 0.05 }}
-                    className="flex items-start gap-3 text-textSecondary text-lg"
+                {/* Challenges */}
+                {challenges.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
                   >
-                    <span className="text-accent mt-1 text-xl">🧠</span>
-                    <span>{algorithm}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
+                    <h2 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                      <span>⚡</span>
+                      {t("projectPage.technicalChallenges")}
+                    </h2>
+                    <ul className="space-y-2">
+                      {challenges.map((challenge: string, index: number) => (
+                        <motion.li
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.2 + index * 0.03 }}
+                          className="flex items-start gap-3 text-textSecondary"
+                        >
+                          <span className="text-orange-400 mt-1">⚡</span>
+                          <span>{challenge}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
 
-          {/* Environments (for RL Suite) */}
-          {environments.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
-              <h2 className="text-2xl font-bold text-accent mb-4">
-                Environments
-              </h2>
-              <ul className="space-y-3">
-                {environments.map((environment: string, index: number) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6 + index * 0.05 }}
-                    className="flex items-start gap-3 text-textSecondary text-lg"
+                {/* Planned Features (for Syntrix) */}
+                {plannedFeatures.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.25 }}
                   >
-                    <span className="text-accent mt-1 text-xl">🎮</span>
-                    <span>{environment}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
+                    <h2 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                      <span>🔮</span>
+                      Planned Features
+                    </h2>
+                    <ul className="space-y-2">
+                      {plannedFeatures.map((feature: string, index: number) => (
+                        <motion.li
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.25 + index * 0.03 }}
+                          className="flex items-start gap-3 text-textSecondary"
+                        >
+                          <span className="text-purple-400 mt-1">🔮</span>
+                          <span>{feature}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
 
-          {/* Architecture (for Cover Letter) */}
-          {architecture.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              <h2 className="text-2xl font-bold text-accent mb-4">
-                Architecture
-              </h2>
-              <ul className="space-y-3">
-                {architecture.map((item: string, index: number) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.5 + index * 0.05 }}
-                    className="flex items-start gap-3 text-textSecondary text-lg"
+                {/* Algorithms (for RL Suite) */}
+                {algorithms.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
                   >
-                    <span className="text-accent mt-1 text-xl">🏗️</span>
-                    <span>{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
+                    <h2 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                      <span>🧠</span>
+                      Algorithms
+                    </h2>
+                    <ul className="space-y-2">
+                      {algorithms.map((algorithm: string, index: number) => (
+                        <motion.li
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.3 + index * 0.03 }}
+                          className="flex items-start gap-3 text-textSecondary"
+                        >
+                          <span className="text-accent mt-1">🧠</span>
+                          <span>{algorithm}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
 
-          {/* Technical Highlights (for Cover Letter) */}
-          {technicalHighlights.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
-              <h2 className="text-2xl font-bold text-accent mb-4">
-                Technical Highlights
-              </h2>
-              <ul className="space-y-3">
-                {technicalHighlights.map((highlight: string, index: number) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6 + index * 0.05 }}
-                    className="flex items-start gap-3 text-textSecondary text-lg"
+                {/* Environments (for RL Suite) */}
+                {environments.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.35 }}
                   >
-                    <span className="text-accent mt-1 text-xl">💡</span>
-                    <span>{highlight}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
+                    <h2 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                      <span>🎮</span>
+                      Environments
+                    </h2>
+                    <ul className="space-y-2">
+                      {environments.map(
+                        (environment: string, index: number) => (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.35 + index * 0.03 }}
+                            className="flex items-start gap-3 text-textSecondary"
+                          >
+                            <span className="text-accent mt-1">🎮</span>
+                            <span>{environment}</span>
+                          </motion.li>
+                        )
+                      )}
+                    </ul>
+                  </motion.div>
+                )}
 
-          {/* User Flow (for Cover Letter) */}
-          {userFlow.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.65 }}
-            >
-              <h2 className="text-2xl font-bold text-accent mb-4">User Flow</h2>
-              <ul className="space-y-3">
-                {userFlow.map((step: string, index: number) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.65 + index * 0.05 }}
-                    className="flex items-start gap-3 text-textSecondary text-lg"
+                {/* Architecture */}
+                {architecture.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
                   >
-                    <span className="text-accent mt-1 text-xl">
-                      {index + 1}.
-                    </span>
-                    <span>{step}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
+                    <h2 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                      <span>🏗️</span>
+                      Architecture
+                    </h2>
+                    <ul className="space-y-2">
+                      {architecture.map((item: string, index: number) => (
+                        <motion.li
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.4 + index * 0.03 }}
+                          className="flex items-start gap-3 text-textSecondary"
+                        >
+                          <span className="text-accent mt-1">🏗️</span>
+                          <span>{item}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
 
-          {/* Technical Components (for Voice Train) */}
-          {technicalComponents.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-            >
-              <h2 className="text-2xl font-bold text-accent mb-4">
-                Technical Components
-              </h2>
-              <ul className="space-y-3">
-                {technicalComponents.map((component: string, index: number) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.7 + index * 0.05 }}
-                    className="flex items-start gap-3 text-textSecondary text-lg"
+                {/* Technical Highlights */}
+                {technicalHighlights.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.45 }}
                   >
-                    <span className="text-accent mt-1 text-xl">⚙️</span>
-                    <span>{component}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
+                    <h2 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                      <span>💡</span>
+                      Technical Highlights
+                    </h2>
+                    <ul className="space-y-2">
+                      {technicalHighlights.map(
+                        (highlight: string, index: number) => (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.45 + index * 0.03 }}
+                            className="flex items-start gap-3 text-textSecondary"
+                          >
+                            <span className="text-yellow-400 mt-1">💡</span>
+                            <span>{highlight}</span>
+                          </motion.li>
+                        )
+                      )}
+                    </ul>
+                  </motion.div>
+                )}
 
-          {/* Notebooks (for Voice Train) */}
-          {notebooks.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.75 }}
-            >
-              <h2 className="text-2xl font-bold text-accent mb-4">
-                Jupyter Notebooks
-              </h2>
-              <ul className="space-y-3">
-                {notebooks.map((notebook: string, index: number) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.75 + index * 0.05 }}
-                    className="flex items-start gap-3 text-textSecondary text-lg"
+                {/* User Flow */}
+                {userFlow.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
                   >
-                    <span className="text-accent mt-1 text-xl">📓</span>
-                    <span>{notebook}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
+                    <h2 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                      <span>🔄</span>
+                      User Flow
+                    </h2>
+                    <ul className="space-y-2">
+                      {userFlow.map((step: string, index: number) => (
+                        <motion.li
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.5 + index * 0.03 }}
+                          className="flex items-start gap-3 text-textSecondary"
+                        >
+                          <span className="text-accent mt-1">{index + 1}.</span>
+                          <span>{step}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
 
-          {/* Data Flow (for Voice Train) */}
-          {dataFlow.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-            >
-              <h2 className="text-2xl font-bold text-accent mb-4">Data Flow</h2>
-              <ul className="space-y-3">
-                {dataFlow.map((step: string, index: number) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.8 + index * 0.05 }}
-                    className="flex items-start gap-3 text-textSecondary text-lg"
+                {/* Technical Components */}
+                {technicalComponents.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.55 }}
                   >
-                    <span className="text-accent mt-1 text-xl">→</span>
-                    <span>{step}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
+                    <h2 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                      <span>⚙️</span>
+                      Technical Components
+                    </h2>
+                    <ul className="space-y-2">
+                      {technicalComponents.map(
+                        (component: string, index: number) => (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.55 + index * 0.03 }}
+                            className="flex items-start gap-3 text-textSecondary"
+                          >
+                            <span className="text-accent mt-1">⚙️</span>
+                            <span>{component}</span>
+                          </motion.li>
+                        )
+                      )}
+                    </ul>
+                  </motion.div>
+                )}
 
-          {/* Usage Examples (for Voice Train) */}
-          {usageExamples.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.85 }}
-            >
-              <h2 className="text-2xl font-bold text-accent mb-4">
-                Usage Examples
-              </h2>
-              <ul className="space-y-3">
-                {usageExamples.map((example: string, index: number) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.85 + index * 0.05 }}
-                    className="flex items-start gap-3 text-textSecondary text-lg"
+                {/* Notebooks */}
+                {notebooks.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
                   >
-                    <span className="text-accent mt-1 text-xl">💻</span>
-                    <span>{example}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
+                    <h2 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                      <span>📓</span>
+                      Jupyter Notebooks
+                    </h2>
+                    <ul className="space-y-2">
+                      {notebooks.map((notebook: string, index: number) => (
+                        <motion.li
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.6 + index * 0.03 }}
+                          className="flex items-start gap-3 text-textSecondary"
+                        >
+                          <span className="text-accent mt-1">📓</span>
+                          <span>{notebook}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+
+                {/* Data Flow */}
+                {dataFlow.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.65 }}
+                  >
+                    <h2 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                      <span>→</span>
+                      Data Flow
+                    </h2>
+                    <ul className="space-y-2">
+                      {dataFlow.map((step: string, index: number) => (
+                        <motion.li
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.65 + index * 0.03 }}
+                          className="flex items-start gap-3 text-textSecondary"
+                        >
+                          <span className="text-accent mt-1">→</span>
+                          <span>{step}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+
+                {/* Usage Examples */}
+                {usageExamples.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7 }}
+                  >
+                    <h2 className="text-xl font-bold text-accent mb-4 flex items-center gap-2">
+                      <span>💬</span>
+                      Usage Examples
+                    </h2>
+                    <ul className="space-y-2">
+                      {usageExamples.map((example: string, index: number) => (
+                        <motion.li
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.7 + index * 0.03 }}
+                          className="flex items-start gap-3 text-textSecondary"
+                        >
+                          <span className="text-accent mt-1">💬</span>
+                          <span>{example}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Links */}
           {projectConfig.links && (

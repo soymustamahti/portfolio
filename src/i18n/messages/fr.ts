@@ -90,7 +90,22 @@ export const messagesFr = {
 
   // Labels
   "labels.stack": "Stack",
-
+  // Project Page Labels
+  "projectPage.whatItDoes": "Ce que ça fait",
+  "projectPage.howItWorks": "Comment ça marche",
+  "projectPage.keyFeatures": "Fonctionnalités Clés",
+  "projectPage.technologies": "Technologies Utilisées",
+  "projectPage.technicalDeepDive": "Détails Techniques",
+  "projectPage.technicalDeepDiveSubtitle":
+    "Cliquez pour explorer les détails techniques, l'architecture et les défis",
+  "projectPage.fullDescription": "Description Complète",
+  "projectPage.detailedFeatures": "Fonctionnalités Détaillées",
+  "projectPage.technicalChallenges": "Défis Techniques Résolus",
+  "projectPage.architecture": "Architecture",
+  "projectPage.plannedFeatures": "Fonctionnalités Prévues",
+  "projectPage.forDevelopers": "Pour les Développeurs",
+  "projectPage.expandTechnical": "Afficher les détails techniques",
+  "projectPage.collapseTechnical": "Masquer les détails techniques",
   // How It's Made Modal
   "howItsMade.title": "Comment Ce Portfolio A Été Créé",
   "howItsMade.subtitle": "Les coulisses de ce portfolio interactif",
@@ -153,6 +168,10 @@ export const messagesFr = {
   "project.archeon.category": "IA / Graph RAG / Knowledge Graphs",
   "project.archeon.impact":
     "Plateforme IA production-ready avec architecture microservices",
+  "project.archeon.simpleOverview":
+    "Avez-vous déjà supprimé accidentellement des documents importants en faisant le tri dans vos photos de vacances ? Ou passé des heures à chercher un document dans votre galerie, Drive, iCloud et vos papiers physiques ? Archeon résout ce problème. C'est votre assistant IA personnel qui garde tous vos documents importants en un seul endroit sécurisé. Prenez simplement une photo ou téléchargez un fichier, et l'IA organise tout automatiquement pour vous. Vous cherchez quelque chose ? Décrivez-le naturellement comme 'ma facture d'électricité du mois dernier' et trouvez-la instantanément. Au fil du temps, Archeon apprend sur votre vie et devient votre 'second cerveau' - prêt à vous aider dès que vous avez besoin d'informations de vos documents.",
+  "project.archeon.simpleFeatures":
+    "📱 Fonctionne sur téléphone et ordinateur - accédez à vos documents partout;🔍 Recherche intelligente qui comprend ce que vous voulez dire, pas juste des mots-clés;💬 Posez des questions en français et obtenez des réponses directes de vos documents;📄 Organise et catégorise automatiquement vos fichiers;🔒 Sécurisé et privé - vos documents restent en sécurité;📊 Scanne et lit les PDFs, images et notes manuscrites",
   "project.archeon.fullDescription":
     "Archeon est une plateforme sophistiquée de gestion de documents et de connaissances propulsée par l'IA qui aide les utilisateurs à organiser, rechercher et extraire des insights de leurs documents. Construite avec des technologies modernes et alimentée par Graph RAG avancé (Retrieval-Augmented Generation), Archeon transforme votre bibliothèque de documents en un second cerveau intelligent. La plateforme dispose d'une architecture microservices distribuée avec NestJS (Gate) et FastAPI (Scribe), Neo4j pour les knowledge graphs via Graphiti, et pgvector pour les embeddings sémantiques.",
   "project.archeon.features":
@@ -181,6 +200,10 @@ export const messagesFr = {
     "Plateforme de chat full-stack prête pour la production avec authentification Google OAuth, messagerie directe, chats de groupe et partage de médias en temps réel.",
   "project.chat.category": "Full-Stack / Temps Réel",
   "project.chat.impact": "Monorepo avec 100+ fichiers, 95% TypeScript",
+  "project.chat.simpleOverview":
+    "Une application de messagerie moderne similaire à WhatsApp ou Slack que j'ai construite de zéro. Vous pouvez vous connecter avec votre compte Google, discuter avec vos amis en tête-à-tête ou en groupe, partager des photos et des GIFs, et voir quand quelqu'un est en train d'écrire. Tout se passe instantanément en temps réel, comme les apps que vous utilisez tous les jours.",
+  "project.chat.simpleFeatures":
+    "🔐 Connectez-vous facilement avec votre compte Google - pas de nouveau mot de passe;💬 Envoyez des messages instantanément - ils apparaissent tout de suite pour tout le monde;👥 Créez des chats de groupe jusqu'à 50 personnes;🖼️ Partagez photos et GIFs en les glissant dans le chat;✅ Voyez quand vos messages sont lus;🟢 Sachez qui est en ligne;📱 Fonctionne parfaitement sur téléphones et ordinateurs",
   "project.chat.fullDescription":
     "Une plateforme de messagerie de niveau entreprise sophistiquée construite avec des technologies modernes, comprenant l'authentification Google OAuth, la messagerie directe, les chats de groupe jusqu'à 50 membres et les capacités de partage de médias en temps réel. L'application utilise une architecture monorepo avec TypeScript (95% de la base de code), garantissant une sécurité de type complète sur toute la pile. Déployée avec conteneurisation Docker et automatisation Ansible pour une infrastructure prête pour la production.",
   "project.chat.features":
@@ -197,6 +220,10 @@ export const messagesFr = {
   "project.syntrix.category": "Full-Stack / Legal Tech",
   "project.syntrix.impact":
     "Architecture monorepo avec 72,8% de couverture TypeScript",
+  "project.syntrix.simpleOverview":
+    "Syntrix est une plateforme numérique qui aide les cabinets d'avocats à gérer leurs clients et dossiers plus efficacement. C'est comme un hub central où les avocats peuvent accueillir de nouveaux clients, collecter les documents requis, vérifier les identités et tout garder organisé en un seul endroit sécurisé. Ça remplace les formulaires papier et les échanges d'emails par un processus numérique fluide.",
+  "project.syntrix.simpleFeatures":
+    "📝 Onboarding client facile avec formulaires numériques;📁 Téléchargement et gestion de documents sécurisés;✅ Vérification d'identité (KYC) pour la conformité;🔒 Sécurité niveau bancaire pour données juridiques sensibles;📊 Tableau de bord pour voir tous les clients d'un coup d'œil;📱 Fonctionne sur tout appareil - ordinateur, tablette ou téléphone",
   "project.syntrix.fullDescription":
     "Une plateforme de services juridiques de niveau entreprise conçue pour les cabinets d'avocats et les avocats indépendants afin de digitaliser leur pratique. Construite avec une architecture monorepo moderne utilisant Yarn Workspaces, la plateforme dispose d'une API backend NestJS et d'un frontend Next.js avec React 19. L'application est conteneurisée avec Docker et inclut des tests complets, des outils de qualité de code et suit les meilleures pratiques de l'industrie. Conçue avec la sécurité et la conformité à l'esprit, avec des capacités de vérification KYC/AML prévues pour répondre aux exigences réglementaires de l'industrie juridique.",
   "project.syntrix.features":
@@ -219,6 +246,10 @@ export const messagesFr = {
   "project.coverLetter.category": "Full-Stack / Extension Navigateur / IA",
   "project.coverLetter.impact":
     "Monorepo avec 92,8% TypeScript - Extension navigateur en production",
+  "project.coverLetter.simpleOverview":
+    "La recherche d'emploi peut être épuisante, surtout quand il faut écrire des lettres de motivation pour chaque candidature. Cette extension Chrome fait le gros du travail pour vous. Visitez n'importe quelle offre d'emploi, cliquez sur l'extension, et elle crée instantanément une lettre de motivation personnalisée qui correspond à votre CV avec les exigences du poste. Ça marche sur LinkedIn, Indeed et pratiquement tous les sites d'emploi.",
+  "project.coverLetter.simpleFeatures":
+    "🔌 Fonctionne sur tous les sites d'emploi - LinkedIn, Indeed, pages carrières d'entreprises;\u2728 Génération en un clic - fini le syndrome de la page blanche;🎯 Fait correspondre automatiquement vos compétences avec les exigences du poste;🌐 Écrit dans la même langue que l'offre d'emploi;📎 Téléchargez votre CV une fois, utilisez-le pour toujours;📝 Copiez dans le presse-papiers ou téléchargez en PDF",
   "project.coverLetter.fullDescription":
     "Une extension Chrome sophistiquée propulsée par l'IA qui révolutionne le processus de candidature en générant automatiquement des lettres de motivation sur mesure. L'extension extrait intelligemment le contenu des offres d'emploi depuis n'importe quelle page carrières, analyse les exigences avec l'IA et crée des lettres de motivation personnalisées parfaitement alignées avec le CV du candidat. Construite avec une architecture monorepo comprenant une interface d'extension Chrome en React et une API backend robuste en NestJS, l'application exploite DeepSeek AI pour le traitement du langage naturel et supporte la génération multilingue, s'adaptant automatiquement à la langue de l'offre d'emploi.",
   "project.coverLetter.features":
@@ -246,6 +277,10 @@ export const messagesFr = {
   "project.rlSuite.category": "IA/ML / Apprentissage par Renforcement",
   "project.rlSuite.impact":
     "100% Python - Projet de recherche académique pour Epitech MSc Pro",
+  "project.rlSuite.simpleOverview":
+    "Vous êtes-vous déjà demandé comment l'IA apprend à jouer aux jeux vidéo ? Ce projet consiste à enseigner aux ordinateurs à maîtriser des jeux par essai et erreur - exactement comme les humains apprennent ! J'ai créé des agents IA qui commencent sans rien savoir et deviennent progressivement experts à des jeux comme Atari Pong. C'est fascinant de les voir passer de mouvements aléatoires à battre le jeu systématiquement.",
+  "project.rlSuite.simpleFeatures":
+    "🎮 L'IA apprend à jouer de zéro - aucune instruction donnée;🧠 Plusieurs stratégies d'apprentissage testées et comparées;🕹️ Fonctionne sur des jeux classiques comme Pong, Taxi et puzzles;📊 Progression visuelle pour voir l'IA s'améliorer;🚀 Modèles pré-entraînés prêts à jouer immédiatement;🏆 Taux de réussite de 95%+ atteint sur jeux complexes",
   "project.rlSuite.fullDescription":
     "Un projet d'intelligence artificielle avancé explorant plusieurs algorithmes d'apprentissage par renforcement appliqués à divers environnements de jeu. Le projet démontre la maîtrise des concepts fondamentaux du RL (Q-Learning, SARSA) sur les environnements Gymnasium classiques, et s'étend à l'apprentissage par renforcement profond de pointe avec l'implémentation DQN pour Atari Pong. Réalisé dans le cadre du programme Master d'Epitech (T-AIA-902), cette suite présente le pipeline complet depuis l'implémentation des algorithmes jusqu'à l'entraînement, l'évaluation et le déploiement des modèles avec des modèles pré-entraînés.",
   "project.rlSuite.features":
@@ -264,6 +299,10 @@ export const messagesFr = {
   "project.voiceTrain.category":
     "IA/ML / Traitement du Langage Naturel / Base de Données Graphe",
   "project.voiceTrain.impact": "100% Python - Projet de Recherche Académique",
+  "project.voiceTrain.simpleOverview":
+    "Planifiez un voyage en train en France simplement en parlant à votre ordinateur ! Ce projet vous permet de dire quelque chose comme 'Je veux aller de Toulouse à Paris en passant par Lyon', et l'IA comprend où vous voulez aller, trouve toutes les gares et calcule le meilleur itinéraire pour vous. Il combine la reconnaissance vocale avec la planification intelligente d'itinéraires.",
+  "project.voiceTrain.simpleFeatures":
+    "🎙️ Parlez naturellement vos plans de voyage en français;📍 Comprend automatiquement les noms de villes et de gares;🛤️ Calcule l'itinéraire le plus rapide entre toutes les gares;🚉 Prend en charge les trajets multi-étapes (A → B → C → D);🇫🇷 Fonctionne hors ligne avec la reconnaissance vocale française;📊 817 gares cartographiées avec 1 574 itinéraires",
   "project.voiceTrain.fullDescription":
     "Un système d'intelligence artificielle sophistiqué qui combine reconnaissance vocale, traitement du langage naturel et bases de données graphe pour créer une interface intuitive de recherche d'itinéraires ferroviaires. Le projet utilise des modèles de transformers de pointe (BERT, CamemBERT) pour extraire les entités nommées (NER) des requêtes en langage naturel, stocke le réseau ferroviaire français dans une base de données graphe Neo4j, et applique l'algorithme de Dijkstra pour trouver les chemins optimaux. Réalisé dans le cadre du programme Master, ce projet démontre la maîtrise de l'apprentissage profond, des systèmes de dialogue et des bases de données graphe pour des applications réelles.",
   "project.voiceTrain.features":
@@ -289,6 +328,10 @@ export const messagesFr = {
     "Automatisation DevOps / Outillage Interne / Développement de Bot",
   "project.jumbot.impact":
     "Temps de déploiement réduit de 1 semaine à quelques minutes - Outil interne pour Groupe Bizness/Actual Digital Factory",
+  "project.jumbot.simpleOverview":
+    "Avant Jumbot, déployer un nouvel environnement client prenait jusqu'à une semaine parce que les équipes non techniques devaient attendre les développeurs. Maintenant, n'importe qui dans l'entreprise peut déployer des applications en quelques minutes avec de simples commandes Slack. Tapez juste une commande, sélectionnez vos options dans un menu, et Jumbot gère tout automatiquement - de la récupération du bon code à la configuration du serveur.",
+  "project.jumbot.simpleFeatures":
+    "💬 Déployez des apps directement depuis Slack - pas de code requis;⏱️ Déploiement réduit de 1 semaine à quelques minutes;📢 Notifications automatiques quand les déploiements sont terminés;📋 Menus faciles pour sélectionner les applications à déployer;🔒 Sécurisé - seuls les membres autorisés peuvent déployer;📜 Historique complet de qui a déployé quoi et quand",
   "project.jumbot.fullDescription":
     "Jumbot est un bot Slack complet conçu pour automatiser le processus de déploiement complexe de la plateforme Storiz LCMS. Auparavant, les équipes commerciales non techniques devaient contacter les développeurs et ingénieurs DevOps pour chaque déploiement client, créant des goulots d'étranglement pouvant prendre jusqu'à une semaine. Jumbot transforme ce flux de travail en fournissant une interface Slack intuitive où les utilisateurs peuvent déployer, mettre à jour, lister et supprimer des environnements Storiz via de simples commandes slash. Le système gère plusieurs sous-applications (learniz, back-office, front-dynamic, game, back, game-scorm, learniz-scorm) avec des configurations personnalisées pour chaque client. Construit avec une architecture microservices utilisant BoltJS pour l'intégration Slack, NestJS pour la logique métier, RabbitMQ pour les files de messages et MongoDB pour la persistance des données, Jumbot démontre une automatisation de niveau entreprise tout en maintenant sécurité et traçabilité.",
   "project.jumbot.features":
@@ -314,6 +357,10 @@ export const messagesFr = {
     "Application en production servant des milliers d'utilisateurs quotidiens à travers la France - Plateforme principale du Groupe Actual pour intérimaires",
   "project.myActual.fullDescription":
     "My Actual est la plateforme digitale centrale du Groupe Actual, une des principales entreprises RH et de recrutement en France. Cette application critique sert d'interface principale pour les intérimaires, candidats et personnel d'agence pour gérer leurs relations professionnelles. La plateforme gère tout, des candidatures et gestion de missions au traitement de contrats et stockage de documents. Construite avec une stack technologique moderne incluant React/TypeScript pour le web, React Native/Expo pour le mobile et Laravel pour les services backend, l'application démontre un développement à échelle d'entreprise avec exigences de haute disponibilité. Le système s'intègre à plusieurs sources de données, fournit notifications en temps réel et maintient synchronisation entre plateformes web et mobile tout en servant des milliers d'utilisateurs concurrents quotidiennement.",
+  "project.myActual.simpleOverview":
+    "My Actual, c'est comme une application tout-en-un pour les travailleurs temporaires en France. Imaginez avoir vos contrats de travail, bulletins de paie et opportunités d'emploi dans votre poche. Les intérimaires peuvent trouver de nouvelles missions, gérer leurs plannings, accéder à leurs documents et communiquer avec leurs agences - le tout depuis leur téléphone ou ordinateur. J'ai travaillé sur cette application qui sert des milliers de personnes chaque jour.",
+  "project.myActual.simpleFeatures":
+    "📱 Disponible sur web et mobile - accédez à tout depuis n'importe où;📄 Tous vos documents de travail au même endroit (contrats, bulletins de paie);🔍 Trouvez et postulez facilement à de nouvelles missions;💬 Discutez directement avec votre agence;🔔 Soyez notifié instantanément des mises à jour importantes;📊 Suivez votre historique de missions et vos revenus",
   "project.myActual.features":
     "Disponibilité multi-plateforme (application web responsive et application mobile native);Système de gestion de missions pour visualisation des missions actuelles et passées;Portail de candidatures avec capacités de recherche et filtrage avancées;Système de gestion documentaire (contrats, bulletins de paie, certificats, attestations);Notifications en temps réel pour mises à jour importantes et actions requises;Système de messagerie directe avec représentants d'agence;Gestion de profil utilisateur avec informations professionnelles;Suivi d'historique de missions et analytiques de performance;Capacités de téléchargement et partage de documents;Support multilingue pour base d'utilisateurs diverse;Fonctionnalité hors ligne pour utilisateurs mobiles;Notifications push pour utilisateurs d'application mobile;Recherche avancée avec intégration Elasticsearch;Système de cache avec Redis pour performance améliorée;Système Environment on Demand (EOD) pour test de nouvelles fonctionnalités;Pipeline de tests automatisés avec couverture complète;Contrôle d'accès basé sur les rôles pour différents types d'utilisateurs;Intégration avec services Google Cloud Platform;Synchronisation de données en temps réel entre web et mobile;Design responsive optimisé pour toutes tailles d'appareils",
   "project.myActual.challenges":
