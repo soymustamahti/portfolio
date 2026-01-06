@@ -4,76 +4,53 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
-import { useI18n } from "../i18n/I18nProvider";
+import { useI18n } from "@/i18n/I18nProvider";
+import { SKILLS } from "@/constants";
+import { SectionTitle } from "./ui";
 import TiltCard from "./TiltCard";
+import type { Skill } from "@/types";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface Skill {
-  category: string;
-  items: string[];
-  icon: string;
+interface SkillCardProps {
+  skill: Skill;
 }
 
-const skills: Skill[] = [
-  {
-    category: "AI & RAG Systems",
-    icon: "🧠",
-    items: [
-      "Graph RAG",
-      "LangChain",
-      "OpenAI API",
-      "Prompt Engineering",
-      "Fireworks AI",
-    ],
-  },
-  {
-    category: "Knowledge Graphs",
-    icon: "🔮",
-    items: [
-      "Neo4j",
-      "Graphiti",
-      "pgvector",
-      "Pinecone",
-      "Elasticsearch",
-      "Redis",
-    ],
-  },
-  {
-    category: "NLP & Machine Learning",
-    icon: "🤖",
-    items: [
-      "NER",
-      "Text Embeddings",
-      "Semantic Search",
-      "Classification",
-      "Transformers",
-      "PyTorch",
-    ],
-  },
-  {
-    category: "Backend & APIs",
-    icon: "⚙️",
-    items: ["NestJS", "FastAPI", "Node.js", "Python", "GraphQL", "Celery"],
-  },
-  {
-    category: "Frontend & Mobile",
-    icon: "💻",
-    items: [
-      "TypeScript",
-      "React",
-      "Next.js",
-      "React Native",
-      "Tailwind CSS",
-      "Expo",
-    ],
-  },
-  {
-    category: "DevOps & Cloud",
-    icon: "☁️",
-    items: ["Docker", "BullMQ", "CI/CD", "Ansible", "RabbitMQ"],
-  },
-];
+const SkillCard: React.FC<SkillCardProps> = ({ skill }) => (
+  <TiltCard className="h-full" tiltStrength={12} glareEffect>
+    <motion.div
+      className="bg-secondary/50 backdrop-blur-sm p-6 rounded-xl border border-accent/20 hover:border-accent/60 transition-all duration-300 hover:shadow-2xl group h-full"
+      whileHover={{ scale: 1.03 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    >
+      <div className="flex items-center gap-3 mb-4">
+        <motion.span
+          className="text-4xl"
+          whileHover={{ scale: 1.2, rotate: 10 }}
+          transition={{
+            type: "spring",
+            stiffness: 400,
+            damping: 10,
+          }}
+        >
+          {skill.icon}
+        </motion.span>
+        <h3 className="text-xl font-bold text-accent">{skill.category}</h3>
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        {skill.items.map((item) => (
+          <span
+            key={item}
+            className="px-3 py-1 bg-primary/50 text-textSecondary text-sm rounded-full border border-accent/30"
+          >
+            {item}
+          </span>
+        ))}
+      </div>
+    </motion.div>
+  </TiltCard>
+);
 
 const Skills: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -139,59 +116,19 @@ const Skills: React.FC = () => {
       className="min-h-screen flex items-center justify-center px-6 py-20"
     >
       <div className="max-w-7xl mx-auto w-full">
-        <motion.h2
-          className="skills-title text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-        >
+        <SectionTitle className="skills-title">
           {t("sections.skills")}
-        </motion.h2>
+        </SectionTitle>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.map((skill, index) => (
+          {SKILLS.map((skill, index) => (
             <div
               key={skill.category}
               ref={(el) => {
                 skillsRef.current[index] = el;
               }}
             >
-              <TiltCard className="h-full" tiltStrength={12} glareEffect={true}>
-                <motion.div
-                  className="bg-secondary/50 backdrop-blur-sm p-6 rounded-xl border border-accent/20 hover:border-accent/60 transition-all duration-300 hover:shadow-2xl group h-full"
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <motion.span
-                      className="text-4xl"
-                      whileHover={{ scale: 1.2, rotate: 10 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 10,
-                      }}
-                    >
-                      {skill.icon}
-                    </motion.span>
-                    <h3 className="text-xl font-bold text-accent">
-                      {skill.category}
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {skill.items.map((item) => (
-                      <span
-                        key={item}
-                        className="px-3 py-1 bg-primary/50 text-textSecondary text-sm rounded-full border border-accent/30"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              </TiltCard>
+              <SkillCard skill={skill} />
             </div>
           ))}
         </div>

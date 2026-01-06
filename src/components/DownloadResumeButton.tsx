@@ -1,18 +1,78 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useI18n } from "../i18n/I18nProvider";
+import { useI18n } from "@/i18n/I18nProvider";
+import { RESUME_LANGUAGES } from "@/constants";
+import { openInNewTab } from "@/utils";
+import type { Locale } from "@/types";
 
-const DownloadResumeButton = () => {
+interface LanguageOptionProps {
+  flag: string;
+  label: string;
+  subtitle: string;
+  onClick: () => void;
+}
+
+const LanguageOption: React.FC<LanguageOptionProps> = ({
+  flag,
+  label,
+  subtitle,
+  onClick,
+}) => (
+  <button
+    onClick={onClick}
+    className="w-full px-4 py-3 text-left text-textPrimary hover:bg-accent/20 rounded-lg transition-all duration-300 flex items-center gap-3 group"
+  >
+    <span className="text-2xl">{flag}</span>
+    <div>
+      <div className="font-semibold group-hover:text-accent transition-colors">
+        {label}
+      </div>
+      <div className="text-xs text-textSecondary">{subtitle}</div>
+    </div>
+  </button>
+);
+
+const PulsingRing: React.FC = () => (
+  <motion.div
+    animate={{
+      scale: [1, 1.5, 1],
+      opacity: [0.5, 0, 0.5],
+    }}
+    transition={{
+      repeat: Infinity,
+      duration: 2,
+      ease: "easeInOut",
+    }}
+    className="absolute inset-0 rounded-full border-2 border-accent"
+  />
+);
+
+interface TooltipProps {
+  text: string;
+}
+
+const Tooltip: React.FC<TooltipProps> = ({ text }) => (
+  <div className="absolute left-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+    <div className="bg-gradient-to-br from-primary/95 to-secondary/95 backdrop-blur-xl border-2 border-accent/40 rounded-lg px-3 py-2 shadow-xl">
+      <span className="text-sm text-textPrimary font-semibold">{text}</span>
+    </div>
+  </div>
+);
+
+const DownloadResumeButton: React.FC = () => {
   const [showOptions, setShowOptions] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
   const { t } = useI18n();
 
-  const handleViewResume = (language: "en" | "fr") => {
-    window.open(`/${language}_resume.pdf`, "_blank");
+  const handleViewResume = useCallback((language: Locale) => {
+    openInNewTab(`/${language}_resume.pdf`);
     setShowOptions(false);
-  };
+  }, []);
+
+  const toggleOptions = useCallback(() => {
+    setShowOptions((prev) => !prev);
+  }, []);
 
   return (
     <div className="fixed top-4 left-4 z-[100]">
@@ -26,44 +86,26 @@ const DownloadResumeButton = () => {
             className="absolute top-20 left-0 bg-gradient-to-br from-primary/95 to-secondary/95 backdrop-blur-xl border-2 border-accent/40 rounded-xl shadow-2xl overflow-hidden min-w-[200px]"
           >
             <div className="p-2 space-y-1">
-              <button
-                onClick={() => handleViewResume("en")}
-                className="w-full px-4 py-3 text-left text-textPrimary hover:bg-accent/20 rounded-lg transition-all duration-300 flex items-center gap-3 group"
-              >
-                <span className="text-2xl">🇬🇧</span>
-                <div>
-                  <div className="font-semibold group-hover:text-accent transition-colors">
-                    English
-                  </div>
-                  <div className="text-xs text-textSecondary">
-                    View EN resume
-                  </div>
-                </div>
-              </button>
-              <button
-                onClick={() => handleViewResume("fr")}
-                className="w-full px-4 py-3 text-left text-textPrimary hover:bg-accent/20 rounded-lg transition-all duration-300 flex items-center gap-3 group"
-              >
-                <span className="text-2xl">🇫🇷</span>
-                <div>
-                  <div className="font-semibold group-hover:text-accent transition-colors">
-                    Français
-                  </div>
-                  <div className="text-xs text-textSecondary">Voir CV FR</div>
-                </div>
-              </button>
+              {RESUME_LANGUAGES.map((lang) => (
+                <LanguageOption
+                  key={lang.code}
+                  flag={lang.flag}
+                  label={lang.label}
+                  subtitle={lang.subtitle}
+                  onClick={() => handleViewResume(lang.code)}
+                />
+              ))}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Main Download Button */}
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        onClick={() => setShowOptions(!showOptions)}
+        onClick={toggleOptions}
         className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-full shadow-2xl flex items-center justify-center text-2xl transition-all duration-300 border-2 border-accent/40 relative group"
-        aria-label="Download resume"
+        aria-label={t("common.downloadCv")}
       >
         <motion.span
           animate={{
@@ -78,28 +120,8 @@ const DownloadResumeButton = () => {
           📄
         </motion.span>
 
-        {/* Pulsing ring */}
-        <motion.div
-          animate={{
-            scale: [1, 1.5, 1],
-            opacity: [0.5, 0, 0.5],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 2,
-            ease: "easeInOut",
-          }}
-          className="absolute inset-0 rounded-full border-2 border-accent"
-        />
-
-        {/* Tooltip */}
-        <div className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
-          <div className="bg-gradient-to-br from-primary/95 to-secondary/95 backdrop-blur-xl border-2 border-accent/40 rounded-lg px-3 py-2 shadow-xl">
-            <span className="text-sm text-textPrimary font-semibold">
-              {t("common.downloadCv")}
-            </span>
-          </div>
-        </div>
+        <PulsingRing />
+        <Tooltip text={t("common.downloadCv")} />
       </motion.button>
     </div>
   );

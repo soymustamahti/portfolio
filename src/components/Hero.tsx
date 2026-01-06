@@ -4,8 +4,80 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import { useI18n } from "../i18n/I18nProvider";
+import { useI18n } from "@/i18n/I18nProvider";
+import { CONTACT_INFO } from "@/constants";
+import { scrollToSection } from "@/utils";
 import MagneticButton from "./MagneticButton";
+import { GradientText, PulseDot, GlassBadge } from "./ui";
+
+const FloatingOrbs = React.forwardRef<HTMLDivElement>((_, ref) => (
+  <div
+    ref={ref}
+    className="absolute inset-0 overflow-hidden pointer-events-none"
+  >
+    <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
+    <div className="absolute top-40 right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl" />
+    <div className="absolute bottom-20 left-1/4 w-72 h-72 bg-pink-500/10 rounded-full blur-3xl" />
+  </div>
+));
+FloatingOrbs.displayName = "FloatingOrbs";
+
+interface ContactItemProps {
+  icon: string;
+  children: React.ReactNode;
+  href?: string;
+}
+
+const ContactItem: React.FC<ContactItemProps> = ({ icon, children, href }) => {
+  const content = (
+    <>
+      <span className="text-xl">{icon}</span>
+      {children}
+    </>
+  );
+
+  const className =
+    "flex items-center gap-2 group transition-transform hover:scale-105 duration-300";
+
+  if (href) {
+    return (
+      <a href={href} className={className}>
+        {content}
+      </a>
+    );
+  }
+
+  return <div className={className}>{content}</div>;
+};
+
+const ScrollIndicator: React.FC<{ text: string }> = ({ text }) => (
+  <motion.div
+    className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+    animate={{ y: [0, 10, 0] }}
+    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+  >
+    <div className="flex flex-col items-center gap-2">
+      <span className="text-xs text-textSecondary uppercase tracking-wider">
+        {text}
+      </span>
+      <motion.svg
+        className="w-6 h-6 text-accent"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        animate={{ y: [0, 5, 0] }}
+        transition={{ repeat: Infinity, duration: 1.5 }}
+      >
+        <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </motion.svg>
+    </div>
+  </motion.div>
+);
+
+import React from "react";
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -14,6 +86,7 @@ const Hero: React.FC = () => {
   const descRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const orbsRef = useRef<HTMLDivElement>(null);
+  const { t, locale } = useI18n();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -77,64 +150,29 @@ const Hero: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const { t, locale } = useI18n();
-
   return (
     <section
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"
     >
-      {/* Floating orbs */}
-      <div
-        ref={orbsRef}
-        className="absolute inset-0 overflow-hidden pointer-events-none"
-      >
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-40 right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-1/4 w-72 h-72 bg-pink-500/10 rounded-full blur-3xl"></div>
-      </div>
+      <FloatingOrbs ref={orbsRef} />
 
       <div className="relative z-10 text-center max-w-6xl mx-auto pt-20 sm:pt-0">
-        {/* Name with gradient */}
         <h1 ref={titleRef} className="mb-6 px-4">
-          <div
-            className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-bold tracking-tight"
-            style={{
-              background:
-                "linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              backgroundSize: "200% auto",
-              animation: "shimmer 8s linear infinite",
-            }}
+          <GradientText
+            className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-bold tracking-tight block"
+            animate
           >
             {t("hero.title")}
-          </div>
-          <div
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-wide mt-2"
-            style={{
-              background:
-                "linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              backgroundSize: "200% auto",
-              animation: "shimmer 8s linear infinite",
-            }}
+          </GradientText>
+          <GradientText
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-wide mt-2 block"
+            animate
           >
             El Hachmi Mahti
-          </div>
+          </GradientText>
         </h1>
 
-        {/* Title with glass effect */}
         <div
           ref={subtitleRef}
           className="inline-block px-8 py-3 glass rounded-full mb-8"
@@ -154,7 +192,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Description */}
         <div
           ref={descRef}
           className="text-lg md:text-xl lg:text-2xl text-textSecondary mb-12 max-w-4xl mx-auto leading-relaxed font-light min-h-[4rem] md:min-h-[5rem]"
@@ -175,41 +212,30 @@ const Hero: React.FC = () => {
           />
         </div>
 
-        {/* Contact line to match resume header */}
         <div className="text-sm sm:text-base md:text-lg text-textSecondary mb-10 flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-x-6 gap-y-3 px-4">
-          <div className="flex items-center gap-2 group transition-transform hover:scale-105 duration-300">
-            <span className="text-xl">📍</span>
+          <ContactItem icon="📍">
             <span className="text-center group-hover:text-textPrimary transition-colors">
               {t("resume.location")}
             </span>
-          </div>
-          
+          </ContactItem>
+
           <span className="hidden sm:inline text-accent/30">|</span>
-          
-          <a
-            href="mailto:mustaelhachmimahti@gmail.com"
-            className="flex items-center gap-2 group transition-transform hover:scale-105 duration-300"
-          >
-            <span className="text-xl">📧</span>
+
+          <ContactItem icon="📧" href={`mailto:${CONTACT_INFO.email}`}>
             <span className="underline hover:text-textPrimary break-all text-center transition-colors">
-              mustaelhachmimahti@gmail.com
+              {CONTACT_INFO.email}
             </span>
-          </a>
-          
+          </ContactItem>
+
           <span className="hidden sm:inline text-accent/30">|</span>
-          
-          <a 
-            href="tel:+33750018388" 
-            className="flex items-center gap-2 group transition-transform hover:scale-105 duration-300"
-          >
-            <span className="text-xl">📱</span>
+
+          <ContactItem icon="📱" href={`tel:${CONTACT_INFO.phoneRaw}`}>
             <span className="hover:text-textPrimary text-center transition-colors">
-              +33 750 018 388
+              {CONTACT_INFO.phone}
             </span>
-          </a>
+          </ContactItem>
         </div>
 
-        {/* CTA Buttons */}
         <div
           ref={ctaRef}
           className="flex flex-col sm:flex-row gap-6 justify-center items-center"
@@ -260,47 +286,17 @@ const Hero: React.FC = () => {
           </MagneticButton>
         </div>
 
-        {/* Floating badge */}
-        <motion.div
-          className="mt-16 mb-32 inline-flex items-center gap-3 glass px-6 py-3 rounded-full border border-accent/20"
-          animate={{ y: [0, -10, 0] }}
-          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+        <GlassBadge
+          animate
+          className="mt-16 mb-32"
+          icon={<PulseDot color="green" />}
         >
-          <motion.div
-            className="w-2 h-2 bg-green-500 rounded-full"
-            animate={{ scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-          />
           <span className="text-sm text-textSecondary">
             {t("common.available")}
           </span>
-        </motion.div>
+        </GlassBadge>
 
-        {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-textSecondary uppercase tracking-wider">
-              {t("common.scroll")}
-            </span>
-            <motion.svg
-              className="w-6 h-6 text-accent"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              animate={{ y: [0, 5, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-            >
-              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </motion.svg>
-          </div>
-        </motion.div>
+        <ScrollIndicator text={t("common.scroll")} />
       </div>
     </section>
   );
