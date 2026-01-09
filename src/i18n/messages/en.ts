@@ -20,6 +20,8 @@ export const messagesEn = {
   "common.languages": "Languages",
   "common.liveDemo": "Demo",
   "common.images": "Images",
+  "common.back": "Back",
+  "common.viewResume": "View Resume",
 
   // Tooltips
   "tooltip.resume": "View Resume",

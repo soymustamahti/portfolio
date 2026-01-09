@@ -170,12 +170,12 @@ const AIChatBot: React.FC = () => {
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               data-lenis-prevent
-              className="fixed inset-4 md:inset-8 lg:inset-16 xl:inset-24 z-[125] bg-gradient-to-br from-secondary via-secondary/95 to-secondary/90 backdrop-blur-xl rounded-3xl shadow-2xl shadow-accent/20 border border-accent/30 flex flex-col overflow-hidden max-h-[calc(100vh-2rem)] md:max-h-[calc(100vh-4rem)] lg:max-h-[calc(100vh-8rem)] xl:max-h-[calc(100vh-12rem)]"
+              className="fixed inset-0 md:inset-4 lg:inset-8 xl:inset-16 z-[125] bg-gradient-to-br from-secondary via-secondary/95 to-secondary/90 backdrop-blur-xl md:rounded-3xl shadow-2xl shadow-accent/20 border-0 md:border border-accent/30 flex flex-col overflow-hidden"
             >
               <ChatHeader onClose={closeModal} />
 
               {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-6 space-y-6 min-h-0">
+              <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 md:space-y-6 min-h-0">
                 {messages.map((msg, idx) => (
                   <ChatMessageBubble key={idx} message={msg} />
                 ))}

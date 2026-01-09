@@ -11,22 +11,22 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ onClose }) => {
   const { t } = useI18n();
 
   return (
-    <div className="relative bg-gradient-to-r from-accent/20 via-purple-500/20 to-blue-500/20 p-6 border-b border-accent/20">
+    <div className="relative bg-gradient-to-r from-accent/20 via-purple-500/20 to-blue-500/20 p-4 md:p-6 border-b border-accent/20 safe-area-inset-top">
       <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-transparent" />
       <div className="relative flex items-center justify-between">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 md:gap-4">
           <div className="relative">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-purple-500 flex items-center justify-center text-2xl">
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-accent to-purple-500 flex items-center justify-center text-xl md:text-2xl">
               🤖
             </div>
-            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-secondary" />
+            <div className="absolute -bottom-1 -right-1 w-3 h-3 md:w-4 md:h-4 bg-green-500 rounded-full border-2 border-secondary" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-textPrimary">
+            <h3 className="text-base md:text-xl font-bold text-textPrimary">
               {t("chatBot.title")}
             </h3>
-            <p className="text-sm text-green-400 flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+            <p className="text-xs md:text-sm text-green-400 flex items-center gap-1.5 md:gap-2">
+              <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-green-400 rounded-full animate-pulse" />
               {t("chatBot.status")}
             </p>
           </div>

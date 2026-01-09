@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { useI18n } from "../i18n/I18nProvider";
+import { useWelcomeBot } from "../context/WelcomeBotContext";
 
 const WelcomeBot = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,6 +12,12 @@ const WelcomeBot = () => {
   const [isMinimized, setIsMinimized] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const { t } = useI18n();
+  const { setWelcomeBotVisible } = useWelcomeBot();
+
+  // Sync visibility with context
+  useEffect(() => {
+    setWelcomeBotVisible(isVisible);
+  }, [isVisible, setWelcomeBotVisible]);
 
   useEffect(() => {
     // Check if user has visited before
@@ -111,7 +118,7 @@ const WelcomeBot = () => {
             }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
-            className="fixed bottom-8 right-8 z-[100] max-w-md"
+            className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-[100] max-w-[calc(100vw-2rem)] md:max-w-md"
           >
             {/* Bot Container */}
             <div className="bg-gradient-to-br from-primary/95 to-secondary/95 backdrop-blur-xl border-2 border-accent/40 rounded-2xl shadow-2xl overflow-hidden">
@@ -319,10 +326,10 @@ const WelcomeBot = () => {
         )}
       </AnimatePresence>
 
-      {/* Reopen Button */}
+      {/* Reopen Button - Hidden on mobile for cleaner UI */}
       <AnimatePresence>
         {showButton && !isVisible && (
-          <div className="fixed bottom-8 right-8 z-[100] group">
+          <div className="hidden md:block fixed bottom-8 right-8 z-[100] group">
             <motion.button
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}

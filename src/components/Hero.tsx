@@ -175,9 +175,9 @@ const Hero: React.FC = () => {
 
         <div
           ref={subtitleRef}
-          className="inline-block px-8 py-3 glass rounded-full mb-8"
+          className="inline-block px-4 sm:px-8 py-2 sm:py-3 glass rounded-full mb-6 sm:mb-8"
         >
-          <div className="text-xl md:text-2xl lg:text-3xl text-textPrimary font-semibold flex items-center justify-center min-h-[2.5rem] md:min-h-[3rem] lg:min-h-[3.5rem]">
+          <div className="text-base sm:text-xl md:text-2xl lg:text-3xl text-textPrimary font-semibold flex items-center justify-center min-h-[2rem] sm:min-h-[2.5rem] md:min-h-[3rem] lg:min-h-[3.5rem]">
             <TypeAnimation
               key={`subtitle-${locale}`}
               sequence={[
@@ -194,7 +194,7 @@ const Hero: React.FC = () => {
 
         <div
           ref={descRef}
-          className="text-lg md:text-xl lg:text-2xl text-textSecondary mb-12 max-w-4xl mx-auto leading-relaxed font-light min-h-[4rem] md:min-h-[5rem]"
+          className="text-sm sm:text-lg md:text-xl lg:text-2xl text-textSecondary mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed font-light min-h-[3rem] sm:min-h-[4rem] md:min-h-[5rem] px-4"
         >
           <TypeAnimation
             key={`description-${locale}`}
@@ -212,7 +212,7 @@ const Hero: React.FC = () => {
           />
         </div>
 
-        <div className="text-sm sm:text-base md:text-lg text-textSecondary mb-10 flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-x-6 gap-y-3 px-4">
+        <div className="text-xs sm:text-sm md:text-lg text-textSecondary mb-8 sm:mb-10 flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-x-4 md:gap-x-6 gap-y-2 sm:gap-y-3 px-4">
           <ContactItem icon="📍">
             <span className="text-center group-hover:text-textPrimary transition-colors">
               {t("resume.location")}
@@ -222,7 +222,7 @@ const Hero: React.FC = () => {
           <span className="hidden sm:inline text-accent/30">|</span>
 
           <ContactItem icon="📧" href={`mailto:${CONTACT_INFO.email}`}>
-            <span className="underline hover:text-textPrimary break-all text-center transition-colors">
+            <span className="underline hover:text-textPrimary break-all text-center transition-colors text-xs sm:text-sm md:text-base">
               {CONTACT_INFO.email}
             </span>
           </ContactItem>
@@ -238,19 +238,19 @@ const Hero: React.FC = () => {
 
         <div
           ref={ctaRef}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full px-4 sm:px-0"
         >
           <MagneticButton strength={0.4}>
             <motion.button
               onClick={() => scrollToSection("projects")}
-              className="group relative px-10 py-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold text-lg overflow-hidden shadow-lg shadow-blue-500/50"
+              className="group relative px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold text-base sm:text-lg overflow-hidden shadow-lg shadow-blue-500/50 w-full sm:w-auto"
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 20px 40px rgba(59, 130, 246, 0.5)",
               }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center justify-center gap-2">
                 {t("common.viewProjects")}
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
@@ -271,7 +271,7 @@ const Hero: React.FC = () => {
           <MagneticButton strength={0.4}>
             <motion.button
               onClick={() => scrollToSection("contact")}
-              className="relative px-10 py-5 glass rounded-full font-semibold text-lg text-textPrimary border-2 border-accent/50 hover:border-accent overflow-hidden group"
+              className="relative px-8 py-4 sm:px-10 sm:py-5 glass rounded-full font-semibold text-base sm:text-lg text-textPrimary border-2 border-accent/50 hover:border-accent overflow-hidden group w-full sm:w-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -288,10 +288,10 @@ const Hero: React.FC = () => {
 
         <GlassBadge
           animate
-          className="mt-16 mb-32"
+          className="mt-10 sm:mt-16 mb-20 sm:mb-32"
           icon={<PulseDot color="green" />}
         >
-          <span className="text-sm text-textSecondary">
+          <span className="text-xs sm:text-sm text-textSecondary">
             {t("common.available")}
           </span>
         </GlassBadge>
