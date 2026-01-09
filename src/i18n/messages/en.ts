@@ -155,7 +155,7 @@ export const messagesEn = {
     "E2E test automation with Selenium WebDriver, Cucumber JS and Gherkin;Custom Slack commands with Bolt JS and NestJS;Automated workflows to boost team productivity",
   "exp.jump.stack": "Selenium, Cucumber JS, Bolt JS, NestJS",
 
-  "exp.syntrix.title": "Founder & Lead Developer",
+  "exp.syntrix.title": "AI Software Engineer",
   "exp.syntrix.company": "Archeon - AI Knowledge Management Platform",
   "exp.syntrix.location": "Remote",
   "exp.syntrix.period": "June 2024 — Present",
