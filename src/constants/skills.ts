@@ -32,7 +32,7 @@ export const SKILLS: Skill[] = [
       "Text Embeddings",
       "Semantic Search",
       "Classification",
-      "Transformers",
+      "RL",
       "PyTorch",
     ],
   },
