@@ -23,20 +23,20 @@ const Experience: React.FC = () => {
   const experiences: ExperienceItem[] = useMemo(
     () => [
       {
-        title: t("exp.actual.title"),
-        company: t("exp.actual.company"),
-        location: t("exp.actual.location"),
-        period: t("exp.actual.period"),
-        description: t("exp.actual.points").split(";").filter(Boolean),
-        stack: t("exp.actual.stack"),
-      },
-      {
         title: t("exp.syntrix.title"),
         company: t("exp.syntrix.company"),
         location: t("exp.syntrix.location"),
         period: t("exp.syntrix.period"),
         description: t("exp.syntrix.points").split(";").filter(Boolean),
         stack: t("exp.syntrix.stack"),
+      },
+      {
+        title: t("exp.actual.title"),
+        company: t("exp.actual.company"),
+        location: t("exp.actual.location"),
+        period: t("exp.actual.period"),
+        description: t("exp.actual.points").split(";").filter(Boolean),
+        stack: t("exp.actual.stack"),
       },
       {
         title: t("exp.bizness.title"),

@@ -160,7 +160,7 @@ export const messagesFr = {
   "exp.syntrix.company":
     "Archeon (Freelance) - Plateforme IA Knowledge Management",
   "exp.syntrix.location": "Remote",
-  "exp.syntrix.period": "Juin 2024 — Présent",
+  "exp.syntrix.period": "Septembre 2025 — Mars 2026",
   "exp.syntrix.points":
     "Graph RAG & Knowledge Graphs : Architecture Graph RAG avec Neo4j et Graphiti pour extraction d'entités, mapping de relations et génération de graphes de connaissances à partir de documents;Agents IA & LLM Orchestration : Implémentation d'agents autonomes avec LangChain/LangGraph pour Q&A intelligent, classification automatique et recherche sémantique multi-modale;Architecture Microservices IA : Stack distribué NestJS + FastAPI avec Celery workers pour traitement asynchrone (OCR, embeddings, graph building), PostgreSQL+pgvector pour recherche vectorielle;Applications Multi-Plateformes : Interface Next.js (React) et app mobile React Native/Expo avec authentification JWT, rate limiting Redis et stockage Cloudflare R2",
   "exp.syntrix.stack":
