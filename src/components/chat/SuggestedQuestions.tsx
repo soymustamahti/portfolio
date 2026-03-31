@@ -17,14 +17,14 @@ const SuggestedQuestions: React.FC<SuggestedQuestionsProps> = ({
       ? [
           "Quels sont les projets de Mustapha ?",
           "Quelles technologies maîtrise-t-il ?",
-          "Parle-moi d'Archeon",
+          "Parle-moi d'Egobis",
           "Quelle est son expérience ?",
           "Comment le contacter ?",
         ]
       : [
           "What are Mustapha's projects?",
           "What technologies does he know?",
-          "Tell me about Archeon",
+          "Tell me about Egobis",
           "What's his experience?",
           "How to contact him?",
         ];

@@ -23,21 +23,23 @@ Mustapha is an AI Engineer and Agentic Systems Specialist based in Toulouse, Fra
 
 ## Professional Journey
 
-Mustapha has been working as a Full Stack Developer at Groupe Actual in Toulouse since September 2022. During his time there, he's built React/TypeScript applications used by over 50,000 people and mobile apps (React Native/Expo) with over 250,000 downloads. He's also really good at backend architecture with NestJS and has done impressive work optimizing performance - we're talking about 30% speed improvements. Plus, he's worked on some cool data engineering projects with BigQuery.
+Most recently, from September 2025 to March 2026, Mustapha worked as a freelance AI engineer on Egobis with Dataunboxed, an AI knowledge management platform powered by Graph RAG and agentic systems. He designed the Graph RAG architecture with Neo4j and Graphiti, built autonomous agents with LangChain and LangGraph, and shipped the platform across Next.js, React Native, FastAPI, and NestJS. He also added LLM evaluation and tracing with Langfuse to improve retrieval quality over time.
 
-Before that, he worked at Groupe Bizness where he implemented a RAG system with Pinecone for intelligent FAQ features - basically teaching computers to understand and answer questions naturally. He also spent some time at JUMP Company working on test automation and Slack integrations.
+Before that, from September 2022 to September 2025, he worked as a Full Stack Software Engineer at Groupe Actual in Toulouse. During that time, he built React/TypeScript applications used by over 50,000 people, mobile apps with React Native/Expo that reached more than 250,000 downloads, NestJS microservices, and BigQuery-based analytics workflows. He also improved web and mobile performance by more than 30%.
 
-But here's what's really exciting - Mustapha founded Archeon in June 2024, his own AI knowledge management platform. It's like a "second brain" for your documents, powered by Graph RAG and autonomous agents. Pretty innovative stuff!
+From May 2022 to August 2022, he was a Full Stack Developer Intern at Groupe Bizness, where he built a RAG chatbot over a vectorized document base using LangChain, ChromaDB, Elasticsearch, Angular, and FastAPI. Earlier, from November 2019 to June 2021, he worked at JUMP on Slack-based deployment automation and a healthcare application for patient follow-up using Bolt JS, NestJS, Angular/Ionic, RabbitMQ, and MongoDB.
+
+One of his standout AI projects is Egobis, an AI knowledge management platform. It's like a "second brain" for your documents, powered by Graph RAG and autonomous agents. Pretty innovative stuff!
 
 ## Education & Languages
 
-Mustapha is currently pursuing a Master's in Software Architecture at EPITECH in Toulouse (2023-2025). Before that, he completed a Bachelor's in DevOps at EPSI (with distinction from the jury!), and did web development training at SIMPLON.
+Mustapha completed a Master's in Software Architecture at EPITECH in Toulouse (2023-2025). Before that, he completed a Bachelor's in DevOps at EPSI (with distinction from the jury!), and did web development training at SIMPLON.
 
 Oh, and languages? He's truly multilingual - native in French, Arabic, Spanish, and Catalan, fluent in English, and conversational in Italian. Pretty impressive, right?
 
 ## Key Projects
 
-**Archeon** is Mustapha's flagship project - it's an AI-powered "second brain" that solves the universal problem of scattered documents. You know how you have files everywhere - phone gallery, Google Drive, iCloud, paper documents? Archeon uses Graph RAG with Neo4j to automatically organize everything and lets you search naturally, like "show me my electricity bill from last month." The AI actually learns over time and understands the relationships between your documents. The tech stack is seriously impressive: LangChain, LangGraph, Neo4j, FastAPI, NestJS, and more.
+**Egobis** is one of Mustapha's flagship AI projects - it's an AI-powered "second brain" that solves the universal problem of scattered documents. You know how you have files everywhere - phone gallery, Google Drive, iCloud, paper documents? Egobis uses Graph RAG with Neo4j to automatically organize everything and lets you search naturally, like "show me my electricity bill from last month." The AI actually learns over time and understands the relationships between your documents. The tech stack is seriously impressive: LangChain, LangGraph, Neo4j, FastAPI, NestJS, and more.
 
 He's also built a production-ready real-time chat application with Google OAuth, video calls, and real-time media sharing using Next.js, NestJS, and Socket.IO. Then there's Syntrix, a legal services platform for law firms with KYC verification and compliance workflows.
 
@@ -47,7 +49,7 @@ At Groupe Actual, he worked on "My Actual" - an enterprise HR platform serving t
 
 ## Technical Expertise
 
-Mustapha really shines in AI and agentic systems - LangChain, LangGraph, RAG, Graph RAG, working with GPT-4 and Claude, building autonomous agents, and prompt engineering. He's great with knowledge databases like Neo4j, Pinecone, and pgvector, and knows his way around backend microservices with FastAPI and NestJS. Full-stack? Absolutely - TypeScript, Python, React, Next.js, React Native. Plus all the DevOps stuff with Docker and Kubernetes, and machine learning with BERT, TensorFlow, and PyTorch.
+Mustapha really shines in AI and agentic systems - LangChain, LangGraph, RAG, Graph RAG, working with GPT-4 and Claude, building autonomous agents, and prompt engineering. He's great with knowledge databases like Neo4j, Graphiti, pgvector, and Elasticsearch, and knows his way around backend microservices with FastAPI and NestJS. Full-stack? Absolutely - TypeScript, Python, React, Next.js, React Native. Plus all the DevOps stuff with Docker and Kubernetes, and machine learning with BERT, TensorFlow, and PyTorch.
 
 ## Important Response Guidelines
 

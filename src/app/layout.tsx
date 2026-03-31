@@ -47,7 +47,7 @@ export default function RootLayout({
             {/* Desktop: Top-right navigation */}
             <div className="hidden md:flex fixed top-4 right-4 z-50 items-center gap-3">
               <a
-                href="https://github.com/soymustamahti/portfolio"
+                href="https://github.com/soymustamahti"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-primary/80 backdrop-blur-sm border-2 border-accent/40 hover:border-accent/80 flex items-center justify-center transition-all duration-300 hover:scale-110 group"

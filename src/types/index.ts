@@ -15,13 +15,29 @@ export interface ProjectDetails {
   impact?: string;
 }
 
+export interface ExperienceDetailSection {
+  title: string;
+  items: string[];
+}
+
+export interface ExperienceDetailTab {
+  id: string;
+  label: string;
+  sections: ExperienceDetailSection[];
+}
+
 export interface ExperienceItem {
+  id: string;
   title: string;
   company: string;
   location: string;
   period: string;
   description: string[];
   stack?: string;
+  detailsSections?: ExperienceDetailSection[];
+  detailsTabs?: ExperienceDetailTab[];
+  relatedProjectHref?: string;
+  relatedProjectTitle?: string;
 }
 
 export interface Skill {

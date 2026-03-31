@@ -48,7 +48,7 @@ const MobileFloatingMenu: React.FC = () => {
   }, [locale, setLocale]);
 
   const handleGitHub = useCallback(() => {
-    openInNewTab("https://github.com/soymustamahti/portfolio");
+    openInNewTab("https://github.com/soymustamahti");
     setIsOpen(false);
   }, []);
 

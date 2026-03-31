@@ -21,8 +21,9 @@ function ScrollHandler() {
   useEffect(() => {
     // Check if there's a hash in the URL or scrollTo parameter
     const scrollTo = searchParams.get("scrollTo");
+    const experience = searchParams.get("experience");
     const hash = window.location.hash.replace("#", "");
-    const targetId = scrollTo || hash;
+    const targetId = scrollTo || hash || (experience ? "experience" : "");
 
     if (targetId) {
       // Wait for page to fully render

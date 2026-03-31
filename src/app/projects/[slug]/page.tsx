@@ -239,7 +239,7 @@ const jumbotImages = [
 // Project configuration mapping slugs to translation keys
 const projectConfigs = [
   {
-    slug: "archeon-ai-second-brain",
+    slug: "egobis-ai-knowledge-management",
     key: "archeon",
     technologies: [
       "Graph RAG",
@@ -407,9 +407,13 @@ export default function ProjectDetailPage() {
   const router = useRouter();
   const { t } = useI18n();
   const slug = params.slug as string;
+  const normalizedSlug =
+    slug === "archeon-ai-second-brain"
+      ? "egobis-ai-knowledge-management"
+      : slug;
 
   // Find the project config matching the slug
-  const projectConfig = projectConfigs.find((p) => p.slug === slug);
+  const projectConfig = projectConfigs.find((p) => p.slug === normalizedSlug);
 
   if (!projectConfig) {
     return (
@@ -677,7 +681,7 @@ export default function ProjectDetailPage() {
             <p className="text-textSecondary mb-6">
               {t("project.archeon.gallery.description")}
             </p>
-            <ProjectGallery images={archeonImages} projectName="Archeon" />
+            <ProjectGallery images={archeonImages} projectName="Egobis" />
           </motion.div>
         )}
 

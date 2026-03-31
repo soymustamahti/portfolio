@@ -3,7 +3,7 @@ import type { ProjectConfig } from "@/types";
 export const PROJECT_CONFIGS: ProjectConfig[] = [
   {
     key: "archeon",
-    slug: "archeon-ai-second-brain",
+    slug: "egobis-ai-knowledge-management",
     liveDemo: true,
     images: true,
     technologies: [

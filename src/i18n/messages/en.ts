@@ -7,6 +7,7 @@ export const messagesEn = {
   "common.viewDetails": "View details",
   "common.discover": "Discover →",
   "common.sendMessage": "Send message",
+  "common.close": "Close",
   "common.name": "Name",
   "common.email": "Email",
   "common.message": "Message",
@@ -31,14 +32,14 @@ export const messagesEn = {
 
   // Hero
   "hero.title": "Mustapha",
-  "hero.subtitle": "AI Engineer & RAG Architect",
+  "hero.subtitle": "AI Engineer & Agentic Systems Specialist",
   "hero.description.part1":
     "Specialized in AI systems, RAG architectures, and Knowledge Graphs.",
   "hero.description.part2": "I transform documents into ",
   "hero.description.highlight": "intelligent, queryable knowledge",
 
   // Resume header
-  "resume.title": "AI Engineer & RAG Architect",
+  "resume.title": "AI Engineer & Agentic Systems Specialist",
   "resume.location": "Toulouse, Occitanie, France",
 
   // About
@@ -84,7 +85,7 @@ export const messagesEn = {
   "contact.success": "Message sent successfully! I'll get back to you soon.",
   "contact.error":
     "Failed to send message. Please try again or contact me directly.",
-  "contact.footer": "© 2025 Mustapha El Hachmi Mahti. All rights reserved.",
+  "contact.footer": "© 2026 Mustapha El Hachmi Mahti. All rights reserved.",
 
   // Sections
   "sections.experiences": "Professional Experience",
@@ -93,6 +94,19 @@ export const messagesEn = {
 
   // Labels
   "labels.stack": "Stack",
+  "experience.highlights": "Role Highlights",
+  "experience.contextAndObjectives": "Context & Objectives",
+  "experience.technicalEnvironment": "Technical Environment",
+  "experience.achievements": "Achievements",
+  "experience.results": "Results",
+  "experience.mission1": "Mission 1",
+  "experience.mission2": "Mission 2",
+  "experience.tabActive": "Currently open",
+  "experience.tabOpen": "Open details",
+  "experience.relatedProject": "Related project",
+  "experience.relatedProjectDescription":
+    "This experience is directly connected to a detailed project page in the projects section.",
+  "experience.openRelatedProject": "Open project",
 
   // Project Page Labels
   "projectPage.whatItDoes": "What It Does",
@@ -132,54 +146,85 @@ export const messagesEn = {
   "howItsMade.viewSource": "View Source Code on GitHub",
 
   // Experiences (EN)
-  "exp.actual.title": "Full Stack Developer",
+  "exp.actual.title": "Full Stack Software Engineer",
   "exp.actual.company": "Groupe Actual",
   "exp.actual.location": "Toulouse",
   "exp.actual.period": "September 2022 — September 2025",
+  "exp.actual.context":
+    "My Actual is the primary application of Groupe Actual, built for web and mobile usage by temporary workers, candidates, and internal collaborators;The platform simplifies mission management, job applications, and access to sensitive administrative documents such as contracts and pay slips;Within the Sky My Actual team, the objective was to deliver features end to end while maintaining strong stability for a product used daily by thousands of people",
+  "exp.actual.environment":
+    "Web development: Designed and built complex React/TypeScript applications for 50,000+ users with optimized user interfaces and advanced state management;Mobile applications: Cross-platform iOS/Android development with React Native/Expo for an app reaching 250,000+ downloads;Backend architecture: Designed NestJS microservices with RESTful APIs and MySQL databases;Performance & scalability: Improved web and mobile performance by 30% and implemented caching and real-time monitoring solutions;Data engineering: Built BigQuery workflows for business analytics and high-availability data pipelines",
   "exp.actual.points":
-    "Web Development: Designed and built complex React/TypeScript apps (50,000+ users) with advanced UIs and optimized state management;Mobile Applications: Cross-platform iOS/Android with React Native/Expo (250,000+ downloads);Backend Architecture: Designed NestJS microservices with RESTful APIs, PostgreSQL/Redis data layers;Performance & Scalability: +30% performance gains, caching and real-time monitoring;Data Engineering: BigQuery integration for business analytics and highly available data pipelines",
+    "Microservices development: Worked across all backend layers by developing and evolving NestJS microservices, managing data flow from server to frontend and ensuring seamless service-to-service communication;Code modernization: Migrated legacy codebases to TypeScript/TSX and refactored older class-based structures into modern functional components to improve maintainability;End-to-end feature integration: Redesigned screens and integrated complex visual features on the frontend while simultaneously adapting the corresponding logic in backend microservices;Data engineering & investigation: Used BigQuery and MySQL to investigate cross-stack data inconsistencies and guarantee data integrity;Quality & testing: Implemented comprehensive functional tests for Node.js backend services and React frontend components to maximize coverage and prevent regressions",
+  "exp.actual.results":
+    "Massive scalability: Contributed to a system supporting over 50,000 web users and 250,000 mobile downloads;Performance optimization: Achieved a 30% increase in application speed through full-stack optimizations, from backend caching to frontend rendering improvements;Architectural reliability: The move to a typed TypeScript/NestJS environment reduced production bugs and stabilized the application for long-term growth;Data integrity & risk mitigation: BigQuery and MySQL analysis uncovered critical inconsistencies between new feature schemas and production data, preventing risky deployments and potential production crashes",
   "exp.actual.stack":
     "React, TypeScript, React Native, NestJS (NodeJS), MySQL, Redis, GCP",
 
-  "exp.bizness.title": "Full Stack Developer",
+  "exp.bizness.title": "Full Stack Developer Intern",
   "exp.bizness.company": "Groupe Bizness",
   "exp.bizness.location": "Toulouse",
-  "exp.bizness.period": "January 2022 — August 2022",
+  "exp.bizness.period": "May 2022 — August 2022",
+  "exp.bizness.context":
+    "This mission focused on building a business chatbot able to answer user questions from multiple structured and unstructured knowledge sources;The goal was to go beyond a standard FAQ by combining semantic retrieval, keyword search, and controlled access to business data;The product had to choose the right strategy depending on the question: document RAG, hybrid search, strict SQL querying, or complementary tool usage;The challenge was to provide faster, more precise, and better contextualized access to information for internal users",
+  "exp.bizness.environment":
+    "Frontend: Angular interface for conversation flows, source display, and response states;Backend: Python FastAPI APIs for query orchestration, tool execution, and response pipelines;Orchestration: LangChain-based chains and tool routing to dynamically select the right retrieval mode;Hybrid search: ChromaDB for vector retrieval and Elasticsearch for keyword search;Structured data: controlled text-to-SQL layer allowing safe SQL queries on selected business data;Tooling: external tools integrated for complementary web search and targeted data lookups",
   "exp.bizness.points":
-    "Microservices Architecture: Event-driven design with multi-source aggregation APIs;Real-time Apps: WebSockets and Server-Sent Events for collaborative interfaces;Database & APIs: APIs built with SAP HANA backend",
-  "exp.bizness.stack": "Node.js, WebSockets, SAP HANA",
+    "Conversational chatbot: Built an assistant able to answer from a vectorized document base and several retrieval tools;Hybrid search: Combined ChromaDB for semantic retrieval and Elasticsearch for keyword search to improve relevance depending on the query type;Tool orchestration: Implemented LangChain logic to route each request to the right tool between RAG, keyword search, database access, or web search;Controlled text-to-SQL: Built a guarded flow allowing the agent to generate a limited set of strict SQL queries for targeted business information retrieval;Full-stack delivery: Developed both the Angular interface and FastAPI endpoints to manage exchanges, expose sources, and structure responses",
+  "exp.bizness.results":
+    "More relevant answers: the system could adapt its retrieval strategy to the question, significantly improving answer quality;Unified access to information: users could query documents, business data, and external sources from a single interface;Lower noise: the combination of RAG, keyword search, and SQL retrieval reduced vague answers by favoring the best tool for each question;Strong foundation: the internship established a reusable tool-oriented chatbot architecture for future business use cases",
+  "exp.bizness.stack":
+    "Angular, Python, FastAPI, LangChain, ChromaDB, Elasticsearch, SQL",
 
   "exp.jump.title": "Full Stack Developer",
   "exp.jump.company": "Société JUMP",
   "exp.jump.location": "Toulouse",
-  "exp.jump.period": "May 2021 — July 2021",
+  "exp.jump.period": "November 2019 — June 2021",
   "exp.jump.points":
-    "E2E test automation with Selenium WebDriver, Cucumber JS and Gherkin;Custom Slack commands with Bolt JS and NestJS;Automated workflows to boost team productivity",
-  "exp.jump.stack": "Selenium, Cucumber JS, Bolt JS, NestJS",
+    "Mission 1 - Deployment automation: Built an internal Slack tool to deploy, update, or remove Storiz LCMS client environments within minutes;Distributed architecture: Designed a BoltJS + NestJS + RabbitMQ + MongoDB architecture to orchestrate commands, track deployments, and manage access rights;Mission 2 - Healthcare platform: Built an Angular/Ionic platform with patient, surgeon, and admin interfaces for pre- and post-operative management",
+  "exp.jump.mission1.context":
+    "The Storiz LCMS platform included multiple sub-applications that previously required manual deployment for each new client;Non-technical teams sometimes had to wait up to a week for developers or DevOps to configure and deploy environments manually;The goal was to build an internal automation tool so anyone in the company could deploy, update, or delete client environments directly from Slack in minutes;The expected impact was to eliminate deployment bottlenecks and remove repetitive manual developer intervention",
+  "exp.jump.mission1.environment":
+    "Interface: BoltJS for handling Slack slash commands and interactive modals;Backend logic: NestJS used as the central API gateway and business logic orchestrator;Asynchronous messaging: RabbitMQ to manage long-running deployment tasks and inter-service communication;Databases: MongoDB with TypeORM for flexible configuration storage and user role management;DevOps & infrastructure: Docker, Kubernetes, and GitLab CI/CD for containerized deployments and automated pipelines;Tooling: ngrok for local webhook testing and Bash scripting for server-side execution",
+  "exp.jump.mission1.achievements":
+    "Full-stack microservices orchestration: Built a system where a Slack command triggered a flow across multiple services, including GitLab branch fetching, permission validation, and remote Bash execution on the deployment server;Dynamic Slack interface: Developed an intuitive UI with Slack Block Kit so users could select front-end and back-end branches and the specific sub-applications to deploy;Asynchronous workflow design: Implemented RabbitMQ direct exchanges so deployments ran as background processes while the Slack interface stayed responsive;Advanced error handling & audit: Built a system that propagated server-side errors back to Slack in real time and tracked all actions with UUID-based history in MongoDB;Security & access control: Developed a role-based permission model so only authorized personnel could trigger sensitive deployments",
+  "exp.jump.mission1.results":
+    "Efficiency: Reduced the deployment lifecycle from one week to just a few minutes;Accessibility: Enabled non-technical staff to manage 7 Storiz sub-applications without writing code;Automation: Replaced manual ticketing and email requests with slash commands such as /storiz-deploy-env and /storiz-list-env;System reliability: Improved deployment consistency through standardized Bash scripts and GitLab CI/CD pipelines",
+  "exp.jump.mission2.context":
+    "This mission focused on building a dual-interface healthcare platform designed to streamline interactions between surgeons and patients;The product covered the full surgical lifecycle, from pre-operative preparation to complete post-operative follow-up;Dedicated workflows were designed for patients, surgeons, and administrators to centralize recovery tracking, scheduling, and operational management;The goal was to improve patient autonomy and reduce the direct administrative burden on medical staff through a better digital workflow",
+  "exp.jump.mission2.environment":
+    "Frontend: Built a web application with Angular and transformed it into a cross-platform mobile app with Ionic for iOS and Android;Backend: Node.js architecture with NestJS, combining RESTful APIs for core operations and WebSockets for real-time notifications and collaborative interactions;Database: Managed core operational data with SAP HANA;Product architecture: Dedicated patient, surgeon, and admin interfaces supporting the full workflow of the platform",
+  "exp.jump.mission2.achievements":
+    "Multi-interface healthcare platform: Built dedicated experiences for patients, surgeons, and administrators to manage the full pre- and post-operative workflow;Real-time monitoring: Integrated WebSockets and Server-Sent Events so surgeons could receive live updates on patient status and follow-up metrics;Backend orchestration: Implemented NestJS services to aggregate the data needed by each interface and keep operational information synchronized;Mobile product delivery: Evolved the Angular codebase into an Ionic mobile application so the platform was accessible on both iOS and Android",
+  "exp.jump.mission2.results":
+    "Stronger patient autonomy: The platform made preparation steps, instructions, and post-operative follow-up more accessible to patients;Better medical oversight: Surgeons gained a centralized view of patient progress and follow-up indicators;Mobile adoption: The Ionic version improved user engagement by making recovery tracking available on the go;Scalable product structure: The clear separation between patient, surgeon, and admin interfaces made the platform easier to maintain and extend",
+  "exp.jump.stack":
+    "Angular, Ionic, BoltJS, NestJS, RabbitMQ, MongoDB, SAP HANA, WebSockets",
 
-  "exp.syntrix.title": "AI Software Engineer",
+  "exp.syntrix.title": "AI Engineer & Agentic Systems Specialist",
   "exp.syntrix.company":
-    "Archeon (Freelance) - AI Knowledge Management Platform",
+    "Egobis - AI Knowledge Management Platform, Dataunboxed (Freelance)",
   "exp.syntrix.location": "Remote",
   "exp.syntrix.period": "September 2025 — March 2026",
   "exp.syntrix.points":
-    "Graph RAG & Knowledge Graphs: Graph RAG architecture with Neo4j and Graphiti for entity extraction, relationship mapping, and knowledge graph generation from documents;AI Agents & LLM Orchestration: Autonomous agents with LangChain/LangGraph for intelligent Q&A, automatic classification, and multi-modal semantic search;AI Microservices Architecture: Distributed NestJS + FastAPI stack with Celery workers for async processing (OCR, embeddings, graph building), PostgreSQL+pgvector for vector search;Multi-Platform Apps: Next.js (React) interface and React Native/Expo mobile app with JWT authentication, Redis rate limiting, and Cloudflare R2 storage",
+    "Graph RAG & Knowledge Graphs: Graph RAG architecture with Neo4j and Graphiti for entity extraction, relationship mapping, and knowledge graph generation from documents;AI Agents & LLM Orchestration: Autonomous agents with LangChain/LangGraph for intelligent Q&A, automatic classification, and multi-modal semantic search;AI Microservices Architecture: Distributed NestJS + FastAPI stack with Celery workers for async processing (OCR, embeddings, graph building), PostgreSQL+pgvector for vector search;Multi-Platform Apps: NextJS (React) interface and React Native/Expo mobile app with JWT authentication, Redis rate limiting, and Cloudflare R2 storage;LLM Evaluation: Evaluated and traced LLM interactions with Langfuse to improve RAG quality",
   "exp.syntrix.stack":
     "LangChain, LangGraph, Neo4j, FastAPI, NestJS, PostgreSQL+pgvector, Celery, Redis, React (NextJS), React Native",
 
   // Projects
-  "project.archeon.title": "Archeon (Freelance) - AI-Powered Second Brain",
+  "project.archeon.title":
+    "Egobis (Freelance) - AI Knowledge Management Platform",
   "project.archeon.description":
     "Full-stack document intelligence platform using Graph RAG, Knowledge Graphs, and semantic search to transform documents into an intelligent, queryable knowledge base.",
   "project.archeon.category": "AI / Graph RAG / Knowledge Graphs",
   "project.archeon.impact":
     "Production-ready AI platform with microservices architecture",
   "project.archeon.simpleOverview":
-    "Ever accidentally deleted important documents while clearing holiday photos from your phone? Or spent forever searching through your gallery, Drive, iCloud, and physical papers to find one document? Archeon solves this problem. It's your personal AI assistant that keeps all your important documents in one safe place. Just snap a photo or upload a file, and the AI automatically organizes everything for you. Lost something? Just describe it naturally like 'my electricity bill from last month' and find it instantly. Over time, Archeon learns about your life and becomes your helpful 'second brain' - ready to assist you whenever you need information from your documents.",
+    "Ever accidentally deleted important documents while clearing holiday photos from your phone? Or spent forever searching through your gallery, Drive, iCloud, and physical papers to find one document? Egobis solves this problem. It's your personal AI assistant that keeps all your important documents in one safe place. Just snap a photo or upload a file, and the AI automatically organizes everything for you. Lost something? Just describe it naturally like 'my electricity bill from last month' and find it instantly. Over time, Egobis learns about your life and becomes your helpful 'second brain' - ready to assist you whenever you need information from your documents.",
   "project.archeon.simpleFeatures":
     "📱 Works on your phone and computer - access your documents anywhere;🔍 Smart search that understands what you mean, not just keywords;💬 Ask questions in plain English and get direct answers from your documents;📄 Automatically organizes and categorizes your files;🔒 Secure and private - your documents stay safe;📊 Scans and reads PDFs, images, and handwritten notes",
   "project.archeon.fullDescription":
-    "Archeon is a sophisticated AI-powered document management and knowledge platform that helps users organize, search, and extract insights from their documents. Built with modern technologies and powered by advanced Graph RAG (Retrieval-Augmented Generation), Archeon transforms your document library into an intelligent second brain. The platform features a distributed microservices architecture with NestJS (Gate) and FastAPI (Scribe), Neo4j for knowledge graphs via Graphiti, and pgvector for semantic embeddings.",
+    "Egobis is a sophisticated AI-powered document management and knowledge platform that helps users organize, search, and extract insights from their documents. Built with modern technologies and powered by advanced Graph RAG (Retrieval-Augmented Generation), Egobis transforms your document library into an intelligent second brain. The platform features a distributed microservices architecture with NestJS (Gate) and FastAPI (Scribe), Neo4j for knowledge graphs via Graphiti, and pgvector for semantic embeddings.",
   "project.archeon.features":
     "Graph RAG with Neo4j + Graphiti for entity extraction and relationship mapping;Hybrid search combining semantic, keyword, and graph-based retrieval;AI-powered Q&A using LLMs (LLaMA 3.1 70B via Fireworks AI) for intelligent document querying;Automatic document classification and metadata generation with AI;Real-time document processing with Celery workers and async pipelines;Vector embeddings with Nomic Embed (768 dimensions) stored in pgvector;OCR processing with Tesseract for text extraction from PDFs and images;Cross-platform availability with React Native mobile app and Next.js web dashboard;JWT authentication with rate limiting and production-ready security;Microservices architecture with Gate (NestJS) and Scribe (FastAPI);Cloudflare R2 integration for scalable document storage;Docker development environment with hot reload for rapid development;Full observability stack with Prometheus, Grafana, Loki, and Promtail for metrics and logs;Real-time monitoring dashboards with pre-built Grafana visualizations for all services",
   "project.archeon.challenges":
@@ -188,18 +233,18 @@ export const messagesEn = {
     "Frontend Layer - Next.js web dashboard and React Native/Expo mobile app for cross-platform access;Gate API (NestJS) - Authentication, authorization, rate limiting, document CRUD, search orchestration, and user management;Scribe API (FastAPI) - Knowledge graph search, Q&A generation, entity management, and AI processing endpoints;Scribe Workers (Celery) - Async document processing including OCR, AI classification, embedding generation, and graph ingestion;Data Layer - PostgreSQL with pgvector for relational data and embeddings, Neo4j with Graphiti for knowledge graphs, Redis for caching and task queues, Cloudflare R2 for document storage",
   "project.archeon.devNotice.title": "Project in Development",
   "project.archeon.devNotice.description":
-    "Archeon is currently under active development and is not yet available on the App Store or Google Play. The mobile app and platform are being refined to deliver the best possible experience. Stay tuned for the official launch!",
+    "Egobis is currently under active development and is not yet available on the App Store or Google Play. The mobile app and platform are being refined to deliver the best possible experience. Stay tuned for the official launch!",
   "project.archeon.devNotice.notAvailable":
     "not yet available on the App Store or Google Play",
   "project.archeon.devNotice.activeDev": "Active Development",
   "project.archeon.devNotice.comingSoon": "Coming Soon to iOS & Android",
   "project.archeon.beta.title": "Join the Beta Program",
   "project.archeon.beta.description":
-    "Want early access to Archeon? We're launching a closed beta in the coming weeks! If you're interested in testing the app and providing feedback, reach out and we'll add you to the beta program.",
+    "Want early access to Egobis? We're launching a closed beta in the coming weeks! If you're interested in testing the app and providing feedback, reach out and we'll add you to the beta program.",
   "project.archeon.beta.button": "Join Beta",
   "project.archeon.gallery.title": "Preview Screenshots",
   "project.archeon.gallery.description":
-    "Explore the Archeon experience through these preview screenshots of the mobile app, architecture diagrams, and monitoring dashboards.",
+    "Explore the Egobis experience through these preview screenshots of the mobile app, architecture diagrams, and monitoring dashboards.",
 
   "project.chat.title": "Real-Time Chat Application",
   "project.chat.description":
