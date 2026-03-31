@@ -33,6 +33,7 @@ const ExperienceModal: React.FC<ExperienceModalProps> = ({
   const activeTab =
     detailTabs.find((tab) => tab.id === activeTabId) ?? detailTabs[0] ?? null;
   const detailSections = activeTab?.sections ?? fallbackSections;
+  const relatedLink = activeTab?.relatedLink ?? experience?.relatedLink ?? null;
   const stackItems =
     experience?.stack
       ?.split(",")
@@ -251,27 +252,29 @@ const ExperienceModal: React.FC<ExperienceModalProps> = ({
                   </section>
                 )}
 
-                {experience.relatedProjectHref && (
+                {relatedLink && (
                   <section className="rounded-3xl border border-accent/15 bg-gradient-to-r from-accent/10 via-blue-500/10 to-accent/10 p-5 md:p-6 xl:col-span-2">
                     <p className="text-sm font-medium text-textSecondary mb-2">
-                      {t("experience.relatedProject")}
+                      {relatedLink.eyebrow}
                     </p>
                     <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                       <div>
                         <h3 className="text-xl font-semibold text-textPrimary">
-                          {experience.relatedProjectTitle}
+                          {relatedLink.title}
                         </h3>
                         <p className="text-sm text-textSecondary mt-1">
-                          {t("experience.relatedProjectDescription")}
+                          {relatedLink.description}
                         </p>
                       </div>
 
                       <Link
-                        href={experience.relatedProjectHref}
+                        href={relatedLink.href}
                         onClick={onClose}
+                        target={relatedLink.external ? "_blank" : undefined}
+                        rel={relatedLink.external ? "noreferrer" : undefined}
                         className="inline-flex items-center gap-2 self-start rounded-xl border border-accent/25 bg-accent px-5 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-accentHover"
                       >
-                        {t("experience.openRelatedProject")}
+                        {relatedLink.ctaLabel}
                         <svg
                           width="18"
                           height="18"

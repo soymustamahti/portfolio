@@ -61,7 +61,9 @@ export default function Home() {
       <main className="relative z-10">
         <Hero />
         <About />
-        <Experience />
+        <Suspense fallback={null}>
+          <Experience />
+        </Suspense>
         <Skills />
         <Education />
         <Languages />

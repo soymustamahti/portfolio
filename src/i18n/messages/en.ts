@@ -107,6 +107,10 @@ export const messagesEn = {
   "experience.relatedProjectDescription":
     "This experience is directly connected to a detailed project page in the projects section.",
   "experience.openRelatedProject": "Open project",
+  "experience.relatedWebsite": "Related website",
+  "experience.relatedWebsiteDescription":
+    "This mission is associated with the public product website.",
+  "experience.openWebsite": "Open website",
 
   // Project Page Labels
   "projectPage.whatItDoes": "What It Does",

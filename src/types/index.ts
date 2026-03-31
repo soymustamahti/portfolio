@@ -20,10 +20,20 @@ export interface ExperienceDetailSection {
   items: string[];
 }
 
+export interface ExperienceRelatedLink {
+  eyebrow: string;
+  title: string;
+  description: string;
+  href: string;
+  ctaLabel: string;
+  external?: boolean;
+}
+
 export interface ExperienceDetailTab {
   id: string;
   label: string;
   sections: ExperienceDetailSection[];
+  relatedLink?: ExperienceRelatedLink;
 }
 
 export interface ExperienceItem {
@@ -36,8 +46,7 @@ export interface ExperienceItem {
   stack?: string;
   detailsSections?: ExperienceDetailSection[];
   detailsTabs?: ExperienceDetailTab[];
-  relatedProjectHref?: string;
-  relatedProjectTitle?: string;
+  relatedLink?: ExperienceRelatedLink;
 }
 
 export interface Skill {
