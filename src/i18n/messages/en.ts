@@ -197,13 +197,13 @@ export const messagesEn = {
   "exp.jump.mission2.context":
     "This mission focused on building a dual-interface healthcare platform designed to streamline interactions between surgeons and patients;The product covered the full surgical lifecycle, from pre-operative preparation to complete post-operative follow-up;Dedicated workflows were designed for patients, surgeons, and administrators to centralize recovery tracking, scheduling, and operational management;The goal was to improve patient autonomy and reduce the direct administrative burden on medical staff through a better digital workflow",
   "exp.jump.mission2.environment":
-    "Frontend: Built a web application with Angular and transformed it into a cross-platform mobile app with Ionic for iOS and Android;Backend: Node.js architecture with NestJS, combining RESTful APIs for core operations and WebSockets for real-time notifications and collaborative interactions;Database: Managed core operational data with SAP HANA;Product architecture: Dedicated patient, surgeon, and admin interfaces supporting the full workflow of the platform",
+    "Frontend: Built a web application with Angular and transformed it into a cross-platform mobile app with Ionic for iOS and Android;Backend: Node.js architecture with NestJS, combining RESTful APIs for core operations and WebSockets for real-time notifications and collaborative interactions;Database: Managed core operational data with PostgreSQL;Product architecture: Dedicated patient, surgeon, and admin interfaces supporting the full workflow of the platform",
   "exp.jump.mission2.achievements":
     "Multi-interface healthcare platform: Built dedicated experiences for patients, surgeons, and administrators to manage the full pre- and post-operative workflow;Real-time monitoring: Integrated WebSockets and Server-Sent Events so surgeons could receive live updates on patient status and follow-up metrics;Backend orchestration: Implemented NestJS services to aggregate the data needed by each interface and keep operational information synchronized;Mobile product delivery: Evolved the Angular codebase into an Ionic mobile application so the platform was accessible on both iOS and Android",
   "exp.jump.mission2.results":
     "Stronger patient autonomy: The platform made preparation steps, instructions, and post-operative follow-up more accessible to patients;Better medical oversight: Surgeons gained a centralized view of patient progress and follow-up indicators;Mobile adoption: The Ionic version improved user engagement by making recovery tracking available on the go;Scalable product structure: The clear separation between patient, surgeon, and admin interfaces made the platform easier to maintain and extend",
   "exp.jump.stack":
-    "Angular, Ionic, BoltJS, NestJS, RabbitMQ, MongoDB, SAP HANA, WebSockets",
+    "Angular, Ionic, BoltJS, NestJS, RabbitMQ, MongoDB, PostgreSQL, WebSockets",
 
   "exp.syntrix.title": "AI Engineer & Agentic Systems Specialist",
   "exp.syntrix.company":
