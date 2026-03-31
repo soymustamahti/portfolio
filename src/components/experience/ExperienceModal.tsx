@@ -19,6 +19,7 @@ const ExperienceModal: React.FC<ExperienceModalProps> = ({
   const { t } = useI18n();
   const isOpen = Boolean(experience);
   const [activeTabId, setActiveTabId] = useState<string | null>(null);
+  const [openSectionKeys, setOpenSectionKeys] = useState<string[]>([]);
   const detailTabs = experience?.detailsTabs ?? [];
   const fallbackSections = experience?.detailsSections?.length
     ? experience.detailsSections
@@ -52,9 +53,21 @@ const ExperienceModal: React.FC<ExperienceModalProps> = ({
     setActiveTabId(experience.detailsTabs[0].id);
   }, [experience]);
 
+  useEffect(() => {
+    setOpenSectionKeys([]);
+  }, [experience?.id, activeTab?.id]);
+
   const handleBackdropClick = useCallback(() => {
     onClose();
   }, [onClose]);
+
+  const toggleSection = useCallback((sectionKey: string) => {
+    setOpenSectionKeys((currentKeys) =>
+      currentKeys.includes(sectionKey)
+        ? currentKeys.filter((key) => key !== sectionKey)
+        : [...currentKeys, sectionKey]
+    );
+  }, []);
 
   if (!experience) return null;
 
@@ -207,39 +220,94 @@ const ExperienceModal: React.FC<ExperienceModalProps> = ({
               )}
 
               <div className="space-y-5">
-                {detailSections.map((section, sectionIndex) => (
-                  <section
-                    key={`${experience.id}-${section.title}`}
-                    className="rounded-3xl border border-accent/10 bg-primary/15 p-5 md:p-6"
-                  >
-                    <div className="grid gap-4 xl:grid-cols-[220px_minmax(0,1fr)] xl:gap-4">
-                      <div className="xl:pr-4 xl:border-r xl:border-accent/10">
-                        <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-accent/65">
-                          {String(sectionIndex + 1).padStart(2, "0")}
-                        </p>
-                        <h3 className="text-lg md:text-xl font-semibold text-textPrimary leading-tight">
-                          {section.title}
-                        </h3>
-                      </div>
-                      <div className="space-y-3">
-                        {section.items.map((item, index) => (
-                          <motion.div
-                            key={`${experience.id}-${sectionIndex}-${index}`}
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.04 }}
-                            className="flex items-start gap-3"
-                          >
-                            <span className="mt-[0.7rem] h-2 w-2 shrink-0 rounded-full bg-accent" />
-                            <p className="text-sm md:text-base leading-7 text-textSecondary">
-                              {item}
+                {detailSections.map((section, sectionIndex) => {
+                  const sectionKey = [
+                    experience.id,
+                    activeTab?.id ?? "default",
+                    section.title,
+                  ].join("-");
+                  const isSectionOpen = openSectionKeys.includes(sectionKey);
+
+                  return (
+                    <section
+                      key={sectionKey}
+                      className="overflow-hidden rounded-3xl border border-accent/10 bg-primary/15"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => toggleSection(sectionKey)}
+                        aria-expanded={isSectionOpen}
+                        className="w-full cursor-pointer px-5 py-5 text-left transition-colors duration-200 hover:bg-accent/5 md:px-6"
+                      >
+                        <div className="flex items-center justify-between gap-4">
+                          <div className="min-w-0">
+                            <div className="flex items-center gap-3">
+                              <span className="h-3 w-3 shrink-0 rounded-full bg-accent" />
+                              <h3 className="text-lg font-semibold text-textPrimary md:text-xl">
+                                {section.title}
+                              </h3>
+                            </div>
+                            <p className="mt-2 text-sm text-textSecondary">
+                              {isSectionOpen
+                                ? t("experience.collapseSection")
+                                : t("experience.expandSection")}
                             </p>
+                          </div>
+
+                          <motion.span
+                            animate={{ rotate: isSectionOpen ? 180 : 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="shrink-0 text-accent"
+                          >
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <path d="m6 9 6 6 6-6" />
+                            </svg>
+                          </motion.span>
+                        </div>
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {isSectionOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="overflow-hidden border-t border-accent/10"
+                          >
+                            <motion.ul
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              className="space-y-3 px-9 py-5 md:px-10 md:py-6"
+                            >
+                              {section.items.map((item, index) => (
+                                <motion.li
+                                  key={`${experience.id}-${sectionIndex}-${index}`}
+                                  initial={{ opacity: 0, y: 12 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ delay: index * 0.04 }}
+                                  className="list-disc text-sm leading-7 text-textSecondary marker:text-accent md:text-base"
+                                >
+                                  {item}
+                                </motion.li>
+                              ))}
+                            </motion.ul>
                           </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                  </section>
-                ))}
+                        )}
+                      </AnimatePresence>
+                    </section>
+                  );
+                })}
 
                 {stackItems.length > 0 && (
                   <section className="rounded-3xl border border-accent/10 bg-primary/15 p-5 md:p-6">
