@@ -206,36 +206,43 @@ const ExperienceModal: React.FC<ExperienceModalProps> = ({
                 </div>
               )}
 
-              <div className="grid gap-6 xl:grid-cols-2">
+              <div className="space-y-5">
                 {detailSections.map((section, sectionIndex) => (
                   <section
                     key={`${experience.id}-${section.title}`}
-                    className="rounded-3xl border border-accent/10 bg-primary/20 p-5 md:p-6"
+                    className="rounded-3xl border border-accent/10 bg-primary/15 p-5 md:p-6"
                   >
-                    <h3 className="text-lg font-semibold text-accent mb-4">
-                      {section.title}
-                    </h3>
-                    <div className="space-y-3">
-                      {section.items.map((item, index) => (
-                        <motion.div
-                          key={`${experience.id}-${sectionIndex}-${index}`}
-                          initial={{ opacity: 0, y: 12 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: index * 0.04 }}
-                          className="flex items-start gap-3 rounded-2xl border border-accent/10 bg-primary/25 px-4 py-3"
-                        >
-                          <span className="mt-1 text-accent">•</span>
-                          <p className="text-sm md:text-base leading-7 text-textSecondary">
-                            {item}
-                          </p>
-                        </motion.div>
-                      ))}
+                    <div className="grid gap-4 xl:grid-cols-[220px_minmax(0,1fr)] xl:gap-4">
+                      <div className="xl:pr-4 xl:border-r xl:border-accent/10">
+                        <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-accent/65">
+                          {String(sectionIndex + 1).padStart(2, "0")}
+                        </p>
+                        <h3 className="text-lg md:text-xl font-semibold text-textPrimary leading-tight">
+                          {section.title}
+                        </h3>
+                      </div>
+                      <div className="space-y-3">
+                        {section.items.map((item, index) => (
+                          <motion.div
+                            key={`${experience.id}-${sectionIndex}-${index}`}
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.04 }}
+                            className="flex items-start gap-3"
+                          >
+                            <span className="mt-[0.7rem] h-2 w-2 shrink-0 rounded-full bg-accent" />
+                            <p className="text-sm md:text-base leading-7 text-textSecondary">
+                              {item}
+                            </p>
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
                   </section>
                 ))}
 
                 {stackItems.length > 0 && (
-                  <section className="rounded-3xl border border-accent/10 bg-primary/20 p-5 md:p-6 xl:col-span-2">
+                  <section className="rounded-3xl border border-accent/10 bg-primary/15 p-5 md:p-6">
                     <h3 className="text-lg font-semibold text-accent mb-4">
                       {t("labels.stack")}
                     </h3>
@@ -253,7 +260,7 @@ const ExperienceModal: React.FC<ExperienceModalProps> = ({
                 )}
 
                 {relatedLink && (
-                  <section className="rounded-3xl border border-accent/15 bg-gradient-to-r from-accent/10 via-blue-500/10 to-accent/10 p-5 md:p-6 xl:col-span-2">
+                  <section className="rounded-3xl border border-accent/15 bg-gradient-to-r from-accent/10 via-blue-500/10 to-accent/10 p-5 md:p-6">
                     <p className="text-sm font-medium text-textSecondary mb-2">
                       {relatedLink.eyebrow}
                     </p>

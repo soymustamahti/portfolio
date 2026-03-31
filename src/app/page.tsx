@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, Suspense } from "react";
+import { useEffect, Suspense, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -17,6 +17,7 @@ import { useLenis } from "../hooks/useLenis";
 
 function ScrollHandler() {
   const searchParams = useSearchParams();
+  const hasHandledInitialScroll = useRef(false);
 
   useEffect(() => {
     // Check if there's a hash in the URL or scrollTo parameter
@@ -33,10 +34,12 @@ function ScrollHandler() {
           element.scrollIntoView({ behavior: "smooth" });
         }
       }, 300);
-    } else {
-      // Only scroll to top if no hash/scrollTo parameter
+    } else if (!hasHandledInitialScroll.current) {
+      // Only scroll to top on the initial page load when no explicit target exists
       window.scrollTo(0, 0);
     }
+
+    hasHandledInitialScroll.current = true;
 
     // For browsers that support scroll restoration
     if ("scrollRestoration" in window.history) {
